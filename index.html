@@ -109,28 +109,89 @@ section { padding: 70px 5%; }
 .bcard p { font-size: .83rem; color: var(--lt); line-height: 1.6; }
 .rmore { display: inline-flex; align-items: center; gap: .3rem; margin-top: .9rem; color: var(--rose); font-size: .83rem; font-weight: 600; cursor: pointer; }
 
-/* ===== ADMIN LOCK (replaces old admin bar) ===== */
-.admin-lock-btn {
+/* ===== ADMIN LOCK — NOW VISIBLE ===== */
+.admin-btn-wrapper {
   position: absolute;
-  top: 1.3rem;
+  top: 1.1rem;
   right: 5%;
-  background: rgba(255,255,255,.10);
-  border: 1.5px solid rgba(255,255,255,.18);
-  color: rgba(255,255,255,.45);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.05rem;
-  cursor: pointer;
-  transition: all .25s;
-  backdrop-filter: blur(6px);
+  gap: .6rem;
   z-index: 10;
 }
-.admin-lock-btn:hover { background: rgba(255,255,255,.2); color: rgba(255,255,255,.85); transform: scale(1.08); }
-.admin-lock-btn.unlocked { background: rgba(200,112,90,.3); border-color: var(--rose-light); color: var(--rose-light); }
+.admin-arrow-label {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  background: #FFD700;
+  color: #1E1A18;
+  font-family: var(--fb);
+  font-size: .78rem;
+  font-weight: 800;
+  padding: .32rem .85rem .32rem .7rem;
+  border-radius: 50px 0 0 50px;
+  letter-spacing: .03em;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  animation: pulse-label 2s ease-in-out infinite;
+}
+.admin-arrow-label .arrow-icon {
+  font-size: 1rem;
+  animation: bounce-right 1s ease-in-out infinite;
+}
+@keyframes bounce-right {
+  0%,100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+@keyframes pulse-label {
+  0%,100% { box-shadow: 0 2px 12px rgba(0,0,0,.25); }
+  50% { box-shadow: 0 2px 20px rgba(255,215,0,.6); }
+}
+.admin-lock-btn {
+  background: rgba(200,112,90,0.25);
+  border: 2px solid rgba(232,160,144,0.85);
+  color: rgba(255,255,255,0.95);
+  padding: .48rem 1.15rem;
+  border-radius: 0 50px 50px 0;
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--fb);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: all .25s;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.admin-lock-btn::before {
+  content: 'Admin Login';
+}
+.admin-lock-btn:hover {
+  background: rgba(200,112,90,0.55);
+  border-color: var(--rose-light);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(200,112,90,0.4);
+}
+.admin-lock-btn.unlocked {
+  background: rgba(200,112,90,0.4);
+  border-color: var(--rose-light);
+  color: #fff;
+}
+.admin-lock-btn.unlocked::before {
+  content: 'Admin Active';
+}
+.admin-btn-wrapper.unlocked .admin-arrow-label {
+  display: none;
+}
+@media(max-width:600px) {
+  .admin-btn-wrapper { right: 1.2rem; }
+  .admin-arrow-label { font-size: .7rem; padding: .28rem .65rem .28rem .55rem; }
+  .admin-lock-btn { font-size: .75rem; padding: .42rem .9rem; }
+}
 
 /* Floating Add Button — only shown when authenticated */
 .admin-fab {
@@ -365,7 +426,7 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
   .info-grid { grid-template-columns: 1fr 1fr; }
   .kt-list { grid-template-columns: 1fr; }
   .mrow { grid-template-columns: 1fr; }
-  .admin-lock-btn { right: 1.2rem; }
+  .admin-lock-btn { right: 1.2rem; font-size: .75rem; padding: .42rem .9rem; }
 }
 </style>
 </head>
@@ -433,13 +494,15 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
 
 <!-- BLOGS PAGE -->
 <div id="page-blogs" class="page">
-  <!-- Hero — lock icon is subtle, top-right corner, only Maria knows it's there -->
   <div class="blogs-hero">
     <div class="slabel">Knowledge is Power</div>
     <h1>Women's Health Blog</h1>
     <p>Expert articles by Maria Kanwal covering every dimension of women's health &mdash; with more added regularly.</p>
-    <!-- Discreet admin lock — no label, no tooltip that gives it away -->
-    <button class="admin-lock-btn" id="adminLockBtn" onclick="handleAdminLock()" aria-label="Admin">&#128274;</button>
+    <!-- Admin button — clearly visible with arrow pointer -->
+    <div class="admin-btn-wrapper" id="adminBtnWrapper">
+      <span class="admin-arrow-label"><span class="arrow-icon">👉</span> Admin Here</span>
+      <button class="admin-lock-btn" id="adminLockBtn" onclick="handleAdminLock()">&#128274;</button>
+    </div>
   </div>
 
   <!-- Floating "Add New Post" button — only visible after auth -->
@@ -648,7 +711,7 @@ var catColors = {hormones:'#FDEEE9',fertility:'#EDF7EE',menopause:'#F0EEF9',ment
 var ktIcons = ['✅','💡','🌿','💜','🔬','⚗️'];
 
 var defaultBlogs = [
-  {id:1,cat:'hormones',icon:'⚗️',date:'Jan 12, 2025',readTime:'9 min',
+  {id:1,cat:'hormones',icon:'⚗️',date:'Jan 12, 2026',readTime:'9 min',
    title:"How to Balance Your Hormones Naturally: A Complete Guide",
    desc:"Discover science-backed strategies for balancing estrogen, progesterone, and cortisol through diet, lifestyle, and stress management.",
    intro:"Hormonal imbalance affects an estimated 80% of women at some point in their lives — yet most do not realise that targeted lifestyle changes can have a profound impact on hormonal equilibrium. The key hormones influencing women's health include estrogen, progesterone, testosterone, insulin, cortisol, and thyroid hormones.",
@@ -663,7 +726,7 @@ var defaultBlogs = [
    takeaways:["Blood sugar stability is the number one lever for hormonal health","Cortisol from chronic stress suppresses progesterone — prioritise stress management","Sleep less than 7 hours directly impairs hormonal regulation","Cruciferous vegetables help the liver clear excess estrogen","Gut health directly influences how estrogen is metabolised and eliminated"],
    conclusion:"Balancing hormones naturally is not about one magic supplement or quick fix — it is about consistent daily habits that support your body's innate intelligence. Start with blood sugar stability, sleep, and stress reduction. Small, sustainable changes compound into profound hormonal transformation over weeks and months."},
 
-  {id:2,cat:'fertility',icon:'🌱',date:'Jan 28, 2025',readTime:'11 min',
+  {id:2,cat:'fertility',icon:'🌱',date:'Jan 28, 2026',readTime:'11 min',
    title:"Understanding Your Menstrual Cycle: The 4 Phases Explained",
    desc:"A comprehensive guide to the follicular, ovulatory, luteal, and menstrual phases — and how to harness each for optimal energy, mood, and productivity.",
    intro:"Your menstrual cycle is far more than a monthly inconvenience — it is a sophisticated hormonal symphony that shapes your energy, cognition, emotion, and physical capacity throughout every month of your life. Understanding each phase is one of the most empowering things you can do for your health.",
@@ -678,7 +741,7 @@ var defaultBlogs = [
    takeaways:["Track your cycle to predict energy and mood patterns","The follicular phase is ideal for new projects and high-intensity workouts","Ovulation is your peak communication and confidence window","Reduce PMS with magnesium, B6, and lower caffeine in the luteal phase","Cycle syncing — adapting habits to your phase — can reduce symptoms dramatically"],
    conclusion:"Your menstrual cycle is a built-in compass. When you learn to read its signals, you stop fighting your biology and start working with it. Track your cycle for three months and notice how your energy, productivity, and emotions follow predictable, manageable patterns. This knowledge is genuinely life-changing."},
 
-  {id:3,cat:'menopause',icon:'🌙',date:'Feb 3, 2025',readTime:'10 min',
+  {id:3,cat:'menopause',icon:'🌙',date:'Feb 3, 2026',readTime:'10 min',
    title:"Perimenopause vs. Menopause: Symptoms, Timeline and What to Expect",
    desc:"A detailed breakdown of the menopausal transition — from first perimenopause signs in your 40s through postmenopause — with practical management strategies.",
    intro:"The menopausal transition is one of the most significant shifts in a woman's life — yet millions of women are blindsided by symptoms they were not expecting, starting years before their last period. Understanding this transition is the first step toward navigating it with confidence.",
@@ -693,7 +756,7 @@ var defaultBlogs = [
    takeaways:["Perimenopause can begin in your late 30s — do not wait for missed periods","Hot flashes, brain fog, and sleep disruption are classic early signs","HRT is safe for most healthy women and highly effective","Do not suffer in silence — these symptoms are medical and treatable","Cardiovascular and bone health become top priorities post-menopause"],
    conclusion:"The menopausal transition is not a disease — it is a natural life stage that deserves proper medical attention and open conversation. Armed with the right knowledge, women can navigate perimenopause and menopause with confidence, comfort, and vitality. Do not settle for suffering when effective treatments exist."},
 
-  {id:4,cat:'mental',icon:'🧠',date:'Feb 10, 2025',readTime:'8 min',
+  {id:4,cat:'mental',icon:'🧠',date:'Feb 10, 2026',readTime:'8 min',
    title:"Hormones and Anxiety: Why Women Are Twice as Likely to Experience Anxiety Disorders",
    desc:"Exploring the complex relationship between estrogen, progesterone, cortisol, and anxiety — plus evidence-based tools for lasting relief.",
    intro:"Women are diagnosed with anxiety disorders at almost twice the rate of men. While social and environmental factors play a role, the hormonal architecture of the female body is deeply intertwined with anxiety pathways in the brain, creating a biological vulnerability that fluctuates across the menstrual cycle and life stages.",
@@ -707,7 +770,7 @@ var defaultBlogs = [
    takeaways:["Estrogen fluctuations directly trigger anxiety especially premenstrually and in perimenopause","Progesterone is a natural anxiolytic — its loss drives PMS and postpartum anxiety","Chronic cortisol from stress amplifies all anxiety symptoms","Magnesium glycinate supports GABA function and measurably reduces anxiety","Cycle-aware therapy timings improve treatment outcomes significantly"],
    conclusion:"Anxiety in women is not simply a character trait or weakness — it is frequently a biological response to hormonal fluctuation that is both understandable and treatable. Understanding your hormonal patterns empowers you to anticipate difficult phases and deploy targeted strategies that actually work for your unique biology."},
 
-  {id:5,cat:'nutrition',icon:'🥗',date:'Feb 18, 2025',readTime:'12 min',
+  {id:5,cat:'nutrition',icon:'🥗',date:'Feb 18, 2026',readTime:'12 min',
    title:"The Best Foods for Women's Hormonal Health: An Evidence-Based Guide",
    desc:"From seed cycling to anti-inflammatory eating — a comprehensive breakdown of what to eat for hormonal balance at every life stage.",
    intro:"Food is one of the most powerful levers you have for influencing hormonal health. What you eat directly affects the production, metabolism, and elimination of every hormone in your body. The right dietary choices can reduce PMS, improve fertility, ease menopause symptoms, and boost your overall wellbeing.",
@@ -722,7 +785,7 @@ var defaultBlogs = [
    takeaways:["Fibre is your number one estrogen-clearing food strategy","Healthy fats are essential — never go low-fat when targeting hormonal balance","Cruciferous vegetables support liver detoxification of estrogen","Blood sugar stability through protein-rich meals reduces all hormonal symptoms","Limit alcohol, ultra-processed foods, and refined sugar for hormonal health"],
    conclusion:"You do not need a perfect diet — you need a hormonally intelligent one. Prioritise fibre, quality fats, and cruciferous vegetables as the foundation. Layer in protein for blood sugar stability and gut-supporting fermented foods for a healthy estrobolome. These simple shifts, applied consistently, can transform how you feel across your entire cycle."},
 
-  {id:6,cat:'fitness',icon:'💪',date:'Mar 2, 2025',readTime:'9 min',
+  {id:6,cat:'fitness',icon:'💪',date:'Mar 2, 2026',readTime:'9 min',
    title:"Strength Training for Women: Why Lifting Weights Transforms Hormonal Health",
    desc:"Debunking the myth that weights make women bulky — and exploring how resistance training improves insulin sensitivity, bone density, and hormonal balance.",
    intro:"Despite decades of evidence supporting resistance training for women's health, the myth that weights cause women to become too bulky persists — keeping millions of women from one of the most powerful health tools available to them.",
@@ -736,7 +799,7 @@ var defaultBlogs = [
    takeaways:["Women cannot get bulky from lifting — physiology prevents it","Resistance training is the best non-pharmaceutical intervention for bone density","Muscle mass improves insulin sensitivity and reduces PCOS symptoms","Strength training normalises cortisol and improves stress resilience","Even 2 to 3 sessions of 30 minutes weekly produces measurable hormonal improvements"],
    conclusion:"Strength training is arguably the single most impactful exercise investment a woman can make for long-term health. From protecting your bones to balancing your hormones, building muscle is building resilience — physical and hormonal. Start small, be consistent, and let the compound benefits accumulate over months and years."},
 
-  {id:7,cat:'hormones',icon:'🔬',date:'Mar 10, 2025',readTime:'13 min',
+  {id:7,cat:'hormones',icon:'🔬',date:'Mar 10, 2026',readTime:'13 min',
    title:"PCOS Explained: Symptoms, Causes, Diagnosis and Natural Management",
    desc:"A comprehensive deep-dive into Polycystic Ovary Syndrome — the most common hormonal disorder in women of reproductive age, affecting 1 in 10.",
    intro:"Polycystic Ovary Syndrome affects an estimated 1 in 10 women of reproductive age globally, making it the most common endocrine disorder in this population — yet it remains widely under-diagnosed and misunderstood, with many women going years without a correct diagnosis.",
@@ -751,7 +814,7 @@ var defaultBlogs = [
    takeaways:["PCOS is the most common hormonal disorder in reproductive-age women — you are not alone","Insulin resistance drives most PCOS symptoms — diet is your most powerful tool","Low-GI eating, inositol supplementation, and resistance training form the evidence-based trio","Spearmint tea has clinically demonstrated androgen-lowering effects","Always seek formal diagnosis — PCOS has overlapping symptoms with other conditions"],
    conclusion:"PCOS is a complex but manageable condition. The most empowering realisation is that lifestyle interventions are genuinely powerful — often matching or exceeding pharmaceutical outcomes for mild-to-moderate PCOS. With the right dietary strategy, exercise plan, and medical support, most women can significantly reduce their symptoms and improve their quality of life considerably."},
 
-  {id:8,cat:'fertility',icon:'🌺',date:'Mar 18, 2025',readTime:'10 min',
+  {id:8,cat:'fertility',icon:'🌺',date:'Mar 18, 2026',readTime:'10 min',
    title:"How to Improve Egg Quality After 35: Evidence-Based Strategies for Fertility",
    desc:"For women planning pregnancy in their late 30s and 40s, egg quality is the critical factor. Here is what science says about improving it.",
    intro:"Age-related decline in egg quality is the primary driver of reduced fertility after 35. While we cannot increase the number of eggs in the ovarian reserve, emerging research suggests we can meaningfully influence their quality — the mitochondrial health, chromosomal integrity, and nutritional environment of the developing egg.",
@@ -766,7 +829,7 @@ var defaultBlogs = [
    takeaways:["Egg quality — not just quantity — is the key fertility factor after 35","CoQ10 supplementation has the strongest clinical evidence for egg quality improvement","Start fertility-supporting interventions at least 90 days before trying to conceive","Endocrine disruptors directly impair egg development — minimise exposure","Stress reduction improves ovarian blood flow and reduces cortisol-driven reproductive suppression"],
    conclusion:"Age is a factor in fertility, but it is not destiny. The 90 days before conception or an IVF cycle represent a powerful intervention window. By combining targeted supplementation, antioxidant nutrition, stress reduction, and toxin avoidance, many women are able to meaningfully improve their egg quality and reproductive outcomes."},
 
-  {id:9,cat:'mental',icon:'🌈',date:'Apr 1, 2025',readTime:'9 min',
+  {id:9,cat:'mental',icon:'🌈',date:'Apr 1, 2026',readTime:'9 min',
    title:"Postpartum Depression: What Every New Mother and Her Support System Should Know",
    desc:"PPD affects 1 in 7 new mothers. A compassionate, clinical guide to recognising the signs, understanding causes, and accessing effective treatment.",
    intro:"Postpartum depression is the most common complication of childbirth — yet shame, stigma, and inadequate screening mean the majority of affected women never receive proper treatment. This needs to change, and it starts with education and open conversation.",
@@ -780,7 +843,7 @@ var defaultBlogs = [
    takeaways:["PPD affects 1 in 7 new mothers — it is extremely common and not your fault","Baby blues resolve within 2 weeks but PPD persists and requires treatment","The dramatic postpartum hormonal drop is a key biological trigger","SSRIs are safe during breastfeeding and highly effective for PPD","If you or someone you love shows PPD signs, please seek help — it is very treatable"],
    conclusion:"Postpartum depression is a medical condition, not a personal failure or a reflection of how much you love your baby. It is treatable, often quickly and effectively, with the right support. The most courageous thing a new mother can do is ask for help. You deserve to recover fully and enjoy motherhood without the weight of untreated PPD."},
 
-  {id:10,cat:'nutrition',icon:'🦴',date:'Apr 12, 2025',readTime:'10 min',
+  {id:10,cat:'nutrition',icon:'🦴',date:'Apr 12, 2026',readTime:'10 min',
    title:"Bone Health for Women: How to Prevent Osteoporosis Through Nutrition and Lifestyle",
    desc:"Women lose up to 20% of bone density in the first 5 to 7 years after menopause. Here is your comprehensive prevention roadmap.",
    intro:"Osteoporosis is often called a silent disease — bone density declines gradually and invisibly until a fracture reveals the damage. Women account for 80 percent of osteoporosis cases, and prevention must begin well before menopause, ideally in the 20s and 30s when peak bone mass is still being built.",
@@ -794,7 +857,7 @@ var defaultBlogs = [
    takeaways:["Start bone-building habits in your 20s and 30s — peak bone mass matters enormously","Vitamin D is required for calcium absorption — test your levels and supplement accordingly","K2 directs calcium to bones and away from arteries — a critically underappreciated nutrient","Weight-bearing and resistance exercise are essential, non-negotiable bone health tools","Smoking and excess alcohol directly impair bone density and accelerate loss"],
    conclusion:"Osteoporosis is largely preventable, and the window for prevention is wide. Every meal, every workout, and every supplement choice is either building or depleting your bone bank. Start making deposits today — your future self will thank you with a strong, fracture-free life well into your 70s, 80s, and beyond."},
 
-  {id:11,cat:'menopause',icon:'🔥',date:'Apr 20, 2025',readTime:'8 min',
+  {id:11,cat:'menopause',icon:'🔥',date:'Apr 20, 2026',readTime:'8 min',
    title:"Hot Flashes: Why They Happen and 12 Proven Ways to Get Relief",
    desc:"Up to 75% of menopausal women experience hot flashes. Evidence-based remedies from HRT to lifestyle modifications — all explained clearly.",
    intro:"Hot flashes — sudden surges of heat, flushing, and sweating — affect up to 75 percent of menopausal women. For some they are a mild inconvenience. For others they are debilitating, occurring more than 20 times daily and destroying sleep quality and quality of life.",
@@ -808,7 +871,7 @@ var defaultBlogs = [
    takeaways:["Hot flashes are caused by narrowing of the hypothalamic thermoregulatory zone — a real neurological event","HRT is the gold standard and is safe for most healthy women","Non-hormonal options including CBT and hypnotherapy are effective alternatives","Identifying your personal triggers can significantly reduce frequency","Treating night sweats is treating insomnia — the benefits extend far beyond temperature regulation"],
    conclusion:"Hot flashes are one of the most disruptive aspects of menopause, but they are not untreatable. Whether you choose HRT, mind-body approaches, or lifestyle modifications, relief is achievable. Work with a menopause-specialised healthcare provider to find your optimal combination and reclaim your comfort and sleep quality."},
 
-  {id:12,cat:'hormones',icon:'🦋',date:'May 5, 2025',readTime:'9 min',
+  {id:12,cat:'hormones',icon:'🦋',date:'May 5, 2026',readTime:'9 min',
    title:"Thyroid Health in Women: The Hidden Driver of Fatigue, Weight Gain and Mood Swings",
    desc:"Women are 5 to 8 times more likely to develop thyroid disorders than men. Learn to recognise the signs and how the thyroid interacts with female hormones.",
    intro:"The thyroid gland — a small butterfly-shaped organ in the neck — orchestrates metabolism, temperature regulation, heart rate, and mood. When it underperforms in a condition called hypothyroidism, the effects ripple across every body system, and women bear a disproportionate burden of thyroid disease throughout their lives.",
@@ -822,7 +885,7 @@ var defaultBlogs = [
    takeaways:["1 in 8 women will experience a thyroid disorder in their lifetime","Thyroid symptoms mimic many other conditions — always test if suffering from unexplained fatigue or weight gain","TSH alone is insufficient — always request Free T3, Free T4, and TPO antibodies","Selenium, zinc, and iron are key thyroid-supporting nutrients","Hashimoto's is autoimmune — managing inflammation is central to treatment"],
    conclusion:"The thyroid is an often-overlooked root cause of the fatigue, weight gain, and mood disturbances that so many women normalise and suffer through unnecessarily. Comprehensive thyroid testing and nutritional support can make a life-changing difference. Do not settle for a normal TSH result if you know something is wrong — advocate for a full thyroid panel and work with a thyroid-literate practitioner."},
 
-  {id:13,cat:'mental',icon:'💤',date:'May 14, 2025',readTime:'8 min',
+  {id:13,cat:'mental',icon:'💤',date:'May 14, 2026',readTime:'8 min',
    title:"Why Women Sleep Worse Than Men — And What to Do About It",
    desc:"From cycle-related insomnia to the catastrophic sleep disruption of menopause — the complete guide to women's sleep health backed by the latest research.",
    intro:"Women report poorer sleep quality, more insomnia, and more daytime fatigue than men at almost every age. This is not a character flaw or weakness — it is a predictable consequence of the hormonal architecture of the female body, which few healthcare providers address adequately or at all.",
@@ -836,7 +899,7 @@ var defaultBlogs = [
    takeaways:["Women's sleep is biologically more vulnerable to hormonal fluctuation at every life stage","Premenstrual insomnia is driven by progesterone drop — magnesium glycinate can help","Treating hot flashes is treating insomnia in menopausal women — address the root cause","CBT-I is more effective than sleep medication and has no side effects","Sleep deprivation raises cortisol, disrupts appetite hormones, and worsens all hormonal conditions"],
    conclusion:"Poor sleep is not a personal failing — it is frequently a hormonal health issue that deserves proper investigation and treatment. By addressing the hormonal root causes of sleep disruption and applying evidence-based sleep strategies, women can reclaim the restorative sleep that is foundational to every single aspect of physical and mental health."},
 
-  {id:14,cat:'fertility',icon:'🌸',date:'Jun 2, 2025',readTime:'12 min',
+  {id:14,cat:'fertility',icon:'🌸',date:'Jun 2, 2026',readTime:'12 min',
    title:"Endometriosis: The Condition Affecting 1 in 10 Women That Takes 7 Years to Diagnose",
    desc:"A comprehensive guide to endometriosis — causes, symptoms, diagnostic delays, and the latest treatment approaches for this widely misunderstood condition.",
    intro:"Endometriosis affects an estimated 190 million women worldwide — roughly 1 in 10 women of reproductive age. Despite its prevalence, the average diagnostic delay remains 7 to 10 years, during which many women are dismissed, undertreated, and told that their debilitating pain is simply normal.",
@@ -851,7 +914,7 @@ var defaultBlogs = [
    takeaways:["1 in 10 women have endometriosis — it is not rare, it is under-diagnosed","Painful periods are common but they are NOT normal — debilitating pain warrants investigation","The 7 to 10 year diagnostic delay is unacceptable — advocate persistently for yourself","Deep infiltrating endometriosis requires specialist MRI and expert surgical treatment","Anti-inflammatory diet and pelvic physiotherapy are powerful complementary supports"],
    conclusion:"Endometriosis is a serious, systemic condition that has been dismissed and minimised for too long. If you suspect endometriosis, be persistent in seeking diagnosis and insist on referral to a specialist endometriosis centre. Early diagnosis and appropriate treatment can protect your fertility, reduce pain, and dramatically improve your quality of life for decades to come."},
 
-  {id:15,cat:'fitness',icon:'🧘',date:'Jun 15, 2025',readTime:'8 min',
+  {id:15,cat:'fitness',icon:'🧘',date:'Jun 15, 2026',readTime:'8 min',
    title:"Yoga and Women's Health: How a Regular Practice Transforms Hormones, Mood and Fertility",
    desc:"The science behind yoga's remarkable effects on cortisol, progesterone, nervous system regulation, and reproductive health in women.",
    intro:"Yoga is often marketed as a stress relief tool, but its effects on women's health go far deeper — influencing cortisol regulation, reproductive hormone profiles, nervous system function, and even fertility outcomes through measurable biological mechanisms that are increasingly well-documented in clinical research.",
@@ -893,15 +956,10 @@ function saveBlogs() {
 loadBlogs();
 
 // ===== AUTH =====
-// Password is stored as a simple hash to avoid plain-text in source
-// Password: BloomWell2025!
-var ADMIN_HASH = '6e3c0f3b2a1d4e5f'; // symbolic — real check uses the string below
 var ADMIN_PASS = 'BloomWell2025!';
 var isAuthenticated = false;
 
-// Check session persistence (tab session only — not localStorage for security)
 function initAuth() {
-  // Session flag: only lives in memory, resets on tab close
   isAuthenticated = (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('bwAdmin') === 'yes');
   updateAdminUI();
 }
@@ -909,22 +967,22 @@ function initAuth() {
 function updateAdminUI() {
   var lockBtn = document.getElementById('adminLockBtn');
   var fab = document.getElementById('adminFab');
+  var wrapper = document.getElementById('adminBtnWrapper');
   if (isAuthenticated) {
-    lockBtn.innerHTML = '&#128275;'; // open lock
+    lockBtn.innerHTML = '&#128275;';
     lockBtn.classList.add('unlocked');
-    lockBtn.title = 'Admin active — click to lock';
+    if (wrapper) wrapper.classList.add('unlocked');
     fab.classList.add('visible');
   } else {
-    lockBtn.innerHTML = '&#128274;'; // closed lock
+    lockBtn.innerHTML = '&#128274;';
     lockBtn.classList.remove('unlocked');
-    lockBtn.title = '';
+    if (wrapper) wrapper.classList.remove('unlocked');
     fab.classList.remove('visible');
   }
 }
 
 function handleAdminLock() {
   if (isAuthenticated) {
-    // Lock out (toggle off)
     isAuthenticated = false;
     try { sessionStorage.removeItem('bwAdmin'); } catch(e){}
     updateAdminUI();
@@ -958,14 +1016,12 @@ function checkPassword() {
     errEl.classList.add('show');
     document.getElementById('pwInput').value = '';
     document.getElementById('pwInput').focus();
-    // Shake animation
     var input = document.getElementById('pwInput');
     input.style.borderColor = '#c0392b';
     setTimeout(function(){ input.style.borderColor = ''; }, 1200);
   }
 }
 
-// Close pw modal on overlay click
 document.getElementById('pwOverlay').addEventListener('click', function(e){
   if (e.target === this) closePwModal();
 });
@@ -1171,7 +1227,6 @@ function showPage(id) {
   for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
   document.getElementById('page-' + id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Keep FAB in sync when navigating
   if (id === 'blogs') { updateAdminUI(); }
   else { document.getElementById('adminFab').classList.remove('visible'); }
 }
@@ -1194,7 +1249,6 @@ document.getElementById('addBlogModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
-// Init auth state on load
 initAuth();
 </script>
 </body>
