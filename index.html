@@ -282,13 +282,13 @@ section { padding: 70px 5%; }
 /* MODAL */
 .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.55); z-index: 1100; align-items: center; justify-content: center; padding: 1rem; }
 .modal-overlay.open { display: flex; }
-.modal-box { background: var(--white); border-radius: 24px; padding: 2.5rem; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+.modal-box { background: var(--white); border-radius: 24px; padding: 2.5rem; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.2); position: relative; }
 .modal-box h3 { font-family: var(--fh); font-size: 1.5rem; font-weight: 900; margin-bottom: 1.5rem; }
 .mfg { display: flex; flex-direction: column; margin-bottom: 1rem; }
 .mfg label { font-size: .83rem; font-weight: 600; color: var(--mid); margin-bottom: .36rem; }
-.mfg input, .mfg select, .mfg textarea { border: 1.5px solid var(--border); border-radius: 10px; padding: .7rem 1rem; font-family: var(--fb); font-size: .88rem; color: var(--dark); background: var(--cream); outline: none; transition: border-color .2s; }
-.mfg input:focus, .mfg select:focus, .mfg textarea:focus { border-color: var(--rose); background: var(--white); }
-.mfg textarea { min-height: 120px; resize: vertical; }
+.mfg input, .mfg select, .mfg textarea:not(.code-textarea) { border: 1.5px solid var(--border); border-radius: 10px; padding: .7rem 1rem; font-family: var(--fb); font-size: .88rem; color: var(--dark); background: var(--cream); outline: none; transition: border-color .2s; }
+.mfg input:focus, .mfg select:focus, .mfg textarea:not(.code-textarea):focus { border-color: var(--rose); background: var(--white); }
+.mfg textarea:not(.code-textarea) { min-height: 120px; resize: vertical; }
 .mrow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .modal-actions { display: flex; gap: 1rem; margin-top: 1rem; }
 .modal-cancel { background: var(--border); color: var(--mid); border: none; border-radius: 50px; padding: .75rem 1.5rem; font-family: var(--fb); font-weight: 600; cursor: pointer; }
@@ -406,14 +406,22 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.3rem; display: flex; justify-content: space-between; font-size: .79rem; flex-wrap: wrap; gap: .5rem; }
 .disclaimer { background: rgba(255,255,255,.04); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1.5rem; font-size: .79rem; line-height: 1.6; border: 1px solid rgba(255,255,255,.07); }
 
+/* CARD ADMIN BUTTONS */
+.card-admin-btns { display: flex; gap: .5rem; margin-top: .8rem; padding-top: .8rem; border-top: 1px solid var(--border); }
+.card-edit-btn, .card-del-btn { flex: 1; border: none; border-radius: 50px; padding: .4rem .8rem; font-family: var(--fb); font-size: .78rem; font-weight: 700; cursor: pointer; transition: all .2s; }
+.card-edit-btn { background: var(--rose-pale); color: var(--rose); }
+.card-edit-btn:hover { background: var(--rose); color: var(--white); }
+.card-del-btn { background: #fde8e8; color: #c0392b; }
+.card-del-btn:hover { background: #c0392b; color: var(--white); }
+
 /* CODE EDITOR MODAL */
 .code-editor-box { max-width: 780px; padding: 0; overflow: hidden; display: flex; flex-direction: column; max-height: 92vh; }
 .ce-header { padding: 1.6rem 1.8rem 1rem; border-bottom: 1px solid var(--border); }
 .ce-basics { padding: 1rem 1.8rem 0; }
 .code-hint { background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px; padding: .85rem 1rem; font-size: .78rem; color: var(--mid); line-height: 1.8; margin-bottom: .7rem; }
 .code-hint code { background: var(--white); border: 1px solid var(--border); padding: .1rem .4rem; border-radius: 4px; font-size: .76rem; color: var(--rose); font-family: monospace; }
-.code-textarea { width: 100%; min-height: 320px; max-height: 380px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; font-family: 'Courier New', monospace; font-size: .84rem; color: var(--dark); background: #1a1a1a; color: #e8e8e8; outline: none; resize: vertical; line-height: 1.7; transition: border-color .2s; }
-.code-textarea:focus { border-color: var(--rose); }
+.code-textarea { width: 100%; min-height: 320px; max-height: 380px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; font-family: 'Courier New', monospace; font-size: .84rem; background: #1a1a1a; color: #e8e8e8; outline: none; resize: vertical; line-height: 1.7; transition: border-color .2s; display: block; cursor: text; pointer-events: all; position: relative; z-index: 10; }
+.code-textarea:focus { border-color: var(--rose); background: #111; }
 /* pull-quote style for articles */
 .pull-quote { border-left: 4px solid var(--rose); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--rose-pale); border-radius: 0 12px 12px 0; font-family: var(--fh); font-size: 1.05rem; font-style: italic; color: var(--mid); line-height: 1.6; }
 @media(max-width:600px) { .code-editor-box { max-height: 98vh; } }
@@ -677,37 +685,19 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
     </div>
 
     <div class="mfg" style="padding:0 1.8rem 1rem">
-      <label style="font-size:.85rem;font-weight:700;color:var(--mid);display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">
+      <label style="font-size:.85rem;font-weight:700;color:var(--mid);display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;padding:0 1.8rem">
         📄 Full Blog HTML Content *
-        <span style="background:var(--rose-pale);color:var(--rose);font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:50px">Paste your complete blog code here</span>
       </label>
-      <div class="code-hint">
-        You can paste <strong>plain text</strong>, <strong>HTML</strong>, or use these tags:<br>
-        <code>&lt;h2&gt;Section Heading&lt;/h2&gt;</code> &nbsp;
-        <code>&lt;p&gt;Paragraph&lt;/p&gt;</code> &nbsp;
-        <code>&lt;ul&gt;&lt;li&gt;List item&lt;/li&gt;&lt;/ul&gt;</code> &nbsp;
-        <code>&lt;strong&gt;Bold&lt;/strong&gt;</code> &nbsp;
-        <code>&lt;em&gt;Italic&lt;/em&gt;</code><br>
-        <strong>Special styled blocks:</strong> &nbsp;
-        <code>&lt;div class="tip-box"&gt;Your tip&lt;/div&gt;</code> &nbsp;
-        <code>&lt;div class="pull-quote"&gt;Your quote&lt;/div&gt;</code> &nbsp;
-        <code>&lt;div class="key-takeaway"&gt;...&lt;/div&gt;</code>
+      <p style="font-size:.78rem;color:var(--lt);padding:0 1.8rem;margin-bottom:.6rem">Paste your complete HTML blog code below. You can use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, &lt;em&gt; tags and any HTML.</p>
+      <div style="padding:0 1.8rem 1rem">
+        <textarea
+          id="nFullHTML"
+          style="width:100%;min-height:340px;border:2px solid #EAE0D8;border-radius:12px;padding:1rem;font-family:monospace;font-size:.84rem;line-height:1.7;resize:vertical;outline:none;display:block;box-sizing:border-box;background:#fff;color:#1E1A18;cursor:text;"
+          placeholder="Paste your HTML here e.g:&#10;<h2>What Is PCOS?</h2>&#10;<p>PCOS affects 1 in 10 women...</p>&#10;<h2>Key Symptoms</h2>&#10;<p>Common symptoms include...</p>"
+          onfocus="this.style.borderColor='#C8705A'"
+          onblur="this.style.borderColor='#EAE0D8'"
+        ></textarea>
       </div>
-      <textarea id="nFullHTML" class="code-textarea" placeholder="Paste your complete blog content here...
-
-Example:
-&lt;h2&gt;What Is PCOS?&lt;/h2&gt;
-&lt;p&gt;PCOS affects 1 in 10 women of reproductive age...&lt;/p&gt;
-
-&lt;div class=&quot;tip-box&quot;&gt;
-  &lt;strong&gt;💡 Pro Tip:&lt;/strong&gt; Track your cycle for 3 months before consulting a doctor.
-&lt;/div&gt;
-
-&lt;h2&gt;Key Symptoms&lt;/h2&gt;
-&lt;p&gt;Common symptoms include irregular periods, acne...&lt;/p&gt;
-
-Or just paste plain text and it will display cleanly."></textarea>
-    </div>
 
     <div class="modal-actions" style="padding:0 1.8rem 1.8rem">
       <button class="modal-cancel" onclick="closeModal()">Cancel</button>
@@ -716,7 +706,55 @@ Or just paste plain text and it will display cleanly."></textarea>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- EDIT BLOG MODAL -->
+<div class="modal-overlay" id="editBlogModal">
+  <div class="modal-box code-editor-box">
+    <div class="ce-header">
+      <div>
+        <h3 style="font-family:var(--fh);font-size:1.3rem;font-weight:900;margin-bottom:.2rem">✏️ Edit Blog Post</h3>
+        <p style="font-size:.82rem;color:var(--lt)">Update any field and save changes.</p>
+      </div>
+    </div>
+    <div class="ce-basics">
+      <div class="mrow">
+        <div class="mfg"><label>Title *</label><input type="text" id="eTitle" placeholder="Blog title"></div>
+        <div class="mfg"><label>Category *</label>
+          <select id="eCat">
+            <option value="hormones">Hormonal Health</option>
+            <option value="fertility">Fertility</option>
+            <option value="menopause">Menopause</option>
+            <option value="mental">Mental Health</option>
+            <option value="nutrition">Nutrition</option>
+            <option value="fitness">Fitness</option>
+          </select>
+        </div>
+      </div>
+      <div class="mrow">
+        <div class="mfg"><label>Short Description *</label><input type="text" id="eDesc" placeholder="Card summary"></div>
+        <div class="mfg"><label>Emoji Icon</label><input type="text" id="eIcon" placeholder="🌿"></div>
+        <div class="mfg"><label>Read Time</label><input type="text" id="eReadTime" placeholder="8 min"></div>
+        <div class="mfg"><label>Card Colour</label><input type="color" id="eColor" value="#F9EDE9"></div>
+      </div>
+    </div>
+    <div class="mfg" style="padding:0 1.8rem 1rem">
+      <label style="font-size:.85rem;font-weight:700;color:var(--mid);display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">
+        📄 Full Blog HTML Content *
+      </label>
+      <textarea
+        id="eFullHTML"
+        style="width:100%;min-height:340px;border:2px solid #EAE0D8;border-radius:12px;padding:1rem;font-family:monospace;font-size:.84rem;line-height:1.7;resize:vertical;outline:none;display:block;box-sizing:border-box;background:#fff;color:#1E1A18;cursor:text;"
+        placeholder="Edit your blog HTML here..."
+        onfocus="this.style.borderColor='#C8705A'"
+        onblur="this.style.borderColor='#EAE0D8'"
+      ></textarea>
+    </div>
+    <input type="hidden" id="eEditId">
+    <div class="modal-actions" style="padding:0 1.8rem 1.8rem">
+      <button class="modal-cancel" onclick="closeEditModal()">Cancel</button>
+      <button class="modal-publish" onclick="saveEditBlog()">💾 Save Changes</button>
+    </div>
+  </div>
+</div>
 <footer>
   <div class="disclaimer">&#9877;&#65039; <strong>Medical Disclaimer:</strong> Content on BloomWell is for informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for personal medical guidance.</div>
   <div class="footer-grid">
@@ -1087,6 +1125,12 @@ function renderCards(data) {
     var b = data[i];
     var bg = b.bg || catColors[b.cat] || '#F9EDE9';
     var label = b.catLabel || catLabels[b.cat] || b.cat;
+    var adminBtns = isAuthenticated
+      ? '<div class="card-admin-btns" onclick="event.stopPropagation()">'
+          + '<button class="card-edit-btn" onclick="openEditModal(' + b.id + ')">✏️ Edit</button>'
+          + '<button class="card-del-btn" onclick="deleteBlog(' + b.id + ')">🗑️ Delete</button>'
+        + '</div>'
+      : '';
     html += '<div class="bcard" onclick="openArticle(' + b.id + ')">' +
       '<div class="bthumb" style="background:' + bg + '">' +
         '<span>' + (b.icon || '📝') + '</span>' +
@@ -1101,6 +1145,7 @@ function renderCards(data) {
         '<h3>' + b.title + '</h3>' +
         '<p>' + b.desc + '</p>' +
         '<span class="rmore">Read Article &#8594;</span>' +
+        adminBtns +
       '</div>' +
     '</div>';
   }
@@ -1265,7 +1310,103 @@ function publishBlog() {
   alert('🌸 Published! "' + title + '" is now live.');
 }
 
-// ===== UTILITIES =====
+// ===== EDIT & DELETE =====
+function openEditModal(id) {
+  var b = null;
+  for (var i = 0; i < blogs.length; i++) { if (blogs[i].id === id) { b = blogs[i]; break; } }
+  if (!b) return;
+
+  document.getElementById('eEditId').value = id;
+  document.getElementById('eTitle').value = b.title || '';
+  document.getElementById('eDesc').value = b.desc || '';
+  document.getElementById('eIcon').value = b.icon || '';
+  document.getElementById('eReadTime').value = b.readTime || '8 min';
+  document.getElementById('eColor').value = b.bg || '#F9EDE9';
+  document.getElementById('eCat').value = b.cat || 'hormones';
+
+  // Build editable content: prefer fullHTML, else rebuild from sections
+  var content = '';
+  if (b.fullHTML) {
+    content = b.fullHTML;
+  } else {
+    if (b.intro) content += '<p class="art-intro">' + b.intro + '</p>\n\n';
+    if (b.infoItems && b.infoItems.length) {
+      content += '<div class="infographic">\n  <h4>' + (b.infoTitle || 'Key Facts') + '</h4>\n  <div class="info-grid">\n';
+      b.infoItems.forEach(function(it){ content += '    <div class="info-item"><div class="info-num">' + it.n + '</div><div class="info-lab">' + it.l + '</div></div>\n'; });
+      content += '  </div>\n</div>\n\n';
+    }
+    if (b.sections && b.sections.length) {
+      b.sections.forEach(function(s){ content += '<h2>' + s.h + '</h2>\n<p>' + s.p + '</p>\n\n'; });
+    }
+    if (b.takeaways && b.takeaways.length) {
+      content += '<div class="key-takeaway">\n  <h4>Key Takeaways</h4>\n  <div class="kt-list">\n';
+      b.takeaways.forEach(function(t){ content += '    <div class="kt-item"><div class="kt-text">' + t + '</div></div>\n'; });
+      content += '  </div>\n</div>\n\n';
+    }
+    if (b.conclusion) content += '<div class="conclusion">\n  <h4>Conclusion</h4>\n  <p>' + b.conclusion + '</p>\n</div>';
+  }
+  document.getElementById('eFullHTML').value = content.trim();
+
+  document.getElementById('editBlogModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEditModal() {
+  document.getElementById('editBlogModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function saveEditBlog() {
+  var id = parseInt(document.getElementById('eEditId').value);
+  var title    = document.getElementById('eTitle').value.trim();
+  var cat      = document.getElementById('eCat').value;
+  var desc     = document.getElementById('eDesc').value.trim();
+  var icon     = document.getElementById('eIcon').value.trim() || '📝';
+  var color    = document.getElementById('eColor').value;
+  var readTime = document.getElementById('eReadTime').value.trim() || '8 min';
+  var fullHTML = document.getElementById('eFullHTML').value.trim();
+
+  if (!title || !desc || !fullHTML) {
+    alert('Please fill in Title, Description, and Content.');
+    return;
+  }
+
+  for (var i = 0; i < blogs.length; i++) {
+    if (blogs[i].id === id) {
+      blogs[i].title    = title;
+      blogs[i].cat      = cat;
+      blogs[i].catLabel = catLabels[cat];
+      blogs[i].desc     = desc;
+      blogs[i].icon     = icon;
+      blogs[i].bg       = color;
+      blogs[i].readTime = readTime;
+      blogs[i].fullHTML = fullHTML;
+      // clear legacy fields so fullHTML takes over
+      blogs[i].intro    = '';
+      blogs[i].sections = [];
+      blogs[i].takeaways = [];
+      blogs[i].conclusion = '';
+      blogs[i].infoItems = [];
+      break;
+    }
+  }
+
+  saveBlogs();
+  renderCards(blogs);
+  closeEditModal();
+  alert('✅ Changes saved to "' + title + '"');
+}
+
+function deleteBlog(id) {
+  var b = blogs.find(function(x){ return x.id === id; });
+  if (!b) return;
+  if (!confirm('Delete "' + b.title + '"?\n\nThis cannot be undone.')) return;
+  blogs = blogs.filter(function(x){ return x.id !== id; });
+  saveBlogs();
+  renderCards(blogs);
+}
+
+
 function showPage(id) {
   var pages = document.querySelectorAll('.page');
   for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
@@ -1291,6 +1432,13 @@ function submitContactForm() {
 
 document.getElementById('addBlogModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
+});
+document.getElementById('editBlogModal').addEventListener('click', function(e) {
+  if (e.target === this) closeEditModal();
+});
+// Stop clicks inside modal boxes from bubbling to overlay
+document.querySelectorAll('.modal-box').forEach(function(box) {
+  box.addEventListener('click', function(e) { e.stopPropagation(); });
 });
 
 initAuth();
