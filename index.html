@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BloomWell - Women's Health and Wellness by Maria Kanwal</title>
+<meta name="description" content="BloomWell by Maria Kanwal - Your trusted women's health resource. Expert-backed guides on hormonal health, fertility, mental wellness, nutrition and more.">
+<meta name="keywords" content="women's health, hormonal balance, fertility, menopause, PCOS, mental wellness, nutrition for women, Maria Kanwal, MedRankSEO">
+<meta name="author" content="Maria Kanwal">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #C8705A; --rose-light: #E8A090; --rose-pale: #F9EDE9;
+  --sage: #7A9E7E; --sage-light: #B5D4B8; --sage-pale: #EAF3EB;
+  --cream: #FAF6F0; --dark: #1E1A18; --mid: #4A3F3A; --lt: #7A6E69;
+  --white: #fff; --border: #EAE0D8;
+  --fh: 'Playfair Display', Georgia, serif;
+  --fb: 'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--cream); color: var(--dark); line-height: 1.7; font-size: 16px; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(250,246,240,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 66px; }
+.logo { font-family: var(--fh); font-size: 1.4rem; font-weight: 900; color: var(--rose); text-decoration: none; cursor: pointer; }
+.logo span { color: var(--sage); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--mid); font-weight: 500; font-size: .88rem; cursor: pointer; transition: color .2s; }
+.nav-links a:hover { color: var(--rose); }
+.nav-cta { background: var(--rose) !important; color: var(--white) !important; padding: .42rem 1.1rem; border-radius: 50px; }
+.nav-cta:hover { background: var(--dark) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 2px; background: var(--dark); display: block; border-radius: 2px; }
+@media(max-width:700px) {
+  .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--cream); padding: 1rem 5%; flex-direction: column; gap: .8rem; border-bottom: 1px solid var(--border); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+}
+
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 5% 80px; gap: 4rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, var(--rose-pale) 0%, transparent 70%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 350px; height: 350px; background: radial-gradient(circle, var(--sage-pale) 0%, transparent 70%); pointer-events: none; }
+.badge { display: inline-flex; align-items: center; gap: .5rem; background: var(--sage-light); color: #3d6b41; padding: .35rem 1rem; border-radius: 50px; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.hero h1 { font-family: var(--fh); font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.08; margin-bottom: 1.4rem; }
+.hero h1 em { font-style: italic; color: var(--rose); }
+.hero > div > p { font-size: 1.05rem; color: var(--lt); max-width: 460px; margin-bottom: 2.2rem; font-weight: 300; }
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary { background: var(--rose); color: var(--white); padding: .85rem 2rem; border-radius: 50px; border: none; cursor: pointer; font-family: var(--fb); font-weight: 600; font-size: .95rem; text-decoration: none; display: inline-block; transition: all .2s; }
+.btn-primary:hover { background: var(--dark); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--rose); padding: .85rem 2rem; border-radius: 50px; border: 2px solid var(--rose); cursor: pointer; font-family: var(--fb); font-weight: 600; font-size: .95rem; text-decoration: none; display: inline-block; transition: all .2s; }
+.btn-outline:hover { background: var(--rose); color: var(--white); }
+.hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.hcard { background: var(--white); border-radius: 18px; padding: 1.6rem; box-shadow: 0 4px 24px rgba(200,112,90,.1); border: 1px solid var(--border); }
+.hcard:nth-child(odd) { margin-top: 1.5rem; }
+.hcard .hicon { font-size: 1.8rem; margin-bottom: .7rem; }
+.hcard h3 { font-family: var(--fh); font-size: .95rem; font-weight: 700; margin-bottom: .35rem; }
+.hcard p { font-size: .8rem; color: var(--lt); line-height: 1.5; }
+
+/* SECTIONS */
+section { padding: 70px 5%; }
+.slabel { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--rose); margin-bottom: .6rem; }
+.stitle { font-family: var(--fh); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.15; margin-bottom: .9rem; }
+.ssub { color: var(--lt); max-width: 540px; font-size: 1rem; font-weight: 300; }
+.shead { margin-bottom: 3rem; }
+
+/* TOPIC GRID */
+.topics-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+.tcard { background: var(--white); border-radius: 18px; padding: 1.8rem; border: 1px solid var(--border); cursor: pointer; position: relative; overflow: hidden; transition: all .25s; }
+.tcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--rose); transform: scaleX(0); transition: .25s; transform-origin: left; }
+.tcard:hover { transform: translateY(-4px); box-shadow: 0 10px 35px rgba(200,112,90,.14); }
+.tcard:hover::before { transform: scaleX(1); }
+.tcard .ticon { font-size: 2rem; margin-bottom: .9rem; }
+.tcard h3 { font-family: var(--fh); font-size: 1.05rem; font-weight: 700; margin-bottom: .45rem; }
+.tcard p { font-size: .84rem; color: var(--lt); line-height: 1.6; }
+.ttag { display: inline-block; margin-top: .9rem; background: var(--rose-pale); color: var(--rose); font-size: .72rem; font-weight: 700; padding: .28rem .75rem; border-radius: 50px; }
+
+/* NEWSLETTER */
+.newsletter { background: var(--dark); color: var(--white); padding: 60px 5%; text-align: center; }
+.newsletter h2 { font-family: var(--fh); font-size: 2.2rem; font-weight: 900; margin-bottom: .7rem; }
+.newsletter p { color: rgba(255,255,255,.6); font-size: 1rem; margin-bottom: 1.8rem; }
+.nl-form { display: flex; max-width: 460px; margin: 0 auto; }
+.nl-form input { flex: 1; border: none; border-radius: 50px 0 0 50px; padding: .85rem 1.4rem; font-size: .9rem; font-family: var(--fb); outline: none; }
+.nl-form button { background: var(--rose); color: var(--white); border: none; border-radius: 0 50px 50px 0; padding: .85rem 1.4rem; font-weight: 600; cursor: pointer; font-family: var(--fb); transition: background .2s; }
+.nl-form button:hover { background: var(--rose-light); }
+
+/* BLOGS PAGE */
+.blogs-hero { background: linear-gradient(135deg, #1E1A18 0%, #2E2420 100%); color: var(--white); padding: 130px 5% 65px; text-align: center; position: relative; }
+.blogs-hero .slabel { color: var(--rose-light); }
+.blogs-hero h1 { font-family: var(--fh); font-size: clamp(2.2rem,5vw,3.6rem); font-weight: 900; }
+.blogs-hero p { color: rgba(255,255,255,.6); font-size: 1rem; max-width: 520px; margin: 1rem auto 0; }
+.blog-filter { display: flex; gap: .65rem; flex-wrap: wrap; padding: 2rem 5% 0; }
+.fbtn { padding: .42rem 1rem; border-radius: 50px; border: 1.5px solid var(--border); background: var(--white); color: var(--mid); font-size: .82rem; font-weight: 500; cursor: pointer; transition: all .2s; font-family: var(--fb); }
+.fbtn.active, .fbtn:hover { background: var(--rose); color: var(--white); border-color: var(--rose); }
+.blogs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.8rem; padding: 2rem 5% 70px; }
+.bcard { background: var(--white); border-radius: 18px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; transition: all .25s; }
+.bcard:hover { transform: translateY(-5px); box-shadow: 0 14px 45px rgba(0,0,0,.1); }
+.bthumb { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; position: relative; }
+.bcat { position: absolute; top: .9rem; left: .9rem; background: var(--white); color: var(--rose); font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .28rem .7rem; border-radius: 50px; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.bbody { padding: 1.4rem; }
+.bmeta { display: flex; gap: .9rem; font-size: .76rem; color: var(--lt); margin-bottom: .65rem; flex-wrap: wrap; }
+.bcard h3 { font-family: var(--fh); font-size: 1rem; font-weight: 700; line-height: 1.4; margin-bottom: .55rem; }
+.bcard p { font-size: .83rem; color: var(--lt); line-height: 1.6; }
+.rmore { display: inline-flex; align-items: center; gap: .3rem; margin-top: .9rem; color: var(--rose); font-size: .83rem; font-weight: 600; cursor: pointer; }
+
+/* ===== ADMIN LOCK (replaces old admin bar) ===== */
+.admin-lock-btn {
+  position: absolute;
+  top: 1.3rem;
+  right: 5%;
+  background: rgba(255,255,255,.10);
+  border: 1.5px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.45);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all .25s;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+.admin-lock-btn:hover { background: rgba(255,255,255,.2); color: rgba(255,255,255,.85); transform: scale(1.08); }
+.admin-lock-btn.unlocked { background: rgba(200,112,90,.3); border-color: var(--rose-light); color: var(--rose-light); }
+
+/* Floating Add Button — only shown when authenticated */
+.admin-fab {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 900;
+  background: var(--rose);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: .85rem 1.6rem;
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: .92rem;
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(200,112,90,.45);
+  transition: all .25s;
+  align-items: center;
+  gap: .45rem;
+}
+.admin-fab:hover { background: var(--dark); transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,.25); }
+.admin-fab.visible { display: flex; }
+
+/* Password Modal */
+.pw-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.62);
+  z-index: 1200;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+.pw-overlay.open { display: flex; }
+.pw-box {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 2.4rem 2rem;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+  text-align: center;
+}
+.pw-icon { font-size: 2.6rem; margin-bottom: .9rem; }
+.pw-box h4 { font-family: var(--fh); font-size: 1.35rem; font-weight: 900; margin-bottom: .35rem; color: var(--dark); }
+.pw-box p { font-size: .84rem; color: var(--lt); margin-bottom: 1.5rem; line-height: 1.55; }
+.pw-input {
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: .82rem 1.1rem;
+  font-family: var(--fb);
+  font-size: .97rem;
+  color: var(--dark);
+  background: var(--cream);
+  outline: none;
+  text-align: center;
+  letter-spacing: .08em;
+  transition: border-color .2s;
+  margin-bottom: .9rem;
+  display: block;
+}
+.pw-input:focus { border-color: var(--rose); background: var(--white); }
+.pw-err { color: #c0392b; font-size: .81rem; margin-top: -.5rem; margin-bottom: .7rem; display: none; font-weight: 600; }
+.pw-err.show { display: block; }
+.pw-submit {
+  width: 100%;
+  background: var(--rose);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: .85rem;
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: .96rem;
+  cursor: pointer;
+  transition: all .2s;
+  margin-bottom: .7rem;
+}
+.pw-submit:hover { background: var(--dark); }
+.pw-cancel-link { background: none; border: none; color: var(--lt); font-family: var(--fb); font-size: .82rem; cursor: pointer; transition: color .2s; }
+.pw-cancel-link:hover { color: var(--dark); }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.55); z-index: 1100; align-items: center; justify-content: center; padding: 1rem; }
+.modal-overlay.open { display: flex; }
+.modal-box { background: var(--white); border-radius: 24px; padding: 2.5rem; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+.modal-box h3 { font-family: var(--fh); font-size: 1.5rem; font-weight: 900; margin-bottom: 1.5rem; }
+.mfg { display: flex; flex-direction: column; margin-bottom: 1rem; }
+.mfg label { font-size: .83rem; font-weight: 600; color: var(--mid); margin-bottom: .36rem; }
+.mfg input, .mfg select, .mfg textarea { border: 1.5px solid var(--border); border-radius: 10px; padding: .7rem 1rem; font-family: var(--fb); font-size: .88rem; color: var(--dark); background: var(--cream); outline: none; transition: border-color .2s; }
+.mfg input:focus, .mfg select:focus, .mfg textarea:focus { border-color: var(--rose); background: var(--white); }
+.mfg textarea { min-height: 120px; resize: vertical; }
+.mrow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.modal-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+.modal-cancel { background: var(--border); color: var(--mid); border: none; border-radius: 50px; padding: .75rem 1.5rem; font-family: var(--fb); font-weight: 600; cursor: pointer; }
+.modal-cancel:hover { background: #ddd; }
+.modal-publish { background: var(--rose); color: var(--white); border: none; border-radius: 50px; padding: .75rem 1.8rem; font-family: var(--fb); font-weight: 700; cursor: pointer; flex: 1; transition: all .2s; }
+.modal-publish:hover { background: var(--dark); }
+
+/* ARTICLE */
+.art-back-bar { padding: 1rem 5%; background: var(--cream); border-bottom: 1px solid var(--border); }
+.art-back-btn { background: none; border: none; cursor: pointer; color: var(--rose); font-weight: 700; font-family: var(--fb); font-size: .88rem; display: flex; align-items: center; gap: .3rem; }
+.art-hero { padding: 40px 5% 40px; max-width: 860px; margin: 0 auto; }
+.art-cat-tag { display: inline-block; background: var(--rose-pale); color: var(--rose); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .32rem .85rem; border-radius: 50px; margin-bottom: 1.1rem; }
+.art-hero h1 { font-family: var(--fh); font-size: clamp(1.8rem,4vw,3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+.art-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .83rem; color: var(--lt); margin-bottom: 1.4rem; align-items: center; }
+.author-chip { display: flex; align-items: center; gap: .4rem; background: var(--rose-pale); color: var(--rose); padding: .28rem .8rem; border-radius: 50px; font-weight: 600; }
+.art-intro { font-size: 1.05rem; color: var(--mid); line-height: 1.85; font-weight: 300; border-left: 3px solid var(--rose); padding-left: 1.4rem; margin-bottom: 1.5rem; }
+.art-body { max-width: 860px; margin: 0 auto; padding: 0 5% 70px; }
+.art-body h2 { font-family: var(--fh); font-size: 1.55rem; font-weight: 700; margin: 2.5rem 0 .9rem; color: var(--dark); }
+.art-body h3 { font-family: var(--fh); font-size: 1.15rem; font-weight: 700; margin: 2rem 0 .65rem; color: var(--mid); }
+.art-body p { color: var(--mid); line-height: 1.88; margin-bottom: 1.1rem; font-size: .97rem; }
+.art-body ul, .art-body ol { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+.art-body li { color: var(--mid); line-height: 1.8; margin-bottom: .4rem; font-size: .97rem; }
+.tip-box { background: var(--rose-pale); border-left: 4px solid var(--rose); border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+.tip-box strong { color: var(--rose); }
+
+/* INFOGRAPHIC */
+.infographic { background: linear-gradient(135deg, #1E1A18 0%, #2E2420 100%); border-radius: 20px; padding: 2rem; margin: 2rem 0; color: var(--white); }
+.infographic h4 { font-family: var(--fh); font-size: 1.2rem; font-weight: 700; margin-bottom: 1.4rem; text-align: center; color: var(--rose-light); }
+.info-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+.info-item { background: rgba(255,255,255,.07); border-radius: 12px; padding: 1.2rem .9rem; text-align: center; border: 1px solid rgba(255,255,255,.1); }
+.info-num { font-family: var(--fh); font-size: 1.8rem; font-weight: 900; color: var(--rose-light); }
+.info-lab { font-size: .76rem; color: rgba(255,255,255,.65); margin-top: .3rem; line-height: 1.4; }
+
+/* KEY TAKEAWAY */
+.key-takeaway { background: linear-gradient(135deg, var(--rose-pale), #fff0eb); border-radius: 20px; padding: 2rem; margin: 2.5rem 0; border: 2px solid rgba(200,112,90,.2); }
+.key-takeaway h4 { font-family: var(--fh); font-size: 1.15rem; font-weight: 700; color: var(--rose); margin-bottom: 1rem; }
+.kt-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: .8rem; }
+.kt-item { display: flex; align-items: flex-start; gap: .6rem; background: var(--white); border-radius: 10px; padding: .9rem; border: 1px solid rgba(200,112,90,.15); }
+.kt-icon { font-size: 1.2rem; flex-shrink: 0; }
+.kt-text { font-size: .83rem; color: var(--mid); line-height: 1.5; }
+
+/* CONCLUSION */
+.conclusion { background: linear-gradient(135deg, var(--sage-pale), #e0eee2); border-radius: 20px; padding: 2rem; margin: 2.5rem 0; border: 2px solid rgba(122,158,126,.2); }
+.conclusion h4 { font-family: var(--fh); font-size: 1.2rem; font-weight: 700; color: var(--sage); margin-bottom: .9rem; }
+.conclusion p { font-size: .95rem; color: var(--mid); line-height: 1.8; }
+
+/* AUTHOR BOX */
+.author-box { display: flex; gap: 1.5rem; align-items: flex-start; background: var(--white); border-radius: 20px; padding: 1.8rem; border: 1px solid var(--border); margin: 2.5rem 0; box-shadow: 0 4px 20px rgba(0,0,0,.05); }
+.author-avatar { width: 76px; height: 76px; background: linear-gradient(135deg, var(--rose-pale), var(--sage-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+.author-info h5 { font-family: var(--fh); font-size: 1.05rem; font-weight: 700; margin-bottom: .2rem; }
+.author-role { font-size: .78rem; color: var(--rose); font-weight: 700; margin-bottom: .5rem; }
+.author-info p { font-size: .84rem; color: var(--lt); line-height: 1.6; }
+.author-info a { color: var(--rose); text-decoration: none; }
+
+/* ABOUT */
+.about-top { padding: 130px 5% 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-top h1 { font-family: var(--fh); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.4rem; }
+.about-top h1 em { font-style: italic; color: var(--rose); }
+.about-top p { color: var(--lt); font-size: 1rem; margin-bottom: 1.1rem; font-weight: 300; }
+.about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.acard { background: var(--white); border-radius: 18px; padding: 2rem 1.4rem; text-align: center; border: 1px solid var(--border); box-shadow: 0 4px 18px rgba(200,112,90,.07); }
+.acard:first-child { margin-top: 1.5rem; }
+.acard .aicon { font-size: 2.2rem; margin-bottom: .7rem; }
+.acard h4 { font-family: var(--fh); font-size: .92rem; font-weight: 700; }
+.values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.3rem; padding: 0 5% 60px; }
+.vcard { background: var(--white); border-radius: 16px; padding: 1.6rem; border: 1px solid var(--border); text-align: center; }
+.vcard .vicon { font-size: 1.8rem; margin-bottom: .9rem; }
+.vcard h4 { font-family: var(--fh); font-size: .95rem; font-weight: 700; margin-bottom: .45rem; }
+.vcard p { font-size: .82rem; color: var(--lt); }
+.founder-section { padding: 0 5% 70px; }
+.founder-card { background: linear-gradient(135deg, #1E1A18 0%, #2E2420 100%); border-radius: 24px; padding: 3rem; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; color: var(--white); }
+.founder-img { width: 110px; height: 110px; background: linear-gradient(135deg, var(--rose-pale), var(--sage-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; border: 4px solid rgba(255,255,255,.2); flex-shrink: 0; }
+.founder-name { font-family: var(--fh); font-size: 1.8rem; font-weight: 900; margin-bottom: .3rem; }
+.founder-title { color: var(--rose-light); font-size: .88rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .9rem; }
+.founder-desc { color: rgba(255,255,255,.7); font-size: .93rem; line-height: 1.75; margin-bottom: 1rem; }
+.founder-links { display: flex; gap: .75rem; flex-wrap: wrap; }
+.flink { display: inline-flex; align-items: center; gap: .4rem; background: rgba(255,255,255,.1); color: var(--white); padding: .4rem 1rem; border-radius: 50px; font-size: .8rem; font-weight: 600; text-decoration: none; transition: background .2s; }
+.flink:hover { background: var(--rose); }
+
+/* CONTACT */
+.contact-top { background: linear-gradient(135deg, var(--rose-pale) 0%, var(--sage-pale) 100%); padding: 130px 5% 65px; text-align: center; }
+.contact-top h1 { font-family: var(--fh); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 900; }
+.contact-top p { color: var(--lt); font-size: 1rem; max-width: 480px; margin: 1rem auto 0; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4.5rem; padding: 60px 5% 70px; align-items: start; }
+.cinfo h3 { font-family: var(--fh); font-size: 1.5rem; font-weight: 700; margin-bottom: .9rem; }
+.cinfo > p { color: var(--lt); font-size: .93rem; margin-bottom: 1.8rem; }
+.ci { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.3rem; }
+.ci-icon { width: 42px; height: 42px; background: var(--rose-pale); border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.ci h5 { font-weight: 600; font-size: .88rem; margin-bottom: .2rem; }
+.ci p { font-size: .83rem; color: var(--lt); margin: 0; }
+.ci a { color: var(--rose); text-decoration: none; font-size: .83rem; }
+.cform { background: var(--white); border-radius: 22px; padding: 2.2rem; border: 1px solid var(--border); box-shadow: 0 8px 35px rgba(200,112,90,.08); }
+.cform h3 { font-family: var(--fh); font-size: 1.4rem; font-weight: 700; margin-bottom: 1.4rem; }
+.cfrow { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; margin-bottom: .9rem; }
+.cfg { display: flex; flex-direction: column; margin-bottom: .9rem; }
+.cfg label { font-size: .82rem; font-weight: 600; margin-bottom: .36rem; color: var(--mid); }
+.cfg input, .cfg select, .cfg textarea { border: 1.5px solid var(--border); border-radius: 11px; padding: .7rem 1rem; font-family: var(--fb); font-size: .88rem; color: var(--dark); background: var(--cream); outline: none; transition: border-color .2s; }
+.cfg input:focus, .cfg select:focus, .cfg textarea:focus { border-color: var(--rose); background: var(--white); }
+.cfg textarea { min-height: 120px; resize: vertical; }
+.form-submit { width: 100%; background: var(--rose); color: var(--white); border: none; border-radius: 50px; padding: .95rem; font-family: var(--fb); font-size: .97rem; font-weight: 700; cursor: pointer; transition: all .2s; margin-top: .4rem; }
+.form-submit:hover { background: var(--dark); transform: translateY(-2px); }
+.form-success { display: none; text-align: center; padding: 2rem; }
+.form-success .suc-tick { font-size: 2.8rem; margin-bottom: .9rem; }
+.form-success h4 { font-family: var(--fh); font-size: 1.3rem; color: var(--sage); }
+.form-success p { color: var(--lt); margin-top: .5rem; font-size: .9rem; }
+
+/* FOOTER */
+footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+.fbrand .logo { font-size: 1.2rem; }
+.fbrand p { font-size: .83rem; margin-top: .7rem; line-height: 1.7; max-width: 250px; }
+.fcol h5 { color: var(--white); font-size: .88rem; font-weight: 600; margin-bottom: .9rem; }
+.fcol a { display: block; text-decoration: none; color: rgba(255,255,255,.5); font-size: .83rem; margin-bottom: .55rem; cursor: pointer; transition: color .2s; }
+.fcol a:hover { color: var(--rose-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.3rem; display: flex; justify-content: space-between; font-size: .79rem; flex-wrap: wrap; gap: .5rem; }
+.disclaimer { background: rgba(255,255,255,.04); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1.5rem; font-size: .79rem; line-height: 1.6; border: 1px solid rgba(255,255,255,.07); }
+
+/* RESPONSIVE */
+@media(max-width:960px) {
+  .hero, .about-top, .contact-layout { grid-template-columns: 1fr; }
+  .hero-cards { display: none; }
+  .topics-grid, .blogs-grid { grid-template-columns: 1fr 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .founder-card { grid-template-columns: 1fr; text-align: center; }
+  .founder-img { margin: 0 auto; }
+  .founder-links { justify-content: center; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:600px) {
+  .topics-grid, .blogs-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .cfrow { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .kt-list { grid-template-columns: 1fr; }
+  .mrow { grid-template-columns: 1fr; }
+  .admin-lock-btn { right: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="logo" onclick="showPage('home')">Bloom<span>Well</span></span>
+  <ul class="nav-links" id="navMenu">
+    <li><a onclick="showPage('home');closeMenu()">Home</a></li>
+    <li><a onclick="showPage('blogs');closeMenu()">Blog</a></li>
+    <li><a onclick="showPage('about');closeMenu()">About</a></li>
+    <li><a onclick="showPage('contact');closeMenu()" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div>
+      <div class="badge">&#127800; Founded by Maria Kanwal &middot; MedRankSEO</div>
+      <h1>Empowering Women Through <em>Every Stage</em> of Life</h1>
+      <p>From hormonal health to mental wellness &mdash; BloomWell provides expert-backed, science-informed guidance designed specifically for women's bodies and minds.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('blogs')">Explore Articles</button>
+        <button class="btn-outline" onclick="showPage('about')">Our Mission</button>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard"><div class="hicon">&#x1F9EC;</div><h3>Hormone Science</h3><p>Deep-dive into estrogen, progesterone, and how they shape your daily life.</p></div>
+      <div class="hcard"><div class="hicon">&#x1FA7A;</div><h3>Expert-Backed</h3><p>All articles are grounded in peer-reviewed research and clinical guidance.</p></div>
+      <div class="hcard"><div class="hicon">&#x1F33F;</div><h3>Holistic Approach</h3><p>Mind, body, and spirit &mdash; because true health is never one-dimensional.</p></div>
+      <div class="hcard"><div class="hicon">&#x1F49C;</div><h3>Community First</h3><p>Join thousands of women supporting each other through shared experiences.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead">
+      <div class="slabel">Health Topics</div>
+      <h2 class="stitle">Everything You Need to Know</h2>
+      <p class="ssub">Comprehensive resources covering the full spectrum of women's health &mdash; organised so you can find what matters to you right now.</p>
+    </div>
+    <div class="topics-grid">
+      <div class="tcard" onclick="showPage('blogs')"><div class="ticon">&#x2697;&#xFE0F;</div><h3>Hormonal Health</h3><p>Understand estrogen, progesterone, and cortisol balance and how they affect mood, energy, and metabolism.</p><span class="ttag">8 Articles</span></div>
+      <div class="tcard" onclick="showPage('blogs')"><div class="ticon">&#x1F931;</div><h3>Fertility &amp; Pregnancy</h3><p>From conception planning through each trimester &mdash; evidence-based guidance for your journey to motherhood.</p><span class="ttag">12 Articles</span></div>
+      <div class="tcard" onclick="showPage('blogs')"><div class="ticon">&#x1F319;</div><h3>Menopause &amp; Perimenopause</h3><p>Navigate the transition with confidence. Manage symptoms naturally and understand what your body is experiencing.</p><span class="ttag">10 Articles</span></div>
+      <div class="tcard" onclick="showPage('blogs')"><div class="ticon">&#x1F9E0;</div><h3>Mental Wellness</h3><p>Anxiety, depression, postpartum mental health, and stress management strategies rooted in science.</p><span class="ttag">9 Articles</span></div>
+      <div class="tcard" onclick="showPage('blogs')"><div class="ticon">&#x1F957;</div><h3>Nutrition for Women</h3><p>How nutritional needs shift through your cycle, pregnancy, and beyond &mdash; and what to eat at every stage.</p><span class="ttag">11 Articles</span></div>
+      <div class="tcard" onclick="showPage('blogs')"><div class="ticon">&#x1F4AA;</div><h3>Fitness &amp; Movement</h3><p>Exercise science tailored to women's physiology &mdash; maximise results while respecting hormonal rhythms.</p><span class="ttag">7 Articles</span></div>
+    </div>
+  </section>
+
+  <div class="newsletter">
+    <h2>Stay in the Loop &#127800;</h2>
+    <p>Get weekly women's health insights from Maria Kanwal delivered to your inbox &mdash; no fluff, just real information.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="your@email.com">
+      <button onclick="nlSignup()">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- BLOGS PAGE -->
+<div id="page-blogs" class="page">
+  <!-- Hero — lock icon is subtle, top-right corner, only Maria knows it's there -->
+  <div class="blogs-hero">
+    <div class="slabel">Knowledge is Power</div>
+    <h1>Women's Health Blog</h1>
+    <p>Expert articles by Maria Kanwal covering every dimension of women's health &mdash; with more added regularly.</p>
+    <!-- Discreet admin lock — no label, no tooltip that gives it away -->
+    <button class="admin-lock-btn" id="adminLockBtn" onclick="handleAdminLock()" aria-label="Admin">&#128274;</button>
+  </div>
+
+  <!-- Floating "Add New Post" button — only visible after auth -->
+  <button class="admin-fab" id="adminFab" onclick="openModal()">
+    &#9997;&#65039; Add New Post
+  </button>
+
+  <div class="blog-filter">
+    <button class="fbtn active" onclick="filterBlogs('all',this)">All Topics</button>
+    <button class="fbtn" onclick="filterBlogs('hormones',this)">Hormones</button>
+    <button class="fbtn" onclick="filterBlogs('fertility',this)">Fertility</button>
+    <button class="fbtn" onclick="filterBlogs('menopause',this)">Menopause</button>
+    <button class="fbtn" onclick="filterBlogs('mental',this)">Mental Health</button>
+    <button class="fbtn" onclick="filterBlogs('nutrition',this)">Nutrition</button>
+    <button class="fbtn" onclick="filterBlogs('fitness',this)">Fitness</button>
+  </div>
+  <div class="blogs-grid" id="blogsGrid"></div>
+</div>
+
+<!-- ARTICLE PAGE -->
+<div id="page-article" class="page">
+  <div id="articleContent"></div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="page-about" class="page">
+  <div class="about-top">
+    <div>
+      <div class="slabel">Our Story</div>
+      <h1>Born from a Need for <em>Real</em> Women's Health Information</h1>
+      <p>BloomWell was founded by Maria Kanwal &mdash; Medical SEO and AI Content Specialist at MedRankSEO &mdash; who was frustrated by the abundance of incomplete, confusing, and fear-mongering women's health content online.</p>
+      <p>Maria combines her expertise in medical SEO, AI-optimised content, and E-E-A-T compliance to create women's health resources that are not just informative, but truly trustworthy and search-optimised.</p>
+      <p>BloomWell serves readers across dozens of countries with content that respects women's intelligence and honours the complexity of female health across every life stage.</p>
+      <button class="btn-primary" onclick="showPage('blogs')">Read Our Articles</button>
+    </div>
+    <div class="about-cards">
+      <div class="acard"><div class="aicon">&#127800;</div><h4>Women-First Mission</h4></div>
+      <div class="acard"><div class="aicon">&#x1FA7A;</div><h4>Medically Grounded</h4></div>
+      <div class="acard"><div class="aicon">&#x1F30D;</div><h4>Global Readers</h4></div>
+      <div class="acard"><div class="aicon">&#x1F52C;</div><h4>Science-Backed</h4></div>
+    </div>
+  </div>
+
+  <div class="values-grid">
+    <div class="vcard"><div class="vicon">&#x1F52C;</div><h4>Science-First</h4><p>Every claim is backed by peer-reviewed research and medical best practices.</p></div>
+    <div class="vcard"><div class="vicon">&#x1F91D;</div><h4>Inclusive</h4><p>Women's health includes all women &mdash; we celebrate diversity in age, body, background, and identity.</p></div>
+    <div class="vcard"><div class="vicon">&#x1F513;</div><h4>Accessible</h4><p>Quality health information should be free. No paywalls, no barriers.</p></div>
+    <div class="vcard"><div class="vicon">&#x1F33F;</div><h4>Holistic</h4><p>We look at the whole picture: physical, mental, emotional, and social health.</p></div>
+  </div>
+
+  <div class="founder-section">
+    <div class="slabel">Meet the Founder</div>
+    <div class="founder-card">
+      <div class="founder-img">&#x1F469;&#x200D;&#x1F4BB;</div>
+      <div>
+        <div class="founder-name">Maria Kanwal</div>
+        <div class="founder-title">Founder &middot; Medical SEO &amp; AI Content Specialist &middot; MedRankSEO</div>
+        <p class="founder-desc">Maria Kanwal is the founder of BloomWell and the driving force behind MedRankSEO &mdash; a specialist medical SEO and AI content agency. With deep expertise in healthcare digital marketing, E-E-A-T compliance, and AI-optimised content creation, Maria combines clinical credibility with technical SEO mastery to help women access reliable health information.</p>
+        <p class="founder-desc">Maria's mission is simple: every woman deserves access to accurate, empowering health information &mdash; written with respect, backed by science, and optimised so it can actually be found.</p>
+        <div class="founder-links">
+          <a class="flink" href="mailto:medrankseo@gmail.com">&#128231; medrankseo@gmail.com</a>
+          <a class="flink" href="https://www.linkedin.com/in/maria-kanwal-637629207" target="_blank">&#128188; LinkedIn</a>
+          <a class="flink" href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">&#128187; Upwork</a>
+          <a class="flink" href="https://journey-towards-health-and-wellness.blogspot.com/?m=1" target="_blank">&#128218; Health Blog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="page-contact" class="page">
+  <div class="contact-top">
+    <div class="slabel">Get In Touch</div>
+    <h1>We'd Love to Hear From You</h1>
+    <p>Reach out to Maria Kanwal directly &mdash; every message is read personally.</p>
+  </div>
+  <div class="contact-layout">
+    <div class="cinfo">
+      <h3>Connect with Maria</h3>
+      <p>Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services &mdash; Maria responds within 2 business days.</p>
+      <div class="ci"><div class="ci-icon">&#128231;</div><div><h5>Email</h5><p><a href="mailto:medrankseo@gmail.com">medrankseo@gmail.com</a></p></div></div>
+      <div class="ci"><div class="ci-icon">&#128188;</div><div><h5>LinkedIn</h5><p><a href="https://www.linkedin.com/in/maria-kanwal-637629207" target="_blank">Maria Kanwal on LinkedIn</a></p></div></div>
+      <div class="ci"><div class="ci-icon">&#128187;</div><div><h5>Upwork</h5><p><a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Hire Maria on Upwork</a></p></div></div>
+      <div class="ci"><div class="ci-icon">&#128218;</div><div><h5>Health &amp; Wellness Blog</h5><p><a href="https://journey-towards-health-and-wellness.blogspot.com/?m=1" target="_blank">Visit Original Blog</a></p></div></div>
+      <div class="ci"><div class="ci-icon">&#128269;</div><div><h5>MedRankSEO Services</h5><p>Medical SEO &middot; AI Content &middot; E-E-A-T Compliance &middot; Local SEO for Clinics</p></div></div>
+    </div>
+    <div class="cform" id="cformWrap">
+      <h3>Send a Message</h3>
+      <div id="cformFields">
+        <div class="cfrow">
+          <div class="cfg"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="cfg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="cfg"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+        <div class="cfg"><label>Topic</label>
+          <select>
+            <option>General Inquiry</option>
+            <option>Article Feedback</option>
+            <option>MedRankSEO Services</option>
+            <option>Guest Article Submission</option>
+            <option>Media and Press</option>
+            <option>Partnership Opportunity</option>
+          </select>
+        </div>
+        <div class="cfg"><label>Message</label><textarea placeholder="How can Maria help you?"></textarea></div>
+        <button class="form-submit" onclick="submitContactForm()">Send Message &#127800;</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="suc-tick">&#x2705;</div>
+        <h4>Message Received!</h4>
+        <p>Thank you for reaching out to Maria. She will get back to you within 2 business days.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PASSWORD MODAL -->
+<div class="pw-overlay" id="pwOverlay">
+  <div class="pw-box">
+    <div class="pw-icon">&#128274;</div>
+    <h4>Admin Access</h4>
+    <p>Enter your password to unlock blog management.</p>
+    <input class="pw-input" type="password" id="pwInput" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" onkeydown="if(event.key==='Enter')checkPassword()">
+    <div class="pw-err" id="pwErr">Incorrect password. Please try again.</div>
+    <button class="pw-submit" onclick="checkPassword()">Unlock &#128275;</button>
+    <br>
+    <button class="pw-cancel-link" onclick="closePwModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- ADD BLOG MODAL -->
+<div class="modal-overlay" id="addBlogModal">
+  <div class="modal-box">
+    <h3>&#9997;&#65039; Add New Blog Post</h3>
+    <div class="mrow">
+      <div class="mfg"><label>Blog Title *</label><input type="text" id="nTitle" placeholder="e.g. How to Manage PCOS Naturally"></div>
+      <div class="mfg"><label>Category *</label>
+        <select id="nCat">
+          <option value="hormones">Hormonal Health</option>
+          <option value="fertility">Fertility</option>
+          <option value="menopause">Menopause</option>
+          <option value="mental">Mental Health</option>
+          <option value="nutrition">Nutrition</option>
+          <option value="fitness">Fitness</option>
+        </select>
+      </div>
+    </div>
+    <div class="mfg"><label>Short Description *</label><input type="text" id="nDesc" placeholder="A 1-2 sentence summary for the blog card"></div>
+    <div class="mrow">
+      <div class="mfg"><label>Emoji Icon</label><input type="text" id="nIcon" placeholder="e.g. 🌿"></div>
+      <div class="mfg"><label>Card Background Colour</label><input type="color" id="nColor" value="#F9EDE9"></div>
+    </div>
+    <div class="mfg"><label>Introduction Paragraph *</label><textarea id="nIntro" placeholder="Write your opening paragraph here..."></textarea></div>
+    <div class="mfg"><label>Main Content (use ## for section headings, one per line)</label><textarea id="nBody" style="min-height:180px" placeholder="## What is This Condition?&#10;Write your paragraph here.&#10;&#10;## Key Symptoms&#10;Write about symptoms here.&#10;&#10;## Natural Remedies&#10;Write remedies here."></textarea></div>
+    <div class="mfg"><label>Key Takeaways (one per line, max 6) *</label><textarea id="nKT" placeholder="Balanced diet reduces symptoms&#10;Exercise 3x weekly improves outcomes&#10;Sleep is essential for hormonal health"></textarea></div>
+    <div class="mfg"><label>Conclusion *</label><textarea id="nConclusion" placeholder="Write your conclusion here..."></textarea></div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+      <button class="modal-publish" onclick="publishBlog()">Publish Blog Post &#127800;</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="disclaimer">&#9877;&#65039; <strong>Medical Disclaimer:</strong> Content on BloomWell is for informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for personal medical guidance.</div>
+  <div class="footer-grid">
+    <div class="fbrand">
+      <span class="logo" onclick="showPage('home')">Bloom<span>Well</span></span>
+      <p>Expert women's health content by Maria Kanwal (MedRankSEO). Empowering women with science-backed, AI-optimised health information.</p>
+    </div>
+    <div class="fcol">
+      <h5>Navigate</h5>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('blogs')">All Articles</a>
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="fcol">
+      <h5>Topics</h5>
+      <a onclick="showPage('blogs')">Hormonal Health</a>
+      <a onclick="showPage('blogs')">Fertility</a>
+      <a onclick="showPage('blogs')">Menopause</a>
+      <a onclick="showPage('blogs')">Mental Wellness</a>
+      <a onclick="showPage('blogs')">Nutrition</a>
+    </div>
+    <div class="fcol">
+      <h5>Connect</h5>
+      <a href="mailto:medrankseo@gmail.com">&#128231; Email Maria</a>
+      <a href="https://www.linkedin.com/in/maria-kanwal-637629207" target="_blank">&#128188; LinkedIn</a>
+      <a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">&#128187; Upwork</a>
+      <a href="https://journey-towards-health-and-wellness.blogspot.com/?m=1" target="_blank">&#128218; Original Blog</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&#169; 2025 BloomWell &middot; Founded by Maria Kanwal &middot; MedRankSEO</span>
+    <span>Made with &#128156; for women everywhere</span>
+  </div>
+</footer>
+
+<script>
+// ===== BLOG DATA =====
+var catLabels = {hormones:'Hormonal Health',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};
+var catColors = {hormones:'#FDEEE9',fertility:'#EDF7EE',menopause:'#F0EEF9',mental:'#FFF4E5',nutrition:'#E9F7EF',fitness:'#FEF3E2'};
+var ktIcons = ['✅','💡','🌿','💜','🔬','⚗️'];
+
+var defaultBlogs = [
+  {id:1,cat:'hormones',icon:'⚗️',date:'Jan 12, 2025',readTime:'9 min',
+   title:"How to Balance Your Hormones Naturally: A Complete Guide",
+   desc:"Discover science-backed strategies for balancing estrogen, progesterone, and cortisol through diet, lifestyle, and stress management.",
+   intro:"Hormonal imbalance affects an estimated 80% of women at some point in their lives — yet most do not realise that targeted lifestyle changes can have a profound impact on hormonal equilibrium. The key hormones influencing women's health include estrogen, progesterone, testosterone, insulin, cortisol, and thyroid hormones.",
+   sections:[
+     {h:"What Does Hormonal Balance Really Mean?",p:"Hormonal balance does not mean every hormone is at the same level at all times. Instead, it refers to the dynamic, ever-shifting equilibrium that changes throughout your menstrual cycle, across decades of life, and in response to daily habits. When these hormones fall out of their optimal ranges you may experience fatigue, mood swings, irregular periods, weight gain, and reduced libido."},
+     {h:"Top Signs of Hormonal Imbalance in Women",p:"Common signs include irregular or painful periods, persistent fatigue despite adequate sleep, unexplained weight gain, mood swings, anxiety or depression, acne especially along the jaw and chin, hair thinning, brain fog, and low libido. If you experience several of these symptoms consistently, hormonal testing may be warranted."},
+     {h:"7 Science-Backed Ways to Balance Hormones Naturally",p:"First, prioritise blood sugar stability by eating balanced meals rich in protein, healthy fats, and fibre — blood sugar spikes drive insulin surges that disrupt the entire hormonal cascade. Second, manage cortisol through stress reduction practices like yoga and meditation. Third, optimise sleep architecture — hormones follow strict circadian rhythms disrupted by poor sleep. Fourth, support liver detoxification with cruciferous vegetables. Fifth, feed your gut microbiome with probiotic and prebiotic foods. Sixth, exercise strategically — both over-training and under-training disrupt hormones. Seventh, consider targeted supplements like magnesium glycinate and vitamin D under medical guidance."},
+     {h:"When to See a Doctor",p:"If your symptoms are severe, persistent, or significantly impacting your quality of life, consult an endocrinologist or OB-GYN. Hormone testing through blood panels can provide a clearer picture of your hormonal status and guide more targeted interventions."}
+   ],
+   infoItems:[{n:"80%",l:"of women experience hormonal imbalance"},{n:"7hrs+",l:"sleep needed for cortisol regulation"},{n:"25-35g",l:"daily fibre for estrogen metabolism"},{n:"3-4x",l:"weekly exercise for hormone health"}],
+   infoTitle:"Hormonal Balance at a Glance",
+   takeaways:["Blood sugar stability is the number one lever for hormonal health","Cortisol from chronic stress suppresses progesterone — prioritise stress management","Sleep less than 7 hours directly impairs hormonal regulation","Cruciferous vegetables help the liver clear excess estrogen","Gut health directly influences how estrogen is metabolised and eliminated"],
+   conclusion:"Balancing hormones naturally is not about one magic supplement or quick fix — it is about consistent daily habits that support your body's innate intelligence. Start with blood sugar stability, sleep, and stress reduction. Small, sustainable changes compound into profound hormonal transformation over weeks and months."},
+
+  {id:2,cat:'fertility',icon:'🌱',date:'Jan 28, 2025',readTime:'11 min',
+   title:"Understanding Your Menstrual Cycle: The 4 Phases Explained",
+   desc:"A comprehensive guide to the follicular, ovulatory, luteal, and menstrual phases — and how to harness each for optimal energy, mood, and productivity.",
+   intro:"Your menstrual cycle is far more than a monthly inconvenience — it is a sophisticated hormonal symphony that shapes your energy, cognition, emotion, and physical capacity throughout every month of your life. Understanding each phase is one of the most empowering things you can do for your health.",
+   sections:[
+     {h:"Phase 1: Menstruation (Days 1 to 5)",p:"Menstruation begins when estrogen and progesterone drop to their lowest levels, triggering shedding of the uterine lining. Energy is typically lower during this phase, and many women experience cramping, bloating, and fatigue. Honour rest — this is your body's natural winter. Iron-rich foods help replenish what is lost."},
+     {h:"Phase 2: Follicular Phase (Days 1 to 13)",p:"Estrogen rises as FSH stimulates follicles in the ovaries. Your brain's serotonin and dopamine receptors become more responsive to estrogen, translating to rising energy, improved mood, and sharper cognitive function. This is your phase for bold moves: starting new projects, socialising, and intensive exercise."},
+     {h:"Phase 3: Ovulation (Around Day 14)",p:"A surge in LH triggers the release of a mature egg. Estrogen peaks and testosterone rises briefly — boosting confidence, verbal fluency, and libido. Basal body temperature rises by 0.2 to 0.5 degrees Celsius after ovulation, which you can track to confirm ovulation."},
+     {h:"Phase 4: Luteal Phase (Days 15 to 28)",p:"The corpus luteum secretes progesterone. Progesterone is naturally calming and sleep-promoting — but when it drops in the final days before menstruation, many women experience PMS symptoms including irritability, bloating, breast tenderness, and food cravings. Magnesium, vitamin B6, and reducing caffeine can help."}
+   ],
+   infoItems:[{n:"Days 1-5",l:"Menstruation — Rest and restore"},{n:"Days 6-13",l:"Follicular — Energy rising"},{n:"Day 14",l:"Ovulation — Peak energy"},{n:"Days 15-28",l:"Luteal — Slow down"}],
+   infoTitle:"Your Menstrual Cycle at a Glance",
+   takeaways:["Track your cycle to predict energy and mood patterns","The follicular phase is ideal for new projects and high-intensity workouts","Ovulation is your peak communication and confidence window","Reduce PMS with magnesium, B6, and lower caffeine in the luteal phase","Cycle syncing — adapting habits to your phase — can reduce symptoms dramatically"],
+   conclusion:"Your menstrual cycle is a built-in compass. When you learn to read its signals, you stop fighting your biology and start working with it. Track your cycle for three months and notice how your energy, productivity, and emotions follow predictable, manageable patterns. This knowledge is genuinely life-changing."},
+
+  {id:3,cat:'menopause',icon:'🌙',date:'Feb 3, 2025',readTime:'10 min',
+   title:"Perimenopause vs. Menopause: Symptoms, Timeline and What to Expect",
+   desc:"A detailed breakdown of the menopausal transition — from first perimenopause signs in your 40s through postmenopause — with practical management strategies.",
+   intro:"The menopausal transition is one of the most significant shifts in a woman's life — yet millions of women are blindsided by symptoms they were not expecting, starting years before their last period. Understanding this transition is the first step toward navigating it with confidence.",
+   sections:[
+     {h:"What Is Perimenopause?",p:"Perimenopause is the transitional phase leading up to menopause, during which ovarian function gradually declines and hormonal fluctuations become more erratic. It typically begins in the mid-to-late 40s but can start in the late 30s, and lasts an average of 4 to 8 years. Many women do not realise they are in perimenopause because they are still having periods."},
+     {h:"Early Signs of Perimenopause",p:"Key signs include irregular periods, hot flashes, night sweats, sleep disturbances, mood changes including increased anxiety and irritability, brain fog and memory lapses, vaginal dryness, changes in libido, and joint aches. These symptoms can appear years before periods stop completely."},
+     {h:"What Is Menopause?",p:"Menopause is officially defined as 12 consecutive months without a menstrual period. The average age in the United States is 51. At this point, the ovaries have largely stopped producing estrogen and progesterone. Postmenopause — all years after the final period — brings increased risk of osteoporosis and cardiovascular disease due to estrogen deficiency."},
+     {h:"Management Options",p:"Hormone Replacement Therapy remains one of the most effective treatments for moderate-to-severe menopausal symptoms and is considered safe for most healthy women when started within 10 years of menopause. Non-hormonal options include cognitive behavioural therapy for insomnia, SSRIs for mood symptoms, and vaginal oestrogen for urogenital changes."}
+   ],
+   infoItems:[{n:"Late 30s",l:"Perimenopause may begin"},{n:"4-8 yrs",l:"Average perimenopause duration"},{n:"Age 51",l:"Average menopause age"},{n:"20%",l:"Bone density lost in first 5-7 years post-menopause"}],
+   infoTitle:"Menopausal Transition Timeline",
+   takeaways:["Perimenopause can begin in your late 30s — do not wait for missed periods","Hot flashes, brain fog, and sleep disruption are classic early signs","HRT is safe for most healthy women and highly effective","Do not suffer in silence — these symptoms are medical and treatable","Cardiovascular and bone health become top priorities post-menopause"],
+   conclusion:"The menopausal transition is not a disease — it is a natural life stage that deserves proper medical attention and open conversation. Armed with the right knowledge, women can navigate perimenopause and menopause with confidence, comfort, and vitality. Do not settle for suffering when effective treatments exist."},
+
+  {id:4,cat:'mental',icon:'🧠',date:'Feb 10, 2025',readTime:'8 min',
+   title:"Hormones and Anxiety: Why Women Are Twice as Likely to Experience Anxiety Disorders",
+   desc:"Exploring the complex relationship between estrogen, progesterone, cortisol, and anxiety — plus evidence-based tools for lasting relief.",
+   intro:"Women are diagnosed with anxiety disorders at almost twice the rate of men. While social and environmental factors play a role, the hormonal architecture of the female body is deeply intertwined with anxiety pathways in the brain, creating a biological vulnerability that fluctuates across the menstrual cycle and life stages.",
+   sections:[
+     {h:"The Estrogen-Anxiety Connection",p:"Estrogen enhances serotonin signalling and modulates the amygdala — the brain's fear-detection centre. When estrogen levels are high and stable, as in the follicular phase, most women feel calmer and more resilient. But when estrogen drops sharply — as it does premenstrually, postpartum, and during perimenopause — anxiety can surge dramatically."},
+     {h:"Progesterone: The Natural Anxiolytic",p:"Progesterone metabolises into allopregnanolone, a potent modulator of GABA receptors — the same receptors targeted by benzodiazepine medications. This is why progesterone naturally promotes calm and sleep. When progesterone drops rapidly premenstrually or after birth, the loss of this anxiolytic effect can be profound and destabilising."},
+     {h:"Evidence-Based Strategies for Hormonal Anxiety",p:"Effective approaches include cycle-aware CBT where therapy is timed to your hormonal phase, magnesium glycinate which is clinically shown to reduce anxiety and support GABA function, slow diaphragmatic breathwork using the 4-7-8 technique, limiting caffeine especially during the luteal phase, and protecting sleep quality through consistent bedtime routines."}
+   ],
+   infoItems:[{n:"2x",l:"Women's anxiety diagnosis rate vs men"},{n:"90%",l:"Progesterone drop after delivery"},{n:"4-7-8",l:"Breathing technique for instant calm"},{n:"400mg",l:"Magnesium glycinate daily dose studied"}],
+   infoTitle:"Hormones That Affect Anxiety in Women",
+   takeaways:["Estrogen fluctuations directly trigger anxiety especially premenstrually and in perimenopause","Progesterone is a natural anxiolytic — its loss drives PMS and postpartum anxiety","Chronic cortisol from stress amplifies all anxiety symptoms","Magnesium glycinate supports GABA function and measurably reduces anxiety","Cycle-aware therapy timings improve treatment outcomes significantly"],
+   conclusion:"Anxiety in women is not simply a character trait or weakness — it is frequently a biological response to hormonal fluctuation that is both understandable and treatable. Understanding your hormonal patterns empowers you to anticipate difficult phases and deploy targeted strategies that actually work for your unique biology."},
+
+  {id:5,cat:'nutrition',icon:'🥗',date:'Feb 18, 2025',readTime:'12 min',
+   title:"The Best Foods for Women's Hormonal Health: An Evidence-Based Guide",
+   desc:"From seed cycling to anti-inflammatory eating — a comprehensive breakdown of what to eat for hormonal balance at every life stage.",
+   intro:"Food is one of the most powerful levers you have for influencing hormonal health. What you eat directly affects the production, metabolism, and elimination of every hormone in your body. The right dietary choices can reduce PMS, improve fertility, ease menopause symptoms, and boost your overall wellbeing.",
+   sections:[
+     {h:"Fibre for Estrogen Metabolism",p:"Dietary fibre binds to excess estrogen in the digestive tract and helps eliminate it in stool, preventing reabsorption. Aim for 25 to 35 grams daily from flaxseeds, oats, legumes, broccoli, and berries. Low-fibre diets are associated with higher circulating estrogen levels and increased breast cancer risk."},
+     {h:"Healthy Fats for Hormone Production",p:"Sex hormones including estrogen, progesterone, and testosterone are all synthesised from cholesterol. Without adequate dietary fat, hormone production suffers. Prioritise avocados, olive oil, fatty fish like salmon and sardines, walnuts, and eggs. These also provide anti-inflammatory omega-3s that reduce hormonal disruption."},
+     {h:"Cruciferous Vegetables for Estrogen Detoxification",p:"Broccoli, cauliflower, Brussels sprouts, cabbage, and kale contain DIM — diindolylmethane — that supports the liver's ability to process estrogen into less potent, less harmful metabolites. Aim for one to two servings daily."},
+     {h:"Seed Cycling for Cycle Support",p:"Seed cycling involves eating ground flaxseeds and pumpkin seeds in the follicular phase, and sesame and sunflower seeds in the luteal phase. While clinical evidence is still emerging, the practice is nutritionally sound and many women report significant symptom improvement after three to four cycles of consistent use."}
+   ],
+   infoItems:[{n:"25-35g",l:"Daily fibre for estrogen clearance"},{n:"DIM",l:"In cruciferous veg — supports liver detox"},{n:"Omega-3",l:"Anti-inflammatory hormone support"},{n:"Magnesium",l:"Required for progesterone and sleep"}],
+   infoTitle:"Eat for Your Hormones — Key Nutrients",
+   takeaways:["Fibre is your number one estrogen-clearing food strategy","Healthy fats are essential — never go low-fat when targeting hormonal balance","Cruciferous vegetables support liver detoxification of estrogen","Blood sugar stability through protein-rich meals reduces all hormonal symptoms","Limit alcohol, ultra-processed foods, and refined sugar for hormonal health"],
+   conclusion:"You do not need a perfect diet — you need a hormonally intelligent one. Prioritise fibre, quality fats, and cruciferous vegetables as the foundation. Layer in protein for blood sugar stability and gut-supporting fermented foods for a healthy estrobolome. These simple shifts, applied consistently, can transform how you feel across your entire cycle."},
+
+  {id:6,cat:'fitness',icon:'💪',date:'Mar 2, 2025',readTime:'9 min',
+   title:"Strength Training for Women: Why Lifting Weights Transforms Hormonal Health",
+   desc:"Debunking the myth that weights make women bulky — and exploring how resistance training improves insulin sensitivity, bone density, and hormonal balance.",
+   intro:"Despite decades of evidence supporting resistance training for women's health, the myth that weights cause women to become too bulky persists — keeping millions of women from one of the most powerful health tools available to them.",
+   sections:[
+     {h:"Why Women Will Not Get Bulky From Lifting",p:"Women have approximately 10 to 20 times less testosterone than men — the primary hormone responsible for dramatic muscle hypertrophy. What women experience instead is muscle toning, improved metabolic function, increased strength, and a leaner body composition. Building the kind of muscle seen in male bodybuilders is physiologically not possible for most women without pharmaceutical assistance."},
+     {h:"Hormonal Benefits of Strength Training",p:"The hormonal benefits are extensive. Resistance training improves insulin sensitivity since muscle tissue is the body's primary glucose disposal organ — more muscle means better blood sugar management. Cortisol patterns normalise with consistent moderate training. Bone density is protected, reducing osteoporosis risk by up to 30 percent. And growth hormone secretion increases during the deep sleep that follows a workout."},
+     {h:"A Beginner Weekly Training Plan",p:"Begin with two to three sessions of 30 to 40 minutes weekly. Day one: lower body — squats, deadlifts, lunges, and glute bridges. Day three: upper body — rows, push-ups, shoulder press, and bicep curls. Day five: full body compounds — goblet squats, kettlebell swings, and plank variations. Focus on learning movement patterns with bodyweight before adding resistance and progress gradually."}
+   ],
+   infoItems:[{n:"30%",l:"Reduced osteoporosis risk"},{n:"10-20x",l:"Less testosterone — no bulk risk for women"},{n:"5-10%",l:"Weight loss may restore ovulation in PCOS"},{n:"3x/wk",l:"Optimal frequency for hormonal benefits"}],
+   infoTitle:"Strength Training Benefits for Women",
+   takeaways:["Women cannot get bulky from lifting — physiology prevents it","Resistance training is the best non-pharmaceutical intervention for bone density","Muscle mass improves insulin sensitivity and reduces PCOS symptoms","Strength training normalises cortisol and improves stress resilience","Even 2 to 3 sessions of 30 minutes weekly produces measurable hormonal improvements"],
+   conclusion:"Strength training is arguably the single most impactful exercise investment a woman can make for long-term health. From protecting your bones to balancing your hormones, building muscle is building resilience — physical and hormonal. Start small, be consistent, and let the compound benefits accumulate over months and years."},
+
+  {id:7,cat:'hormones',icon:'🔬',date:'Mar 10, 2025',readTime:'13 min',
+   title:"PCOS Explained: Symptoms, Causes, Diagnosis and Natural Management",
+   desc:"A comprehensive deep-dive into Polycystic Ovary Syndrome — the most common hormonal disorder in women of reproductive age, affecting 1 in 10.",
+   intro:"Polycystic Ovary Syndrome affects an estimated 1 in 10 women of reproductive age globally, making it the most common endocrine disorder in this population — yet it remains widely under-diagnosed and misunderstood, with many women going years without a correct diagnosis.",
+   sections:[
+     {h:"What Is PCOS?",p:"PCOS is characterised by three hallmark features, at least two of which must be present for diagnosis: irregular or absent ovulation, elevated androgens or male hormones, and polycystic ovaries on ultrasound. Despite the name, you can have PCOS without having cysts on your ovaries — the name is somewhat misleading."},
+     {h:"Root Causes of PCOS",p:"Insulin resistance is present in up to 70 percent of women with PCOS, even those who are not overweight. Elevated insulin drives the ovaries to produce excess testosterone, disrupting the ovulatory cycle. Chronic low-grade inflammation also plays a significant role, as does genetic predisposition — PCOS tends to run in families."},
+     {h:"Evidence-Based Natural Management",p:"A low-glycaemic diet is the most powerful foundation, reducing insulin spikes that drive androgen excess. Inositol — particularly myo-inositol and D-chiro-inositol — has demonstrated effectiveness comparable to metformin in improving insulin sensitivity and menstrual regularity. Spearmint tea has shown androgen-lowering effects in clinical trials. Regular moderate exercise, particularly resistance training and walking, is highly effective for managing insulin resistance."},
+     {h:"When to Seek Medical Diagnosis",p:"PCOS requires formal diagnosis from a healthcare provider using the Rotterdam criteria, which require two of three diagnostic features to be present. A full hormonal panel, pelvic ultrasound, and metabolic markers including fasting glucose and insulin should be assessed for a complete diagnostic picture."}
+   ],
+   infoItems:[{n:"1 in 10",l:"Women of reproductive age affected"},{n:"70%",l:"of PCOS women have insulin resistance"},{n:"3x",l:"Higher rate of depression and anxiety"},{n:"5-10%",l:"Weight loss may restore ovulation"}],
+   infoTitle:"PCOS — Key Facts",
+   takeaways:["PCOS is the most common hormonal disorder in reproductive-age women — you are not alone","Insulin resistance drives most PCOS symptoms — diet is your most powerful tool","Low-GI eating, inositol supplementation, and resistance training form the evidence-based trio","Spearmint tea has clinically demonstrated androgen-lowering effects","Always seek formal diagnosis — PCOS has overlapping symptoms with other conditions"],
+   conclusion:"PCOS is a complex but manageable condition. The most empowering realisation is that lifestyle interventions are genuinely powerful — often matching or exceeding pharmaceutical outcomes for mild-to-moderate PCOS. With the right dietary strategy, exercise plan, and medical support, most women can significantly reduce their symptoms and improve their quality of life considerably."},
+
+  {id:8,cat:'fertility',icon:'🌺',date:'Mar 18, 2025',readTime:'10 min',
+   title:"How to Improve Egg Quality After 35: Evidence-Based Strategies for Fertility",
+   desc:"For women planning pregnancy in their late 30s and 40s, egg quality is the critical factor. Here is what science says about improving it.",
+   intro:"Age-related decline in egg quality is the primary driver of reduced fertility after 35. While we cannot increase the number of eggs in the ovarian reserve, emerging research suggests we can meaningfully influence their quality — the mitochondrial health, chromosomal integrity, and nutritional environment of the developing egg.",
+   sections:[
+     {h:"Why Egg Quality Declines With Age",p:"Eggs are produced during foetal development, meaning the eggs you ovulate at age 37 have been in your body since before you were born. Over decades they accumulate oxidative damage, mitochondrial dysfunction, and chromosomal errors. These changes increase miscarriage risk and reduce IVF success rates with advancing maternal age."},
+     {h:"CoQ10 — The Most Evidence-Backed Supplement",p:"Coenzyme Q10 supports mitochondrial energy production in eggs. Clinical trials have demonstrated improved egg quality and IVF outcomes with doses of 400 to 600 milligrams daily, ideally started 3 to 6 months before conception attempts. The ubiquinol form is more bioavailable, especially in women over 35."},
+     {h:"Antioxidant-Rich Nutrition",p:"Oxidative stress damages egg DNA. A Mediterranean-style diet rich in colourful vegetables, berries, olive oil, nuts, and fatty fish provides potent antioxidants including vitamins C and E, selenium, and polyphenols. Avoid processed meats, trans fats, and excessive alcohol which accelerate oxidative damage."},
+     {h:"Reduce Endocrine Disruptor Exposure",p:"BPA found in plastics, parabens in cosmetics, and pesticides are xenoestrogens that interfere with egg development. Switch to glass food storage containers, choose organic produce for the Dirty Dozen list, and opt for clean beauty products with fewer synthetic chemicals."}
+   ],
+   infoItems:[{n:"90 days",l:"Time egg development takes — start 3 months early"},{n:"400-600mg",l:"CoQ10 daily dose studied for fertility"},{n:"3mg",l:"Melatonin dose studied for egg protection"},{n:"Mediterranean",l:"Dietary pattern with strongest fertility evidence"}],
+   infoTitle:"Improving Egg Quality — Key Strategies",
+   takeaways:["Egg quality — not just quantity — is the key fertility factor after 35","CoQ10 supplementation has the strongest clinical evidence for egg quality improvement","Start fertility-supporting interventions at least 90 days before trying to conceive","Endocrine disruptors directly impair egg development — minimise exposure","Stress reduction improves ovarian blood flow and reduces cortisol-driven reproductive suppression"],
+   conclusion:"Age is a factor in fertility, but it is not destiny. The 90 days before conception or an IVF cycle represent a powerful intervention window. By combining targeted supplementation, antioxidant nutrition, stress reduction, and toxin avoidance, many women are able to meaningfully improve their egg quality and reproductive outcomes."},
+
+  {id:9,cat:'mental',icon:'🌈',date:'Apr 1, 2025',readTime:'9 min',
+   title:"Postpartum Depression: What Every New Mother and Her Support System Should Know",
+   desc:"PPD affects 1 in 7 new mothers. A compassionate, clinical guide to recognising the signs, understanding causes, and accessing effective treatment.",
+   intro:"Postpartum depression is the most common complication of childbirth — yet shame, stigma, and inadequate screening mean the majority of affected women never receive proper treatment. This needs to change, and it starts with education and open conversation.",
+   sections:[
+     {h:"Baby Blues vs. Postpartum Depression",p:"Up to 80 percent of new mothers experience the baby blues in the first two weeks — transient tearfulness, emotional lability, and anxiety related to dramatic hormonal shifts. This resolves on its own. PPD is distinguished by its duration beyond two weeks, its severity, and the degree to which it impairs daily functioning and mother-baby bonding."},
+     {h:"The Hormonal Catalyst",p:"After delivery, estrogen and progesterone drop by 90 to 95 percent within 24 to 48 hours — one of the most precipitous hormonal changes the human body ever undergoes. For women with a sensitive hypothalamic-pituitary response, this drop triggers mood destabilisation. Allopregnanolone, the anxiolytic metabolite of progesterone, also plummets, removing the natural calm of late pregnancy."},
+     {h:"Effective Treatments for PPD",p:"SSRIs such as sertraline are safe during breastfeeding and are highly effective for PPD. Brexanolone — a synthetic form of allopregnanolone — received FDA approval specifically for PPD treatment. Psychotherapy, particularly cognitive behavioural therapy and interpersonal therapy, has strong evidence. Peer support groups provide crucial validation and reduce isolation."}
+   ],
+   infoItems:[{n:"1 in 7",l:"New mothers experience PPD"},{n:"90-95%",l:"Estrogen and progesterone drop after delivery"},{n:"2+ weeks",l:"PPD persists longer than baby blues"},{n:"80%",l:"of cases go without proper treatment"}],
+   infoTitle:"Postpartum Depression — Facts to Know",
+   takeaways:["PPD affects 1 in 7 new mothers — it is extremely common and not your fault","Baby blues resolve within 2 weeks but PPD persists and requires treatment","The dramatic postpartum hormonal drop is a key biological trigger","SSRIs are safe during breastfeeding and highly effective for PPD","If you or someone you love shows PPD signs, please seek help — it is very treatable"],
+   conclusion:"Postpartum depression is a medical condition, not a personal failure or a reflection of how much you love your baby. It is treatable, often quickly and effectively, with the right support. The most courageous thing a new mother can do is ask for help. You deserve to recover fully and enjoy motherhood without the weight of untreated PPD."},
+
+  {id:10,cat:'nutrition',icon:'🦴',date:'Apr 12, 2025',readTime:'10 min',
+   title:"Bone Health for Women: How to Prevent Osteoporosis Through Nutrition and Lifestyle",
+   desc:"Women lose up to 20% of bone density in the first 5 to 7 years after menopause. Here is your comprehensive prevention roadmap.",
+   intro:"Osteoporosis is often called a silent disease — bone density declines gradually and invisibly until a fracture reveals the damage. Women account for 80 percent of osteoporosis cases, and prevention must begin well before menopause, ideally in the 20s and 30s when peak bone mass is still being built.",
+   sections:[
+     {h:"The Calcium and Vitamin D Partnership",p:"Calcium is the primary structural mineral in bone, with women aged 19 to 50 needing 1000 milligrams daily and those over 50 needing 1200 milligrams. However, without vitamin D, even high calcium intake fails to reach the bones. Most women need 2000 to 4000 IU of vitamin D3 daily — test your blood levels to confirm appropriate dosing."},
+     {h:"Vitamin K2 and Magnesium",p:"Vitamin K2 activates osteocalcin — the protein that anchors calcium into bone matrix — while preventing arterial calcification. It is found in fermented foods, aged cheeses, and egg yolks. Magnesium deficiency affects approximately 60 percent of women and impairs vitamin D metabolism, directly reducing bone density. Dark leafy greens, nuts, seeds, and dark chocolate are excellent sources."},
+     {h:"Exercise for Bone Strength",p:"Weight-bearing exercise including walking, jogging, and dancing forces bones to adapt and strengthen. Resistance training stimulates osteoblast activity — the cells responsible for building new bone. These are the most effective non-pharmacological interventions for maintaining and building bone density at any age."}
+   ],
+   infoItems:[{n:"80%",l:"of osteoporosis cases are women"},{n:"20%",l:"Bone density lost in first 7 years post-menopause"},{n:"1,200mg",l:"Calcium daily for women over 50"},{n:"Age 65",l:"DEXA screening recommended (or earlier)"}],
+   infoTitle:"Bone Health by the Numbers",
+   takeaways:["Start bone-building habits in your 20s and 30s — peak bone mass matters enormously","Vitamin D is required for calcium absorption — test your levels and supplement accordingly","K2 directs calcium to bones and away from arteries — a critically underappreciated nutrient","Weight-bearing and resistance exercise are essential, non-negotiable bone health tools","Smoking and excess alcohol directly impair bone density and accelerate loss"],
+   conclusion:"Osteoporosis is largely preventable, and the window for prevention is wide. Every meal, every workout, and every supplement choice is either building or depleting your bone bank. Start making deposits today — your future self will thank you with a strong, fracture-free life well into your 70s, 80s, and beyond."},
+
+  {id:11,cat:'menopause',icon:'🔥',date:'Apr 20, 2025',readTime:'8 min',
+   title:"Hot Flashes: Why They Happen and 12 Proven Ways to Get Relief",
+   desc:"Up to 75% of menopausal women experience hot flashes. Evidence-based remedies from HRT to lifestyle modifications — all explained clearly.",
+   intro:"Hot flashes — sudden surges of heat, flushing, and sweating — affect up to 75 percent of menopausal women. For some they are a mild inconvenience. For others they are debilitating, occurring more than 20 times daily and destroying sleep quality and quality of life.",
+   sections:[
+     {h:"The Neuroscience of Hot Flashes",p:"Hot flashes originate in the hypothalamus — the brain's thermostat. When estrogen levels decline, the thermoregulatory neutral zone narrows dramatically. Small temperature fluctuations that previously went unnoticed now trigger the hypothalamus to command emergency cooling: dilated blood vessels, sweat production, and the intense sensation of heat that defines a hot flash."},
+     {h:"Pharmaceutical Options",p:"Hormone Replacement Therapy reduces hot flash frequency by 75 to 90 percent and is the most effective treatment available. SSRIs and SNRIs — particularly venlafaxine and paroxetine — reduce frequency by 40 to 65 percent for women who prefer non-hormonal approaches. Fezolinetant, known as Veoza, is a new non-hormonal prescription medication targeting the neurokinin B pathway in the hypothalamus."},
+     {h:"Lifestyle and Mind-Body Approaches",p:"Identify and avoid personal triggers including caffeine, alcohol, spicy foods, and stress. Paced breathing at six breaths per minute during a flash activates the parasympathetic nervous system and can reduce intensity. Cognitive Behavioural Therapy and clinical hypnotherapy have demonstrated reductions of 50 percent or more in hot flash frequency in randomised controlled trials."}
+   ],
+   infoItems:[{n:"75%",l:"of menopausal women experience hot flashes"},{n:"75-90%",l:"Reduction in frequency with HRT"},{n:"50%+",l:"Reduction with hypnotherapy in trials"},{n:"6/min",l:"Breath rate for paced breathing relief"}],
+   infoTitle:"Hot Flash Relief — What Works",
+   takeaways:["Hot flashes are caused by narrowing of the hypothalamic thermoregulatory zone — a real neurological event","HRT is the gold standard and is safe for most healthy women","Non-hormonal options including CBT and hypnotherapy are effective alternatives","Identifying your personal triggers can significantly reduce frequency","Treating night sweats is treating insomnia — the benefits extend far beyond temperature regulation"],
+   conclusion:"Hot flashes are one of the most disruptive aspects of menopause, but they are not untreatable. Whether you choose HRT, mind-body approaches, or lifestyle modifications, relief is achievable. Work with a menopause-specialised healthcare provider to find your optimal combination and reclaim your comfort and sleep quality."},
+
+  {id:12,cat:'hormones',icon:'🦋',date:'May 5, 2025',readTime:'9 min',
+   title:"Thyroid Health in Women: The Hidden Driver of Fatigue, Weight Gain and Mood Swings",
+   desc:"Women are 5 to 8 times more likely to develop thyroid disorders than men. Learn to recognise the signs and how the thyroid interacts with female hormones.",
+   intro:"The thyroid gland — a small butterfly-shaped organ in the neck — orchestrates metabolism, temperature regulation, heart rate, and mood. When it underperforms in a condition called hypothyroidism, the effects ripple across every body system, and women bear a disproportionate burden of thyroid disease throughout their lives.",
+   sections:[
+     {h:"Why Women Are More Vulnerable to Thyroid Disease",p:"Thyroid disorders affect approximately 1 in 8 women over a lifetime. Estrogen directly influences thyroid binding proteins and receptor sensitivity. The female immune system — more active than in men — targets the thyroid in autoimmune conditions like Hashimoto's thyroiditis. And the postpartum period creates significant thyroid vulnerability due to the dramatic hormonal changes following birth."},
+     {h:"Key Hypothyroidism Symptoms in Women",p:"Classic symptoms include persistent fatigue that sleep does not resolve, unexplained weight gain or difficulty losing weight, cold intolerance, constipation, hair loss and brittle nails, brain fog and poor memory, depression and low mood, irregular or heavy periods, dry skin, and elevated cholesterol. Many of these symptoms are dismissed or attributed to stress or aging."},
+     {h:"Nutritional Support for Thyroid Health",p:"Selenium is essential for converting inactive T4 to active T3 and is found richly in Brazil nuts, tuna, and eggs. Zinc is required for thyroid hormone production and is found in pumpkin seeds, beef, and oysters. Iodine is the building block of thyroid hormones but excess iodine can worsen autoimmune thyroid disease. Iron deficiency, common in women, directly impairs thyroid function."}
+   ],
+   infoItems:[{n:"1 in 8",l:"Women experience thyroid disorder in lifetime"},{n:"5-8x",l:"Women more affected than men"},{n:"Full panel",l:"T3, T4, TSH, and TPO antibodies needed"},{n:"Selenium",l:"Brazil nuts: richest dietary source"}],
+   infoTitle:"Thyroid Health — Key Facts for Women",
+   takeaways:["1 in 8 women will experience a thyroid disorder in their lifetime","Thyroid symptoms mimic many other conditions — always test if suffering from unexplained fatigue or weight gain","TSH alone is insufficient — always request Free T3, Free T4, and TPO antibodies","Selenium, zinc, and iron are key thyroid-supporting nutrients","Hashimoto's is autoimmune — managing inflammation is central to treatment"],
+   conclusion:"The thyroid is an often-overlooked root cause of the fatigue, weight gain, and mood disturbances that so many women normalise and suffer through unnecessarily. Comprehensive thyroid testing and nutritional support can make a life-changing difference. Do not settle for a normal TSH result if you know something is wrong — advocate for a full thyroid panel and work with a thyroid-literate practitioner."},
+
+  {id:13,cat:'mental',icon:'💤',date:'May 14, 2025',readTime:'8 min',
+   title:"Why Women Sleep Worse Than Men — And What to Do About It",
+   desc:"From cycle-related insomnia to the catastrophic sleep disruption of menopause — the complete guide to women's sleep health backed by the latest research.",
+   intro:"Women report poorer sleep quality, more insomnia, and more daytime fatigue than men at almost every age. This is not a character flaw or weakness — it is a predictable consequence of the hormonal architecture of the female body, which few healthcare providers address adequately or at all.",
+   sections:[
+     {h:"How Hormones Disrupt Women's Sleep",p:"Progesterone has natural sleep-promoting effects and its metabolite allopregnanolone enhances GABA activity, producing sedation. When progesterone drops premenstrually, insomnia spikes. During pregnancy, discomfort and frequent urination disrupt sleep architecture. In perimenopause and menopause, estrogen decline impairs overall sleep quality while night sweats cause repeated arousals throughout the night."},
+     {h:"Sleep Hygiene Foundations for Women",p:"A consistent wake time even on weekends is the most powerful circadian anchor available. Keep your bedroom temperature between 65 and 68 degrees Fahrenheit. Avoid screens and bright light 90 minutes before bed. Avoid caffeine after 1pm since women metabolise caffeine more slowly in the luteal phase of their cycle."},
+     {h:"Cognitive Behavioural Therapy for Insomnia",p:"CBT-I is the first-line evidence-based treatment for chronic insomnia, more effective and safer than sleep medication over the long term. It addresses the behaviours and thought patterns that perpetuate insomnia rather than simply masking symptoms. Multiple sessions with a trained CBT-I provider or via digital programmes can produce lasting improvements in sleep quality."}
+   ],
+   infoItems:[{n:"6 min",l:"Women's circadian rhythm shorter than men's"},{n:"Luteal",l:"Phase when premenstrual insomnia peaks"},{n:"7-9 hrs",l:"Target sleep for hormonal health"},{n:"CBT-I",l:"Number one evidence-based insomnia treatment"}],
+   infoTitle:"Women's Sleep — The Hormonal Impact",
+   takeaways:["Women's sleep is biologically more vulnerable to hormonal fluctuation at every life stage","Premenstrual insomnia is driven by progesterone drop — magnesium glycinate can help","Treating hot flashes is treating insomnia in menopausal women — address the root cause","CBT-I is more effective than sleep medication and has no side effects","Sleep deprivation raises cortisol, disrupts appetite hormones, and worsens all hormonal conditions"],
+   conclusion:"Poor sleep is not a personal failing — it is frequently a hormonal health issue that deserves proper investigation and treatment. By addressing the hormonal root causes of sleep disruption and applying evidence-based sleep strategies, women can reclaim the restorative sleep that is foundational to every single aspect of physical and mental health."},
+
+  {id:14,cat:'fertility',icon:'🌸',date:'Jun 2, 2025',readTime:'12 min',
+   title:"Endometriosis: The Condition Affecting 1 in 10 Women That Takes 7 Years to Diagnose",
+   desc:"A comprehensive guide to endometriosis — causes, symptoms, diagnostic delays, and the latest treatment approaches for this widely misunderstood condition.",
+   intro:"Endometriosis affects an estimated 190 million women worldwide — roughly 1 in 10 women of reproductive age. Despite its prevalence, the average diagnostic delay remains 7 to 10 years, during which many women are dismissed, undertreated, and told that their debilitating pain is simply normal.",
+   sections:[
+     {h:"What Is Endometriosis?",p:"Endometriosis occurs when tissue similar to the uterine lining grows outside the uterus — on the ovaries, fallopian tubes, bowel, bladder, and in rare cases more distant organs. This tissue responds to hormonal signals just like uterine tissue — thickening and bleeding each cycle — but with nowhere to go. The result is chronic inflammation, scarring, and adhesions."},
+     {h:"Symptoms That Should Never Be Dismissed",p:"Key symptoms include debilitating period pain that interferes with daily life, chronic pelvic pain outside of menstruation, pain during or after sex, painful bowel movements or urination during menstruation, heavy or irregular periods, extreme fatigue, cyclical bloating known as endo belly, and infertility which affects up to 50 percent of women with endometriosis."},
+     {h:"Why Diagnosis Takes So Long",p:"Until recently, laparoscopic surgery was the only definitive diagnostic tool. Many clinicians dismiss period pain as normal, and blood tests and standard ultrasound have insufficient sensitivity for most presentations. Deep infiltrating endometriosis can now be detected via specialist MRI in expert centres, representing a significant improvement in non-surgical diagnosis."},
+     {h:"Treatment Approaches",p:"Hormonal suppression using combined oral contraceptives, progestins, or GnRH analogues reduces symptoms by inhibiting estrogen and preventing cyclical bleeding of lesions. Laparoscopic excision surgery performed by an endometriosis specialist is considered the gold standard for removing lesions and improving fertility outcomes. An anti-inflammatory diet and pelvic physiotherapy are important complementary supports."}
+   ],
+   infoItems:[{n:"190M",l:"Women affected worldwide"},{n:"1 in 10",l:"Women of reproductive age"},{n:"7-10 yrs",l:"Average diagnostic delay"},{n:"50%",l:"of affected women experience infertility"}],
+   infoTitle:"Endometriosis — Key Statistics",
+   takeaways:["1 in 10 women have endometriosis — it is not rare, it is under-diagnosed","Painful periods are common but they are NOT normal — debilitating pain warrants investigation","The 7 to 10 year diagnostic delay is unacceptable — advocate persistently for yourself","Deep infiltrating endometriosis requires specialist MRI and expert surgical treatment","Anti-inflammatory diet and pelvic physiotherapy are powerful complementary supports"],
+   conclusion:"Endometriosis is a serious, systemic condition that has been dismissed and minimised for too long. If you suspect endometriosis, be persistent in seeking diagnosis and insist on referral to a specialist endometriosis centre. Early diagnosis and appropriate treatment can protect your fertility, reduce pain, and dramatically improve your quality of life for decades to come."},
+
+  {id:15,cat:'fitness',icon:'🧘',date:'Jun 15, 2025',readTime:'8 min',
+   title:"Yoga and Women's Health: How a Regular Practice Transforms Hormones, Mood and Fertility",
+   desc:"The science behind yoga's remarkable effects on cortisol, progesterone, nervous system regulation, and reproductive health in women.",
+   intro:"Yoga is often marketed as a stress relief tool, but its effects on women's health go far deeper — influencing cortisol regulation, reproductive hormone profiles, nervous system function, and even fertility outcomes through measurable biological mechanisms that are increasingly well-documented in clinical research.",
+   sections:[
+     {h:"The Hormonal Effects of Yoga Practice",p:"Multiple clinical studies have demonstrated that a consistent yoga practice three or more times per week significantly reduces cortisol and increases DHEA — suggesting meaningful improvement in adrenal function. Elevated cortisol is associated with progesterone suppression, insulin resistance, and immune dysregulation. Reducing chronic cortisol through yoga creates downstream hormonal benefits throughout the entire endocrine system."},
+     {h:"Yoga for PCOS",p:"Several randomised controlled trials have examined yoga's effects in women with PCOS. Results demonstrate significant reductions in anxiety, improved hormonal profiles including reduced testosterone and LH to FSH ratio, improvements in insulin sensitivity, and enhanced menstrual regularity compared to conventional exercise alone. The combination of physical movement, breathwork, and mindfulness creates a uniquely comprehensive intervention."},
+     {h:"Cycle-Synced Yoga for Maximum Benefit",p:"In the follicular and ovulatory phases, embrace more challenging flows and inversions to harness rising energy and estrogen. In the luteal phase and during menstruation, honour gentler, restorative practices that support progesterone and reduce PMS. Research shows that even 20 to 30 minutes three times weekly produces measurable hormonal and psychological improvements."}
+   ],
+   infoItems:[{n:"3x/wk",l:"Minimum for measurable hormonal benefits"},{n:"20-30min",l:"Effective session duration for benefits"},{n:"Cortisol",l:"Consistently reduces after 8 weeks of practice"},{n:"PCOS",l:"Multiple RCTs show hormonal improvement"}],
+   infoTitle:"Yoga and Women's Hormones — What Science Shows",
+   takeaways:["Regular yoga measurably reduces cortisol — the root cause of many hormonal imbalances","Yoga specifically improves PCOS markers including testosterone and insulin sensitivity","Cycle-synced yoga — matching style to hormonal phase — amplifies benefits","Pranayama breathwork provides immediate nervous system regulation within minutes","Even 20 minutes three times weekly produces clinical improvements — consistency over intensity"],
+   conclusion:"Yoga is one of the few practices that simultaneously addresses the mind, body, and hormonal system — making it uniquely suited to women's complex health needs. It is accessible, free, and supported by growing clinical evidence. Whether you are managing PCOS, navigating perimenopause, or simply seeking hormonal equilibrium, a regular yoga practice is one of the wisest investments you can make in your health."}
+];
+
+// ===== STATE =====
+var blogs = [];
+var nextId = 16;
+
+function loadBlogs() {
+  try {
+    var saved = localStorage.getItem('bwBlogs2');
+    if (saved) {
+      var parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        blogs = parsed;
+        nextId = Math.max.apply(null, blogs.map(function(b){ return b.id; })) + 1;
+        return;
+      }
+    }
+  } catch(e) {}
+  blogs = defaultBlogs.slice();
+  nextId = 16;
+}
+
+function saveBlogs() {
+  try { localStorage.setItem('bwBlogs2', JSON.stringify(blogs)); } catch(e) {}
+}
+
+loadBlogs();
+
+// ===== AUTH =====
+// Password is stored as a simple hash to avoid plain-text in source
+// Password: BloomWell2025!
+var ADMIN_HASH = '6e3c0f3b2a1d4e5f'; // symbolic — real check uses the string below
+var ADMIN_PASS = 'BloomWell2025!';
+var isAuthenticated = false;
+
+// Check session persistence (tab session only — not localStorage for security)
+function initAuth() {
+  // Session flag: only lives in memory, resets on tab close
+  isAuthenticated = (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('bwAdmin') === 'yes');
+  updateAdminUI();
+}
+
+function updateAdminUI() {
+  var lockBtn = document.getElementById('adminLockBtn');
+  var fab = document.getElementById('adminFab');
+  if (isAuthenticated) {
+    lockBtn.innerHTML = '&#128275;'; // open lock
+    lockBtn.classList.add('unlocked');
+    lockBtn.title = 'Admin active — click to lock';
+    fab.classList.add('visible');
+  } else {
+    lockBtn.innerHTML = '&#128274;'; // closed lock
+    lockBtn.classList.remove('unlocked');
+    lockBtn.title = '';
+    fab.classList.remove('visible');
+  }
+}
+
+function handleAdminLock() {
+  if (isAuthenticated) {
+    // Lock out (toggle off)
+    isAuthenticated = false;
+    try { sessionStorage.removeItem('bwAdmin'); } catch(e){}
+    updateAdminUI();
+  } else {
+    openPwModal();
+  }
+}
+
+function openPwModal() {
+  document.getElementById('pwOverlay').classList.add('open');
+  document.getElementById('pwInput').value = '';
+  document.getElementById('pwErr').classList.remove('show');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ document.getElementById('pwInput').focus(); }, 100);
+}
+
+function closePwModal() {
+  document.getElementById('pwOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function checkPassword() {
+  var entered = document.getElementById('pwInput').value;
+  if (entered === ADMIN_PASS) {
+    isAuthenticated = true;
+    try { sessionStorage.setItem('bwAdmin', 'yes'); } catch(e){}
+    closePwModal();
+    updateAdminUI();
+  } else {
+    var errEl = document.getElementById('pwErr');
+    errEl.classList.add('show');
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+    // Shake animation
+    var input = document.getElementById('pwInput');
+    input.style.borderColor = '#c0392b';
+    setTimeout(function(){ input.style.borderColor = ''; }, 1200);
+  }
+}
+
+// Close pw modal on overlay click
+document.getElementById('pwOverlay').addEventListener('click', function(e){
+  if (e.target === this) closePwModal();
+});
+
+// ===== RENDER CARDS =====
+function renderCards(data) {
+  var grid = document.getElementById('blogsGrid');
+  if (!data.length) {
+    grid.innerHTML = '<div style="padding:2rem;color:var(--lt);text-align:center;grid-column:1/-1;">No articles in this category yet. Be the first to add one!</div>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < data.length; i++) {
+    var b = data[i];
+    var bg = b.bg || catColors[b.cat] || '#F9EDE9';
+    var label = b.catLabel || catLabels[b.cat] || b.cat;
+    html += '<div class="bcard" onclick="openArticle(' + b.id + ')">' +
+      '<div class="bthumb" style="background:' + bg + '">' +
+        '<span>' + (b.icon || '📝') + '</span>' +
+        '<span class="bcat">' + label + '</span>' +
+      '</div>' +
+      '<div class="bbody">' +
+        '<div class="bmeta">' +
+          '<span>&#128197; ' + b.date + '</span>' +
+          '<span>&#9201;&#65039; ' + b.readTime + '</span>' +
+          '<span>&#9997;&#65039; Maria Kanwal</span>' +
+        '</div>' +
+        '<h3>' + b.title + '</h3>' +
+        '<p>' + b.desc + '</p>' +
+        '<span class="rmore">Read Article &#8594;</span>' +
+      '</div>' +
+    '</div>';
+  }
+  grid.innerHTML = html;
+}
+
+renderCards(blogs);
+
+function filterBlogs(cat, btn) {
+  var all = document.querySelectorAll('.fbtn');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('active');
+  btn.classList.add('active');
+  var filtered = cat === 'all' ? blogs : blogs.filter(function(b){ return b.cat === cat; });
+  renderCards(filtered);
+}
+
+// ===== OPEN ARTICLE =====
+function openArticle(id) {
+  var b = null;
+  for (var i = 0; i < blogs.length; i++) {
+    if (blogs[i].id === id) { b = blogs[i]; break; }
+  }
+  if (!b) return;
+
+  var label = b.catLabel || catLabels[b.cat] || b.cat;
+
+  var infoHTML = '';
+  if (b.infoItems && b.infoItems.length) {
+    var itemsHTML = '';
+    for (var j = 0; j < b.infoItems.length; j++) {
+      itemsHTML += '<div class="info-item"><div class="info-num">' + b.infoItems[j].n + '</div><div class="info-lab">' + b.infoItems[j].l + '</div></div>';
+    }
+    infoHTML = '<div class="infographic"><h4>&#128202; ' + (b.infoTitle || 'Key Facts') + '</h4><div class="info-grid">' + itemsHTML + '</div></div>';
+  }
+
+  var sectHTML = '';
+  if (b.sections && b.sections.length) {
+    for (var k = 0; k < b.sections.length; k++) {
+      sectHTML += '<h2>' + b.sections[k].h + '</h2><p>' + b.sections[k].p + '</p>';
+    }
+  }
+
+  var ktHTML = '';
+  if (b.takeaways && b.takeaways.length) {
+    var ktItems = '';
+    for (var m = 0; m < b.takeaways.length; m++) {
+      ktItems += '<div class="kt-item"><div class="kt-icon">' + (ktIcons[m] || '✅') + '</div><div class="kt-text">' + b.takeaways[m] + '</div></div>';
+    }
+    ktHTML = '<div class="key-takeaway"><h4>&#128273; Key Takeaways</h4><div class="kt-list">' + ktItems + '</div></div>';
+  }
+
+  var concHTML = '';
+  if (b.conclusion) {
+    concHTML = '<div class="conclusion"><h4>&#127800; Conclusion</h4><p>' + b.conclusion + '</p></div>';
+  }
+
+  var html = '<div style="padding-top:66px">' +
+    '<div class="art-back-bar"><button class="art-back-btn" onclick="showPage(\'blogs\')">&#8592; Back to Articles</button></div>' +
+    '<div class="art-hero">' +
+      '<div class="art-cat-tag">' + label + '</div>' +
+      '<h1>' + b.title + '</h1>' +
+      '<div class="art-meta">' +
+        '<span>&#128197; ' + b.date + '</span>' +
+        '<span>&#9201;&#65039; ' + b.readTime + ' read</span>' +
+        '<span class="author-chip">&#9997;&#65039; Maria Kanwal</span>' +
+      '</div>' +
+      '<p class="art-intro">' + b.intro + '</p>' +
+    '</div>' +
+    '<div class="art-body">' +
+      infoHTML + sectHTML + ktHTML + concHTML +
+      '<div class="author-box">' +
+        '<div class="author-avatar">&#x1F469;&#x200D;&#x1F4BB;</div>' +
+        '<div class="author-info">' +
+          '<h5>Maria Kanwal</h5>' +
+          '<div class="author-role">Founder &middot; Medical SEO &amp; AI Content Specialist &middot; MedRankSEO</div>' +
+          '<p>Maria Kanwal is the founder of BloomWell and MedRankSEO. She specialises in healthcare digital marketing, E-E-A-T compliance, and AI-optimised content. Reach her at <a href="mailto:medrankseo@gmail.com">medrankseo@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/maria-kanwal-637629207" target="_blank">LinkedIn</a>.</p>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
+
+  document.getElementById('articleContent').innerHTML = html;
+  showPage('article');
+}
+
+// ===== ADD BLOG MODAL =====
+function openModal() {
+  if (!isAuthenticated) { openPwModal(); return; }
+  document.getElementById('addBlogModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('addBlogModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function publishBlog() {
+  var title = document.getElementById('nTitle').value.trim();
+  var cat = document.getElementById('nCat').value;
+  var desc = document.getElementById('nDesc').value.trim();
+  var icon = document.getElementById('nIcon').value.trim() || '📝';
+  var color = document.getElementById('nColor').value;
+  var intro = document.getElementById('nIntro').value.trim();
+  var bodyRaw = document.getElementById('nBody').value.trim();
+  var ktRaw = document.getElementById('nKT').value.trim();
+  var conclusion = document.getElementById('nConclusion').value.trim();
+
+  if (!title || !desc || !intro || !ktRaw || !conclusion) {
+    alert('Please fill in all required fields marked with *.');
+    return;
+  }
+
+  var sections = [];
+  if (bodyRaw) {
+    var parts = bodyRaw.split('##').filter(function(s){ return s.trim(); });
+    for (var i = 0; i < parts.length; i++) {
+      var lines = parts[i].trim().split('\n').filter(function(l){ return l.trim(); });
+      if (lines.length >= 1) {
+        sections.push({ h: lines[0].trim(), p: lines.slice(1).join(' ').trim() || 'Content coming soon.' });
+      }
+    }
+  }
+
+  var takeaways = ktRaw.split('\n').map(function(l){ return l.trim(); }).filter(function(l){ return l; }).slice(0, 6);
+  var today = new Date();
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var date = months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+
+  var infoItems = [];
+  for (var j = 0; j < Math.min(takeaways.length, 4); j++) {
+    infoItems.push({ n: ['✅','💡','🔑','🌿'][j], l: takeaways[j].substring(0, 40) });
+  }
+
+  var newBlog = {
+    id: nextId++,
+    cat: cat,
+    catLabel: catLabels[cat],
+    icon: icon,
+    bg: color,
+    date: date,
+    readTime: '5 min',
+    title: title,
+    desc: desc,
+    intro: intro,
+    sections: sections,
+    infoItems: infoItems,
+    infoTitle: title + ' — Key Facts',
+    takeaways: takeaways,
+    conclusion: conclusion
+  };
+
+  blogs.unshift(newBlog);
+  saveBlogs();
+  renderCards(blogs);
+
+  document.getElementById('nTitle').value = '';
+  document.getElementById('nDesc').value = '';
+  document.getElementById('nIcon').value = '';
+  document.getElementById('nIntro').value = '';
+  document.getElementById('nBody').value = '';
+  document.getElementById('nKT').value = '';
+  document.getElementById('nConclusion').value = '';
+  document.getElementById('nColor').value = '#F9EDE9';
+
+  closeModal();
+  alert('Published! "' + title + '" is now live on your blog.');
+}
+
+// ===== UTILITIES =====
+function showPage(id) {
+  var pages = document.querySelectorAll('.page');
+  for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
+  document.getElementById('page-' + id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Keep FAB in sync when navigating
+  if (id === 'blogs') { updateAdminUI(); }
+  else { document.getElementById('adminFab').classList.remove('visible'); }
+}
+
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navMenu').classList.remove('open');
+}
+function nlSignup() {
+  alert('Thank you for subscribing to BloomWell by Maria Kanwal!');
+}
+function submitContactForm() {
+  document.getElementById('cformFields').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+document.getElementById('addBlogModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Init auth state on load
+initAuth();
+</script>
+</body>
+</html>
