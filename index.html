@@ -406,8 +406,9 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.3rem; display: flex; justify-content: space-between; font-size: .79rem; flex-wrap: wrap; gap: .5rem; }
 .disclaimer { background: rgba(255,255,255,.04); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1.5rem; font-size: .79rem; line-height: 1.6; border: 1px solid rgba(255,255,255,.07); }
 
-/* CARD ADMIN BUTTONS */
-.card-admin-btns { display: flex; gap: .5rem; margin-top: .8rem; padding-top: .8rem; border-top: 1px solid var(--border); }
+/* CARD ADMIN BUTTONS - hidden by default, only show when admin logged in */
+.card-admin-btns { display: none; gap: .5rem; margin-top: .8rem; padding-top: .8rem; border-top: 1px solid var(--border); }
+.card-admin-btns.show { display: flex; }
 .card-edit-btn, .card-del-btn { flex: 1; border: none; border-radius: 50px; padding: .4rem .8rem; font-family: var(--fb); font-size: .78rem; font-weight: 700; cursor: pointer; transition: all .2s; }
 .card-edit-btn { background: var(--rose-pale); color: var(--rose); }
 .card-edit-btn:hover { background: var(--rose); color: var(--white); }
@@ -415,16 +416,14 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
 .card-del-btn:hover { background: #c0392b; color: var(--white); }
 
 /* CODE EDITOR MODAL */
-.code-editor-box { max-width: 780px; padding: 0; overflow: hidden; display: flex; flex-direction: column; max-height: 92vh; }
-.ce-header { padding: 1.6rem 1.8rem 1rem; border-bottom: 1px solid var(--border); }
-.ce-basics { padding: 1rem 1.8rem 0; }
-.code-hint { background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px; padding: .85rem 1rem; font-size: .78rem; color: var(--mid); line-height: 1.8; margin-bottom: .7rem; }
-.code-hint code { background: var(--white); border: 1px solid var(--border); padding: .1rem .4rem; border-radius: 4px; font-size: .76rem; color: var(--rose); font-family: monospace; }
-.code-textarea { width: 100%; min-height: 320px; max-height: 380px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; font-family: 'Courier New', monospace; font-size: .84rem; background: #1a1a1a; color: #e8e8e8; outline: none; resize: vertical; line-height: 1.7; transition: border-color .2s; display: block; cursor: text; pointer-events: all; position: relative; z-index: 10; }
-.code-textarea:focus { border-color: var(--rose); background: #111; }
+.code-editor-box { max-width: 780px; padding: 0; overflow: hidden; }
+.ce-header { padding: 1.5rem 1.8rem 1rem; border-bottom: 1px solid var(--border); background: var(--white); border-radius: 24px 24px 0 0; }
+.ce-body { padding: 1.4rem 1.8rem 1.8rem; max-height: 75vh; overflow-y: auto; }
+.code-hint-text { font-size: .78rem; color: var(--lt); margin-bottom: .6rem; line-height: 1.6; }
+.code-textarea { width: 100%; min-height: 300px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; font-family: 'Courier New', monospace; font-size: .84rem; color: var(--dark); background: var(--cream); outline: none; resize: vertical; line-height: 1.7; transition: border-color .2s; display: block; box-sizing: border-box; }
+.code-textarea:focus { border-color: var(--rose); background: var(--white); }
 /* pull-quote style for articles */
 .pull-quote { border-left: 4px solid var(--rose); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--rose-pale); border-radius: 0 12px 12px 0; font-family: var(--fh); font-size: 1.05rem; font-style: italic; color: var(--mid); line-height: 1.6; }
-@media(max-width:600px) { .code-editor-box { max-height: 98vh; } }
 @media(max-width:960px) {
   .hero, .about-top, .contact-layout { grid-template-columns: 1fr; }
   .hero-cards { display: none; }
@@ -656,13 +655,10 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
 <div class="modal-overlay" id="addBlogModal">
   <div class="modal-box code-editor-box">
     <div class="ce-header">
-      <div>
-        <h3 style="font-family:var(--fh);font-size:1.3rem;font-weight:900;margin-bottom:.2rem">✍️ Add New Blog Post</h3>
-        <p style="font-size:.82rem;color:var(--lt)">Fill in the basics, then paste your full blog HTML content below.</p>
-      </div>
+      <h3 style="font-family:var(--fh);font-size:1.3rem;font-weight:900;margin-bottom:.2rem">✍️ Add New Blog Post</h3>
+      <p style="font-size:.82rem;color:var(--lt)">Fill in the basics, then paste your full blog HTML content below.</p>
     </div>
-
-    <div class="ce-basics">
+    <div class="ce-body">
       <div class="mrow">
         <div class="mfg"><label>Title *</label><input type="text" id="nTitle" placeholder="e.g. How to Manage PCOS Naturally"></div>
         <div class="mfg"><label>Category *</label>
@@ -677,31 +673,20 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
         </div>
       </div>
       <div class="mrow">
-        <div class="mfg"><label>Short Description * <small>(shown on card)</small></label><input type="text" id="nDesc" placeholder="1-2 sentence summary for the blog card"></div>
-        <div class="mfg"><label>Emoji Icon</label><input type="text" id="nIcon" placeholder="🌿"></div>
-        <div class="mfg"><label>Read Time</label><input type="text" id="nReadTime" placeholder="8 min" value="8 min"></div>
+        <div class="mfg"><label>Short Description * <small>(shown on card)</small></label><input type="text" id="nDesc" placeholder="1-2 sentence summary"></div>
+        <div class="mfg"><label>Emoji</label><input type="text" id="nIcon" placeholder="🌿"></div>
+        <div class="mfg"><label>Read Time</label><input type="text" id="nReadTime" value="8 min"></div>
         <div class="mfg"><label>Card Colour</label><input type="color" id="nColor" value="#F9EDE9"></div>
       </div>
-    </div>
-
-    <div class="mfg" style="padding:0 1.8rem 1rem">
-      <label style="font-size:.85rem;font-weight:700;color:var(--mid);display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;padding:0 1.8rem">
-        📄 Full Blog HTML Content *
-      </label>
-      <p style="font-size:.78rem;color:var(--lt);padding:0 1.8rem;margin-bottom:.6rem">Paste your complete HTML blog code below. You can use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, &lt;em&gt; tags and any HTML.</p>
-      <div style="padding:0 1.8rem 1rem">
-        <textarea
-          id="nFullHTML"
-          style="width:100%;min-height:340px;border:2px solid #EAE0D8;border-radius:12px;padding:1rem;font-family:monospace;font-size:.84rem;line-height:1.7;resize:vertical;outline:none;display:block;box-sizing:border-box;background:#fff;color:#1E1A18;cursor:text;"
-          placeholder="Paste your HTML here e.g:&#10;<h2>What Is PCOS?</h2>&#10;<p>PCOS affects 1 in 10 women...</p>&#10;<h2>Key Symptoms</h2>&#10;<p>Common symptoms include...</p>"
-          onfocus="this.style.borderColor='#C8705A'"
-          onblur="this.style.borderColor='#EAE0D8'"
-        ></textarea>
+      <div class="mfg">
+        <label>📄 Full Blog HTML Content *</label>
+        <p class="code-hint-text">Paste your complete blog HTML here. Supports all HTML tags: &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;div class="tip-box"&gt;, &lt;div class="key-takeaway"&gt; etc.</p>
+        <textarea id="nFullHTML" class="code-textarea" placeholder="<h2>What Is PCOS?</h2>&#10;<p>PCOS affects 1 in 10 women of reproductive age...</p>&#10;&#10;<h2>Key Symptoms</h2>&#10;<p>Common symptoms include irregular periods, acne...</p>&#10;&#10;<div class=&quot;tip-box&quot;>&#10;  <strong>💡 Pro Tip:</strong> Track your cycle for 3 months.&#10;</div>"></textarea>
       </div>
-
-    <div class="modal-actions" style="padding:0 1.8rem 1.8rem">
-      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
-      <button class="modal-publish" onclick="publishBlog()">🌸 Publish Blog Post</button>
+      <div class="modal-actions">
+        <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+        <button class="modal-publish" onclick="publishBlog()">🌸 Publish Blog Post</button>
+      </div>
     </div>
   </div>
 </div>
@@ -710,12 +695,10 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
 <div class="modal-overlay" id="editBlogModal">
   <div class="modal-box code-editor-box">
     <div class="ce-header">
-      <div>
-        <h3 style="font-family:var(--fh);font-size:1.3rem;font-weight:900;margin-bottom:.2rem">✏️ Edit Blog Post</h3>
-        <p style="font-size:.82rem;color:var(--lt)">Update any field and save changes.</p>
-      </div>
+      <h3 style="font-family:var(--fh);font-size:1.3rem;font-weight:900;margin-bottom:.2rem">✏️ Edit Blog Post</h3>
+      <p style="font-size:.82rem;color:var(--lt)">Update any field and save changes.</p>
     </div>
-    <div class="ce-basics">
+    <div class="ce-body">
       <div class="mrow">
         <div class="mfg"><label>Title *</label><input type="text" id="eTitle" placeholder="Blog title"></div>
         <div class="mfg"><label>Category *</label>
@@ -731,27 +714,20 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
       </div>
       <div class="mrow">
         <div class="mfg"><label>Short Description *</label><input type="text" id="eDesc" placeholder="Card summary"></div>
-        <div class="mfg"><label>Emoji Icon</label><input type="text" id="eIcon" placeholder="🌿"></div>
+        <div class="mfg"><label>Emoji</label><input type="text" id="eIcon" placeholder="🌿"></div>
         <div class="mfg"><label>Read Time</label><input type="text" id="eReadTime" placeholder="8 min"></div>
         <div class="mfg"><label>Card Colour</label><input type="color" id="eColor" value="#F9EDE9"></div>
       </div>
-    </div>
-    <div class="mfg" style="padding:0 1.8rem 1rem">
-      <label style="font-size:.85rem;font-weight:700;color:var(--mid);display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">
-        📄 Full Blog HTML Content *
-      </label>
-      <textarea
-        id="eFullHTML"
-        style="width:100%;min-height:340px;border:2px solid #EAE0D8;border-radius:12px;padding:1rem;font-family:monospace;font-size:.84rem;line-height:1.7;resize:vertical;outline:none;display:block;box-sizing:border-box;background:#fff;color:#1E1A18;cursor:text;"
-        placeholder="Edit your blog HTML here..."
-        onfocus="this.style.borderColor='#C8705A'"
-        onblur="this.style.borderColor='#EAE0D8'"
-      ></textarea>
-    </div>
-    <input type="hidden" id="eEditId">
-    <div class="modal-actions" style="padding:0 1.8rem 1.8rem">
-      <button class="modal-cancel" onclick="closeEditModal()">Cancel</button>
-      <button class="modal-publish" onclick="saveEditBlog()">💾 Save Changes</button>
+      <div class="mfg">
+        <label>📄 Full Blog HTML Content *</label>
+        <p class="code-hint-text">Edit your blog HTML. All tags supported: &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;div class="tip-box"&gt;, &lt;div class="key-takeaway"&gt; etc.</p>
+        <textarea id="eFullHTML" class="code-textarea" placeholder="Edit your blog HTML here..."></textarea>
+      </div>
+      <input type="hidden" id="eEditId">
+      <div class="modal-actions">
+        <button class="modal-cancel" onclick="closeEditModal()">Cancel</button>
+        <button class="modal-publish" onclick="saveEditBlog()">💾 Save Changes</button>
+      </div>
     </div>
   </div>
 </div>
@@ -1066,6 +1042,19 @@ function updateAdminUI() {
     if (wrapper) wrapper.classList.remove('unlocked');
     fab.classList.remove('visible');
   }
+  // Re-render cards so edit/delete buttons show/hide correctly
+  var activeFilter = document.querySelector('.fbtn.active');
+  if (activeFilter) {
+    var cat = activeFilter.textContent.trim().toLowerCase();
+    if (cat === 'all topics') renderCards(blogs);
+    else {
+      var catMap = {'hormones':'hormones','fertility':'fertility','menopause':'menopause','mental health':'mental','nutrition':'nutrition','fitness':'fitness'};
+      var key = catMap[cat];
+      renderCards(key ? blogs.filter(function(b){ return b.cat === key; }) : blogs);
+    }
+  } else {
+    renderCards(blogs);
+  }
 }
 
 function handleAdminLock() {
@@ -1125,12 +1114,10 @@ function renderCards(data) {
     var b = data[i];
     var bg = b.bg || catColors[b.cat] || '#F9EDE9';
     var label = b.catLabel || catLabels[b.cat] || b.cat;
-    var adminBtns = isAuthenticated
-      ? '<div class="card-admin-btns" onclick="event.stopPropagation()">'
+    var adminBtns = '<div class="card-admin-btns' + (isAuthenticated ? ' show' : '') + '" onclick="event.stopPropagation()">'
           + '<button class="card-edit-btn" onclick="openEditModal(' + b.id + ')">✏️ Edit</button>'
           + '<button class="card-del-btn" onclick="deleteBlog(' + b.id + ')">🗑️ Delete</button>'
-        + '</div>'
-      : '';
+        + '</div>';
     html += '<div class="bcard" onclick="openArticle(' + b.id + ')">' +
       '<div class="bthumb" style="background:' + bg + '">' +
         '<span>' + (b.icon || '📝') + '</span>' +
