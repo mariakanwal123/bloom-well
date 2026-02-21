@@ -406,24 +406,17 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.3rem; display: flex; justify-content: space-between; font-size: .79rem; flex-wrap: wrap; gap: .5rem; }
 .disclaimer { background: rgba(255,255,255,.04); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1.5rem; font-size: .79rem; line-height: 1.6; border: 1px solid rgba(255,255,255,.07); }
 
-/* RICH EDITOR MODAL */
-.rich-editor { max-width: 820px; padding: 0; overflow: hidden; }
-.editor-tabs { display: flex; background: var(--dark); border-radius: 24px 24px 0 0; overflow: hidden; }
-.etab { flex: 1; background: none; border: none; color: rgba(255,255,255,.5); font-family: var(--fb); font-size: .82rem; font-weight: 600; padding: 1rem .5rem; cursor: pointer; transition: all .2s; border-bottom: 3px solid transparent; }
-.etab:hover { color: rgba(255,255,255,.8); }
-.etab.active { color: var(--white); border-bottom-color: var(--rose); background: rgba(255,255,255,.06); }
-.etab-panel { display: none; padding: 1.8rem; max-height: 70vh; overflow-y: auto; }
-.etab-panel.active { display: block; }
-.design-block { background: var(--cream); border: 1.5px solid var(--border); border-radius: 14px; padding: 1.2rem; margin-bottom: 1.2rem; }
-.db-header { font-weight: 700; font-size: .88rem; color: var(--dark); margin-bottom: 1rem; }
-.db-header small { font-weight: 400; color: var(--lt); font-size: .78rem; }
-.db-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
-/* Preview pull quote */
+/* CODE EDITOR MODAL */
+.code-editor-box { max-width: 780px; padding: 0; overflow: hidden; display: flex; flex-direction: column; max-height: 92vh; }
+.ce-header { padding: 1.6rem 1.8rem 1rem; border-bottom: 1px solid var(--border); }
+.ce-basics { padding: 1rem 1.8rem 0; }
+.code-hint { background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px; padding: .85rem 1rem; font-size: .78rem; color: var(--mid); line-height: 1.8; margin-bottom: .7rem; }
+.code-hint code { background: var(--white); border: 1px solid var(--border); padding: .1rem .4rem; border-radius: 4px; font-size: .76rem; color: var(--rose); font-family: monospace; }
+.code-textarea { width: 100%; min-height: 320px; max-height: 380px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; font-family: 'Courier New', monospace; font-size: .84rem; color: var(--dark); background: #1a1a1a; color: #e8e8e8; outline: none; resize: vertical; line-height: 1.7; transition: border-color .2s; }
+.code-textarea:focus { border-color: var(--rose); }
+/* pull-quote style for articles */
 .pull-quote { border-left: 4px solid var(--rose); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--rose-pale); border-radius: 0 12px 12px 0; font-family: var(--fh); font-size: 1.05rem; font-style: italic; color: var(--mid); line-height: 1.6; }
-@media(max-width:600px) {
-  .db-stats-grid { grid-template-columns: 1fr; }
-  .etab { font-size: .72rem; padding: .8rem .3rem; }
-}
+@media(max-width:600px) { .code-editor-box { max-height: 98vh; } }
 @media(max-width:960px) {
   .hero, .about-top, .contact-layout { grid-template-columns: 1fr; }
   .hero-cards { display: none; }
@@ -651,24 +644,21 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
   </div>
 </div>
 
-<!-- ADD BLOG MODAL - RICH EDITOR -->
+<!-- ADD BLOG MODAL - SIMPLE CODE EDITOR -->
 <div class="modal-overlay" id="addBlogModal">
-  <div class="modal-box rich-editor">
-
-    <!-- TABS -->
-    <div class="editor-tabs">
-      <button class="etab active" onclick="switchTab('basics',this)">📋 Basics</button>
-      <button class="etab" onclick="switchTab('content',this)">✍️ Content</button>
-      <button class="etab" onclick="switchTab('design',this)">🎨 Design Blocks</button>
-      <button class="etab" onclick="switchTab('preview',this)">👁️ Preview</button>
+  <div class="modal-box code-editor-box">
+    <div class="ce-header">
+      <div>
+        <h3 style="font-family:var(--fh);font-size:1.3rem;font-weight:900;margin-bottom:.2rem">✍️ Add New Blog Post</h3>
+        <p style="font-size:.82rem;color:var(--lt)">Fill in the basics, then paste your full blog HTML content below.</p>
+      </div>
     </div>
 
-    <!-- TAB: BASICS -->
-    <div class="etab-panel active" id="tab-basics">
+    <div class="ce-basics">
       <div class="mrow">
-        <div class="mfg"><label>Blog Title *</label><input type="text" id="nTitle" placeholder="e.g. How to Manage PCOS Naturally" oninput="updatePreview()"></div>
+        <div class="mfg"><label>Title *</label><input type="text" id="nTitle" placeholder="e.g. How to Manage PCOS Naturally"></div>
         <div class="mfg"><label>Category *</label>
-          <select id="nCat" onchange="updatePreview()">
+          <select id="nCat">
             <option value="hormones">Hormonal Health</option>
             <option value="fertility">Fertility</option>
             <option value="menopause">Menopause</option>
@@ -678,81 +668,48 @@ footer { background: #120F0D; color: rgba(255,255,255,.6); padding: 50px 5% 28px
           </select>
         </div>
       </div>
-      <div class="mfg"><label>Short Description * <small style="color:var(--lt);font-weight:400">(shown on blog card)</small></label><input type="text" id="nDesc" placeholder="A 1-2 sentence summary..." oninput="updatePreview()"></div>
       <div class="mrow">
-        <div class="mfg"><label>Emoji Icon</label><input type="text" id="nIcon" placeholder="🌿" oninput="updatePreview()"></div>
-        <div class="mfg"><label>Read Time</label><input type="text" id="nReadTime" placeholder="e.g. 8 min" value="8 min"></div>
+        <div class="mfg"><label>Short Description * <small>(shown on card)</small></label><input type="text" id="nDesc" placeholder="1-2 sentence summary for the blog card"></div>
+        <div class="mfg"><label>Emoji Icon</label><input type="text" id="nIcon" placeholder="🌿"></div>
+        <div class="mfg"><label>Read Time</label><input type="text" id="nReadTime" placeholder="8 min" value="8 min"></div>
         <div class="mfg"><label>Card Colour</label><input type="color" id="nColor" value="#F9EDE9"></div>
       </div>
-      <div class="mfg"><label>Introduction * <small style="color:var(--lt);font-weight:400">(opening paragraph with left border)</small></label><textarea id="nIntro" placeholder="This gripping introduction draws the reader in..." oninput="updatePreview()"></textarea></div>
-      <div class="mfg"><label>Conclusion *</label><textarea id="nConclusion" placeholder="Wrap up with a powerful, actionable closing..." oninput="updatePreview()"></textarea></div>
     </div>
 
-    <!-- TAB: CONTENT -->
-    <div class="etab-panel" id="tab-content">
-      <div style="background:var(--rose-pale);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;font-size:.84rem;color:var(--mid);line-height:1.6;">
-        <strong style="color:var(--rose)">✍️ How to write sections:</strong><br>
-        Use <code style="background:#fff;padding:.1rem .4rem;border-radius:4px;font-size:.8rem">## Your Heading</code> on a new line to start a section.<br>
-        Then write your paragraph below it. Add as many sections as you like.
+    <div class="mfg" style="padding:0 1.8rem 1rem">
+      <label style="font-size:.85rem;font-weight:700;color:var(--mid);display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">
+        📄 Full Blog HTML Content *
+        <span style="background:var(--rose-pale);color:var(--rose);font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:50px">Paste your complete blog code here</span>
+      </label>
+      <div class="code-hint">
+        You can paste <strong>plain text</strong>, <strong>HTML</strong>, or use these tags:<br>
+        <code>&lt;h2&gt;Section Heading&lt;/h2&gt;</code> &nbsp;
+        <code>&lt;p&gt;Paragraph&lt;/p&gt;</code> &nbsp;
+        <code>&lt;ul&gt;&lt;li&gt;List item&lt;/li&gt;&lt;/ul&gt;</code> &nbsp;
+        <code>&lt;strong&gt;Bold&lt;/strong&gt;</code> &nbsp;
+        <code>&lt;em&gt;Italic&lt;/em&gt;</code><br>
+        <strong>Special styled blocks:</strong> &nbsp;
+        <code>&lt;div class="tip-box"&gt;Your tip&lt;/div&gt;</code> &nbsp;
+        <code>&lt;div class="pull-quote"&gt;Your quote&lt;/div&gt;</code> &nbsp;
+        <code>&lt;div class="key-takeaway"&gt;...&lt;/div&gt;</code>
       </div>
-      <div class="mfg"><label>Main Content Sections *</label>
-        <textarea id="nBody" style="min-height:280px;font-family:monospace;font-size:.85rem;line-height:1.7" oninput="updatePreview()" placeholder="## What Is This Condition?
-Write your first paragraph here. Explain the topic clearly and thoroughly.
+      <textarea id="nFullHTML" class="code-textarea" placeholder="Paste your complete blog content here...
 
-## Key Symptoms to Watch For
-Describe the symptoms in detail. Use plain language that any woman can understand.
+Example:
+&lt;h2&gt;What Is PCOS?&lt;/h2&gt;
+&lt;p&gt;PCOS affects 1 in 10 women of reproductive age...&lt;/p&gt;
 
-## Evidence-Based Solutions
-Outline the top solutions backed by research. Be specific and actionable.
+&lt;div class=&quot;tip-box&quot;&gt;
+  &lt;strong&gt;💡 Pro Tip:&lt;/strong&gt; Track your cycle for 3 months before consulting a doctor.
+&lt;/div&gt;
 
-## When to See a Doctor
-Always advise when professional help is needed."></textarea>
-      </div>
-      <div class="mfg"><label>Key Takeaways * <small style="color:var(--lt);font-weight:400">(one per line, max 6)</small></label>
-        <textarea id="nKT" style="min-height:130px" oninput="updatePreview()" placeholder="Blood sugar balance is the foundation of hormonal health&#10;Sleep deprivation worsens every hormonal condition&#10;Cruciferous vegetables support liver detox&#10;Magnesium is essential for progesterone production&#10;Stress management is non-negotiable for hormone balance"></textarea>
-      </div>
+&lt;h2&gt;Key Symptoms&lt;/h2&gt;
+&lt;p&gt;Common symptoms include irregular periods, acne...&lt;/p&gt;
+
+Or just paste plain text and it will display cleanly."></textarea>
     </div>
 
-    <!-- TAB: DESIGN BLOCKS -->
-    <div class="etab-panel" id="tab-design">
-      <p style="font-size:.85rem;color:var(--lt);margin-bottom:1.2rem;">Add special designed blocks that appear inside your article.</p>
-
-      <!-- STAT INFOGRAPHIC -->
-      <div class="design-block">
-        <div class="db-header">📊 Stat Infographic <small>(4 numbers shown as dark data cards)</small></div>
-        <div class="mfg"><label>Infographic Title</label><input type="text" id="nInfoTitle" placeholder="e.g. PCOS — Key Facts" oninput="updatePreview()"></div>
-        <div class="db-stats-grid">
-          <div class="mfg"><label>Stat 1 Number</label><input type="text" id="s1n" placeholder="1 in 10" oninput="updatePreview()"></div>
-          <div class="mfg"><label>Stat 1 Label</label><input type="text" id="s1l" placeholder="women affected" oninput="updatePreview()"></div>
-          <div class="mfg"><label>Stat 2 Number</label><input type="text" id="s2n" placeholder="70%" oninput="updatePreview()"></div>
-          <div class="mfg"><label>Stat 2 Label</label><input type="text" id="s2l" placeholder="have insulin resistance" oninput="updatePreview()"></div>
-          <div class="mfg"><label>Stat 3 Number</label><input type="text" id="s3n" placeholder="3x" oninput="updatePreview()"></div>
-          <div class="mfg"><label>Stat 3 Label</label><input type="text" id="s3l" placeholder="higher anxiety rate" oninput="updatePreview()"></div>
-          <div class="mfg"><label>Stat 4 Number</label><input type="text" id="s4n" placeholder="5-10%" oninput="updatePreview()"></div>
-          <div class="mfg"><label>Stat 4 Label</label><input type="text" id="s4l" placeholder="weight loss restores ovulation" oninput="updatePreview()"></div>
-        </div>
-      </div>
-
-      <!-- TIP BOX -->
-      <div class="design-block">
-        <div class="db-header">💡 Tip Box <small>(highlighted rose tip panel)</small></div>
-        <div class="mfg"><label>Tip Box Text</label><textarea id="nTip" style="min-height:80px" placeholder="e.g. Pro Tip: Always test your vitamin D levels before supplementing — optimal range is 60-80 ng/mL for hormonal health." oninput="updatePreview()"></textarea></div>
-      </div>
-
-      <!-- QUOTE BLOCK -->
-      <div class="design-block">
-        <div class="db-header">💬 Pull Quote <small>(large styled quote in article)</small></div>
-        <div class="mfg"><label>Quote Text</label><textarea id="nQuote" style="min-height:70px" placeholder='e.g. "Your hormones are not your enemy — they are messengers. Learn to listen to them." — Maria Kanwal' oninput="updatePreview()"></textarea></div>
-      </div>
-    </div>
-
-    <!-- TAB: PREVIEW -->
-    <div class="etab-panel" id="tab-preview">
-      <div style="font-size:.8rem;color:var(--lt);margin-bottom:1rem;text-align:center;">Live preview of how your article will look</div>
-      <div id="livePreview" style="border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;background:var(--cream);max-height:500px;overflow-y:auto;font-size:.9rem;"></div>
-    </div>
-
-    <div class="modal-actions">
+    <div class="modal-actions" style="padding:0 1.8rem 1.8rem">
       <button class="modal-cancel" onclick="closeModal()">Cancel</button>
       <button class="modal-publish" onclick="publishBlog()">🌸 Publish Blog Post</button>
     </div>
@@ -1200,8 +1157,30 @@ function openArticle(id) {
     concHTML = '<div class="conclusion"><h4>&#127800; Conclusion</h4><p>' + b.conclusion + '</p></div>';
   }
 
-  var tipHTML = b.tipBox ? '<div class="tip-box"><strong>💡 Tip: </strong>' + b.tipBox + '</div>' : '';
-  var quoteHTML = b.pullQuote ? '<div class="pull-quote">' + b.pullQuote + '</div>' : '';
+  // Render body — new blogs use fullHTML, old ones use sections
+  var bodyContent = '';
+  if (b.fullHTML) {
+    bodyContent = b.fullHTML;
+  } else {
+    var tipHTML2 = b.tipBox ? '<div class="tip-box"><strong>💡 Tip: </strong>' + b.tipBox + '</div>' : '';
+    var quoteHTML2 = b.pullQuote ? '<div class="pull-quote">' + b.pullQuote + '</div>' : '';
+    var sectHTML2 = '';
+    if (b.sections && b.sections.length) {
+      for (var k = 0; k < b.sections.length; k++) {
+        sectHTML2 += '<h2>' + b.sections[k].h + '</h2><p>' + b.sections[k].p + '</p>';
+      }
+    }
+    var ktHTML2 = '';
+    if (b.takeaways && b.takeaways.length) {
+      var ktItems2 = '';
+      for (var m = 0; m < b.takeaways.length; m++) {
+        ktItems2 += '<div class="kt-item"><div class="kt-icon">' + (ktIcons[m] || '✅') + '</div><div class="kt-text">' + b.takeaways[m] + '</div></div>';
+      }
+      ktHTML2 = '<div class="key-takeaway"><h4>&#128273; Key Takeaways</h4><div class="kt-list">' + ktItems2 + '</div></div>';
+    }
+    var concHTML2 = b.conclusion ? '<div class="conclusion"><h4>&#127800; Conclusion</h4><p>' + b.conclusion + '</p></div>' : '';
+    bodyContent = infoHTML + tipHTML2 + sectHTML2 + quoteHTML2 + ktHTML2 + concHTML2;
+  }
 
   var html = '<div style="padding-top:66px">' +
     '<div class="art-back-bar"><button class="art-back-btn" onclick="showPage(\'blogs\')">&#8592; Back to Articles</button></div>' +
@@ -1216,7 +1195,7 @@ function openArticle(id) {
       '<p class="art-intro">' + b.intro + '</p>' +
     '</div>' +
     '<div class="art-body">' +
-      infoHTML + tipHTML + sectHTML + quoteHTML + ktHTML + concHTML +
+      bodyContent +
       '<div class="author-box">' +
         '<div class="author-avatar">&#x1F469;&#x200D;&#x1F4BB;</div>' +
         '<div class="author-info">' +
@@ -1232,94 +1211,11 @@ function openArticle(id) {
   showPage('article');
 }
 
-// ===== RICH EDITOR TABS =====
-function switchTab(name, btn) {
-  document.querySelectorAll('.etab').forEach(function(t){ t.classList.remove('active'); });
-  document.querySelectorAll('.etab-panel').forEach(function(p){ p.classList.remove('active'); });
-  btn.classList.add('active');
-  document.getElementById('tab-' + name).classList.add('active');
-  if (name === 'preview') updatePreview();
-}
-
-// ===== LIVE PREVIEW =====
-function updatePreview() {
-  var title = (document.getElementById('nTitle').value || 'Your Blog Title').trim();
-  var cat = document.getElementById('nCat').value;
-  var intro = (document.getElementById('nIntro').value || '').trim();
-  var bodyRaw = (document.getElementById('nBody').value || '').trim();
-  var ktRaw = (document.getElementById('nKT').value || '').trim();
-  var conclusion = (document.getElementById('nConclusion').value || '').trim();
-  var infoTitle = (document.getElementById('nInfoTitle').value || '').trim();
-  var tip = (document.getElementById('nTip').value || '').trim();
-  var quote = (document.getElementById('nQuote').value || '').trim();
-
-  var catLabelsLocal = {hormones:'Hormonal Health',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};
-  var label = catLabelsLocal[cat] || cat;
-
-  // Infographic
-  var infoHTML = '';
-  var stats = [
-    {n: document.getElementById('s1n').value, l: document.getElementById('s1l').value},
-    {n: document.getElementById('s2n').value, l: document.getElementById('s2l').value},
-    {n: document.getElementById('s3n').value, l: document.getElementById('s3l').value},
-    {n: document.getElementById('s4n').value, l: document.getElementById('s4l').value}
-  ].filter(function(s){ return s.n.trim(); });
-  if (stats.length && infoTitle) {
-    var statsHTML = stats.map(function(s){ return '<div class="info-item"><div class="info-num">'+s.n+'</div><div class="info-lab">'+s.l+'</div></div>'; }).join('');
-    infoHTML = '<div class="infographic"><h4>📊 '+infoTitle+'</h4><div class="info-grid">'+statsHTML+'</div></div>';
-  }
-
-  // Tip box
-  var tipHTML = tip ? '<div class="tip-box"><strong>💡 Tip: </strong>' + tip + '</div>' : '';
-
-  // Pull quote
-  var quoteHTML = quote ? '<div class="pull-quote">' + quote + '</div>' : '';
-
-  // Sections
-  var sectHTML = '';
-  if (bodyRaw) {
-    var parts = bodyRaw.split('##').filter(function(s){ return s.trim(); });
-    parts.forEach(function(part) {
-      var lines = part.trim().split('\n').filter(function(l){ return l.trim(); });
-      if (lines.length >= 1) {
-        sectHTML += '<h2 style="font-family:var(--fh);font-size:1.3rem;margin:1.5rem 0 .6rem;color:var(--dark)">' + lines[0].trim() + '</h2>';
-        sectHTML += '<p style="color:var(--mid);line-height:1.8;margin-bottom:.8rem">' + lines.slice(1).join(' ').trim() + '</p>';
-      }
-    });
-  }
-
-  // Takeaways
-  var ktHTML = '';
-  if (ktRaw) {
-    var tws = ktRaw.split('\n').filter(function(l){ return l.trim(); }).slice(0,6);
-    var icons = ['✅','💡','🌿','💜','🔬','⚗️'];
-    var items = tws.map(function(t,i){ return '<div class="kt-item"><div class="kt-icon">'+icons[i]+'</div><div class="kt-text">'+t.trim()+'</div></div>'; }).join('');
-    ktHTML = '<div class="key-takeaway"><h4>🔑 Key Takeaways</h4><div class="kt-list">'+items+'</div></div>';
-  }
-
-  // Conclusion
-  var concHTML = conclusion ? '<div class="conclusion"><h4>🌸 Conclusion</h4><p>'+conclusion+'</p></div>' : '';
-
-  var html = '<div style="padding:.5rem">'
-    + '<span style="background:var(--rose-pale);color:var(--rose);font-size:.7rem;font-weight:700;padding:.25rem .7rem;border-radius:50px;text-transform:uppercase">' + label + '</span>'
-    + '<h1 style="font-family:var(--fh);font-size:1.6rem;font-weight:900;margin:1rem 0 .5rem;line-height:1.2">' + title + '</h1>'
-    + '<div style="font-size:.78rem;color:var(--lt);margin-bottom:1rem">📅 Today &nbsp; ⏱️ ' + (document.getElementById('nReadTime').value||'8 min') + ' &nbsp; ✍️ Maria Kanwal</div>'
-    + (intro ? '<p style="border-left:3px solid var(--rose);padding-left:1rem;color:var(--mid);font-size:.95rem;line-height:1.8;margin-bottom:1rem">' + intro + '</p>' : '')
-    + infoHTML + tipHTML + sectHTML + quoteHTML + ktHTML + concHTML
-    + '</div>';
-
-  var prev = document.getElementById('livePreview');
-  if (prev) prev.innerHTML = html;
-}
-
 // ===== ADD BLOG MODAL =====
 function openModal() {
   if (!isAuthenticated) { openPwModal(); return; }
   document.getElementById('addBlogModal').classList.add('open');
   document.body.style.overflow = 'hidden';
-  // Reset tabs
-  document.querySelectorAll('.etab').forEach(function(t,i){ t.classList.toggle('active', i===0); });
-  document.querySelectorAll('.etab-panel').forEach(function(p,i){ p.classList.toggle('active', i===0); });
 }
 
 function closeModal() {
@@ -1328,77 +1224,45 @@ function closeModal() {
 }
 
 function publishBlog() {
-  var title = document.getElementById('nTitle').value.trim();
-  var cat = document.getElementById('nCat').value;
-  var desc = document.getElementById('nDesc').value.trim();
-  var icon = document.getElementById('nIcon').value.trim() || '📝';
-  var color = document.getElementById('nColor').value;
+  var title    = document.getElementById('nTitle').value.trim();
+  var cat      = document.getElementById('nCat').value;
+  var desc     = document.getElementById('nDesc').value.trim();
+  var icon     = document.getElementById('nIcon').value.trim() || '📝';
+  var color    = document.getElementById('nColor').value;
   var readTime = document.getElementById('nReadTime').value.trim() || '8 min';
-  var intro = document.getElementById('nIntro').value.trim();
-  var bodyRaw = document.getElementById('nBody').value.trim();
-  var ktRaw = document.getElementById('nKT').value.trim();
-  var conclusion = document.getElementById('nConclusion').value.trim();
-  var infoTitle = document.getElementById('nInfoTitle').value.trim();
-  var tip = document.getElementById('nTip').value.trim();
-  var quote = document.getElementById('nQuote').value.trim();
+  var fullHTML = document.getElementById('nFullHTML').value.trim();
 
-  if (!title || !desc || !intro || !ktRaw || !conclusion) {
-    alert('Please fill in all required fields (Title, Description, Introduction, Takeaways, Conclusion).');
+  if (!title || !desc || !fullHTML) {
+    alert('Please fill in Title, Description, and the Blog Content.');
     return;
   }
 
-  // Parse sections
-  var sections = [];
-  if (bodyRaw) {
-    var parts = bodyRaw.split('##').filter(function(s){ return s.trim(); });
-    parts.forEach(function(part) {
-      var lines = part.trim().split('\n').filter(function(l){ return l.trim(); });
-      if (lines.length >= 1) sections.push({ h: lines[0].trim(), p: lines.slice(1).join(' ').trim() || 'Content coming soon.' });
-    });
-  }
-
-  // Parse takeaways
-  var takeaways = ktRaw.split('\n').map(function(l){ return l.trim(); }).filter(function(l){ return l; }).slice(0, 6);
-
-  // Build infoItems from stats
-  var infoItems = [];
-  var statInputs = [{n:'s1n',l:'s1l'},{n:'s2n',l:'s2l'},{n:'s3n',l:'s3l'},{n:'s4n',l:'s4l'}];
-  statInputs.forEach(function(s) {
-    var n = document.getElementById(s.n).value.trim();
-    var l = document.getElementById(s.l).value.trim();
-    if (n) infoItems.push({n:n, l:l});
-  });
-
-  var today = new Date();
+  var today  = new Date();
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var date = months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+  var date   = months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
 
   var newBlog = {
     id: nextId++, cat: cat, catLabel: catLabels[cat],
     icon: icon, bg: color, date: date, readTime: readTime,
-    title: title, desc: desc, intro: intro,
-    sections: sections,
-    infoItems: infoItems,
-    infoTitle: infoTitle || title + ' — Key Facts',
-    takeaways: takeaways,
-    conclusion: conclusion,
-    tipBox: tip,
-    pullQuote: quote
+    title: title, desc: desc,
+    fullHTML: fullHTML,
+    // legacy fields empty
+    intro: '', sections: [], infoItems: [], takeaways: [], conclusion: ''
   };
 
   blogs.unshift(newBlog);
   saveBlogs();
   renderCards(blogs);
 
-  // Clear all fields
-  ['nTitle','nDesc','nIcon','nReadTime','nIntro','nBody','nKT','nConclusion','nInfoTitle','s1n','s1l','s2n','s2l','s3n','s3l','s4n','s4l','nTip','nQuote'].forEach(function(id){
-    var el = document.getElementById(id);
-    if (el) el.value = id === 'nReadTime' ? '8 min' : id === 'nColor' ? '#F9EDE9' : '';
-  });
-  document.getElementById('nColor').value = '#F9EDE9';
+  document.getElementById('nTitle').value    = '';
+  document.getElementById('nDesc').value     = '';
+  document.getElementById('nIcon').value     = '';
+  document.getElementById('nReadTime').value = '8 min';
+  document.getElementById('nColor').value    = '#F9EDE9';
+  document.getElementById('nFullHTML').value = '';
 
   closeModal();
-  alert('🌸 Published! "' + title + '" is now live on your blog.');
+  alert('🌸 Published! "' + title + '" is now live.');
 }
 
 // ===== UTILITIES =====
