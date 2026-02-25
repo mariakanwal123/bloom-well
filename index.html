@@ -752,6 +752,30 @@ nav{
 .admin-card input:focus,.admin-card select:focus,.admin-card textarea:focus{border-color:var(--p3);}
 .admin-card textarea{min-height:90px;resize:vertical;}
 .alabel{font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
+/* ===== CARD EDIT/LOCK SYSTEM ===== */
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;padding-bottom:.8rem;border-bottom:1px solid var(--border);}
+.card-header h4{font-family:var(--fh);font-size:1.05rem;font-weight:600;color:var(--ink);margin:0;display:flex;align-items:center;gap:.5rem;}
+.card-btns{display:flex;gap:.4rem;align-items:center;flex-shrink:0;}
+.btn-edit{background:var(--p5);color:var(--p2);border:1.5px solid var(--border);border-radius:3px;padding:.28rem .8rem;font-family:var(--fb);font-size:.7rem;font-weight:700;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:all .18s;display:inline-flex;align-items:center;gap:.3rem;}
+.btn-edit:hover{background:var(--p1);color:var(--g2);border-color:var(--p1);}
+.btn-save{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;border:none;border-radius:3px;padding:.28rem .8rem;font-family:var(--fb);font-size:.7rem;font-weight:700;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:all .18s;display:none;align-items:center;gap:.3rem;}
+.btn-save:hover{background:linear-gradient(135deg,var(--p2),var(--p3));}
+.btn-cancel{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:3px;padding:.28rem .65rem;font-family:var(--fb);font-size:.7rem;font-weight:700;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:all .18s;display:none;align-items:center;}
+.btn-cancel:hover{border-color:#c0392b;color:#c0392b;}
+.badge-saved{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;background:rgba(39,174,96,.12);color:#27ae60;white-space:nowrap;}
+.badge-editing{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;background:rgba(123,82,192,.13);color:var(--p3);white-space:nowrap;display:none;}
+.admin-card.locked input,.admin-card.locked select,.admin-card.locked textarea{background:transparent!important;border-color:transparent!important;color:var(--mid)!important;pointer-events:none!important;cursor:default!important;resize:none!important;padding-left:0!important;padding-right:0!important;box-shadow:none!important;}
+.admin-card.locked .code-textarea{background:#16102a!important;color:#666!important;pointer-events:none!important;}
+.admin-card.editing{border-color:var(--p3)!important;box-shadow:0 0 0 3px rgba(123,82,192,.1),0 6px 24px rgba(45,27,105,.1)!important;}
+.admin-card.editing input,.admin-card.editing select,.admin-card.editing textarea{background:var(--white)!important;border-color:var(--border)!important;color:var(--ink)!important;pointer-events:auto!important;cursor:text!important;resize:vertical!important;padding:.5rem .7rem!important;box-shadow:none!important;}
+.admin-card.editing select{cursor:pointer!important;}
+.admin-card.editing .code-textarea{background:#0E0818!important;color:#c9d1e0!important;pointer-events:auto!important;}
+.admin-card.editing .btn-edit{display:none!important;}
+.admin-card.editing .btn-save{display:inline-flex!important;}
+.admin-card.editing .btn-cancel{display:inline-flex!important;}
+.admin-card.editing .badge-saved{display:none!important;}
+.admin-card.editing .badge-editing{display:inline-block!important;}
+.admin-card .admin-save-btn{display:none;}
 .admin-save-btn{
   background:linear-gradient(135deg,var(--p1),var(--p2));color:var(--white);
   border:none;border-radius:2px;padding:.6rem 1.4rem;font-family:var(--fb);
@@ -1250,7 +1274,7 @@ footer{
           <div class="pstat"><div class="pstat-num">10+</div><div class="pstat-lab">Digital Platforms</div></div>
         </div>
         <div class="founder-links">
-          <a class="flink" href="mailto:medrankseo@gmail.com">📧 Email</a>
+          <a class="flink" href="/cdn-cgi/l/email-protection#9bf6feffe9faf5f0e8fef4dbfcf6faf2f7b5f8f4f6">📧 Email</a>
           <a class="flink" href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">💼 LinkedIn</a>
           <a class="flink" href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">🎓 Scholar</a>
           <a class="flink" href="https://ssrn.com/author=5225172" target="_blank">📄 SSRN</a>
@@ -1437,7 +1461,7 @@ footer{
     <div class="cinfo">
       <h3>Connect with Maria</h3>
       <p>Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.</p>
-      <div class="ci"><div class="ci-icon">📧</div><div><h5>Email</h5><p><a href="mailto:medrankseo@gmail.com">medrankseo@gmail.com</a></p></div></div>
+      <div class="ci"><div class="ci-icon">📧</div><div><h5>Email</h5><p><a href="/cdn-cgi/l/email-protection#c2afa7a6b0a3aca9b1a7ad82a5afa3abaeeca1adaf"><span class="__cf_email__" data-cfemail="402d252432212e2b33252f00272d21292c6e232f2d">[email&#160;protected]</span></a></p></div></div>
       <div class="ci"><div class="ci-icon">💼</div><div><h5>LinkedIn</h5><p><a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">Maria Kanwal on LinkedIn</a></p></div></div>
       <div class="ci"><div class="ci-icon">💻</div><div><h5>Upwork</h5><p><a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Hire Maria on Upwork</a></p></div></div>
       <div class="ci"><div class="ci-icon">🎓</div><div><h5>Google Scholar</h5><p><a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">View Publications</a></p></div></div>
@@ -1469,14 +1493,14 @@ footer{
         <div class="cfg"><label>Message</label><textarea id="cf-message" placeholder="How can Maria help you?" style="min-height:130px"></textarea></div>
         <div id="cf-error" style="display:none;color:#c0392b;font-size:.8rem;margin-bottom:.7rem;padding:.5rem .8rem;background:#fde8e8;border-radius:4px;border-left:3px solid #c0392b"></div>
         <button class="form-submit" onclick="submitContactForm()">Send Message via Email →</button>
-        <p style="font-size:.72rem;color:var(--muted);margin-top:.75rem;text-align:center;line-height:1.5">Or email directly: <a href="mailto:medrankseo@gmail.com" style="color:var(--p2);text-decoration:none;font-weight:600">medrankseo@gmail.com</a></p>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:.75rem;text-align:center;line-height:1.5">Or email directly: <a href="/cdn-cgi/l/email-protection#c5a8a0a1b7a4abaeb6a0aa85a2a8a4aca9eba6aaa8" style="color:var(--p2);text-decoration:none;font-weight:600"><span class="__cf_email__" data-cfemail="4d2028293f2c23263e28220d2a202c2421632e2220">[email&#160;protected]</span></a></p>
       </div>
       <!-- Success state -->
       <div class="form-success" id="formSuccess">
         <div class="suc-tick">✦</div>
         <h4>Email App Opened!</h4>
         <p>Your message has been pre-filled in your email app. Please click <strong>Send</strong> there to deliver it to Maria.</p>
-        <p style="margin-top:.8rem;font-size:.82rem">Or email directly at <a href="mailto:medrankseo@gmail.com" style="color:var(--p2);font-weight:600">medrankseo@gmail.com</a></p>
+        <p style="margin-top:.8rem;font-size:.82rem">Or email directly at <a href="/cdn-cgi/l/email-protection#503d353422313e3b23353f10373d31393c7e333f3d" style="color:var(--p2);font-weight:600"><span class="__cf_email__" data-cfemail="e8858d8c9a8986839b8d87a88f85898184c68b8785">[email&#160;protected]</span></a></p>
         <button onclick="resetContactForm()" style="margin-top:1.2rem;background:none;border:1.5px solid var(--border);color:var(--lt);padding:.55rem 1.3rem;border-radius:4px;cursor:pointer;font-family:var(--fb);font-size:.8rem;font-weight:600">Send Another Message</button>
       </div>
     </div>
@@ -1487,47 +1511,63 @@ footer{
 <div id="page-admin" class="page">
   <div class="admin-panel">
     <h1>Admin Panel</h1>
-    <p style="font-size:.82rem;color:var(--lt);margin-top:-.8rem;margin-bottom:1.5rem">All changes are saved automatically to your browser's local storage and persist across sessions.</p>
+    <p style="font-size:.82rem;color:var(--lt);margin-top:-.8rem;margin-bottom:1.5rem">Click <strong style="color:var(--p2)">✎ Edit</strong> on any card to unlock it for editing, then <strong style="color:var(--p2)">💾 Save</strong> to apply and persist changes.</p>
     <div class="admin-tabs">
       <button class="atab-btn active" onclick="switchAdminTab('blog-settings',this)">📝 Blogs</button>
-      <button class="atab-btn" onclick="switchAdminTab('site-settings',this)">🏠 Site & Hero</button>
-      <button class="atab-btn" onclick="switchAdminTab('about-edit',this)">👩 About & Profile</button>
+      <button class="atab-btn" onclick="switchAdminTab('site-settings',this)">🏠 Site &amp; Hero</button>
+      <button class="atab-btn" onclick="switchAdminTab('about-edit',this)">👩 About &amp; Profile</button>
       <button class="atab-btn" onclick="switchAdminTab('contact-edit',this)">📬 Contact Info</button>
       <button class="atab-btn" onclick="switchAdminTab('security',this)">🔐 Password</button>
     </div>
 
-    <!-- BLOG SETTINGS TAB -->
+    <!-- ── BLOGS TAB ── -->
     <div class="atab-pane active" id="atab-blog-settings">
       <h3 class="admin-section-title">Blog Management</h3>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
-        <button class="admin-save-btn" onclick="openModal()">✍ Add New Post</button>
-        <button class="admin-save-btn" style="background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--dark)" onclick="exportBlogs()">↓ Export Posts (JSON)</button>
-        <button class="admin-danger-btn" onclick="resetToDefault()">↩ Reset to Defaults</button>
+        <button class="admin-save-btn" style="display:inline-block!important" onclick="openModal()">✍ Add New Post</button>
+        <button class="admin-save-btn" style="display:inline-block!important;background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--dark)" onclick="exportBlogs()">↓ Export (JSON)</button>
+        <button class="admin-danger-btn" onclick="resetToDefault()">↩ Reset Defaults</button>
       </div>
       <h4 style="font-family:var(--fh);font-size:1rem;margin-bottom:1rem;color:var(--ink)">All Posts (<span id="postCount">0</span>)</h4>
       <div id="adminBlogList"></div>
     </div>
 
-    <!-- SITE & HERO TAB -->
+    <!-- ── SITE & HERO TAB ── -->
     <div class="atab-pane" id="atab-site-settings">
       <h3 class="admin-section-title">Site &amp; Hero Settings</h3>
-      <p style="font-size:.82rem;color:var(--g1);margin-bottom:1.5rem;padding:.6rem 1rem;background:rgba(201,168,76,.06);border-left:3px solid var(--g1);border-radius:0 4px 4px 0">✦ Changes saved to storage and applied live to the page.</p>
       <div class="admin-grid">
-        <div class="admin-card">
-          <h4>Site Title &amp; Tagline</h4>
+
+        <!-- card: site title -->
+        <div class="admin-card locked" id="card-site-title">
+          <div class="card-header">
+            <h4>🌐 Site Title &amp; Footer <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-site-title')">✎ Edit</button>
+              <button class="btn-save" onclick="saveSiteSettings();doneCard('card-site-title')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-site-title')">✕</button>
+            </div>
+          </div>
           <label class="alabel">Site Name</label>
           <input type="text" id="as-sitename" placeholder="BloomWell">
           <label class="alabel">Tagline (Footer)</label>
           <input type="text" id="as-tagline" placeholder="Women's Health and Wellness by Maria Kanwal">
           <label class="alabel">Footer Copyright Text</label>
-          <input type="text" id="as-copyright" placeholder="© 2025 BloomWell · Founded by Maria Kanwal · MedRankSEO">
-          <button class="admin-save-btn" onclick="saveSiteSettings()">💾 Save Site Settings</button>
+          <input type="text" id="as-copyright" placeholder="© 2025 BloomWell · Founded by Maria Kanwal">
         </div>
-        <div class="admin-card">
-          <h4>Hero Section</h4>
-          <label class="alabel">Hero Issue Label</label>
+
+        <!-- card: hero -->
+        <div class="admin-card locked" id="card-hero">
+          <div class="card-header">
+            <h4>🦸 Hero Section <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-hero')">✎ Edit</button>
+              <button class="btn-save" onclick="saveHeroSettings();doneCard('card-hero')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-hero')">✕</button>
+            </div>
+          </div>
+          <label class="alabel">Issue Label (above title)</label>
           <input type="text" id="as-herolabel" placeholder="Founded by Maria Kanwal · MedRankSEO">
-          <label class="alabel">Hero Title (use | for line breaks)</label>
+          <label class="alabel">Hero Title</label>
           <input type="text" id="as-herotitle" placeholder="Empowering Women Through Every Stage of Life">
           <label class="alabel">Hero Subtitle</label>
           <textarea id="as-herosub" style="min-height:80px" placeholder="From hormonal health to mental wellness..."></textarea>
@@ -1535,50 +1575,82 @@ footer{
           <input type="text" id="as-herobtn1" placeholder="Explore Articles">
           <label class="alabel">Secondary Button Text</label>
           <input type="text" id="as-herobtn2" placeholder="Our Mission">
-          <button class="admin-save-btn" onclick="saveHeroSettings()">💾 Save Hero</button>
         </div>
-        <div class="admin-card">
-          <h4>Newsletter Section</h4>
+
+        <!-- card: newsletter -->
+        <div class="admin-card locked" id="card-newsletter">
+          <div class="card-header">
+            <h4>📬 Newsletter Section <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-newsletter')">✎ Edit</button>
+              <button class="btn-save" onclick="saveNewsletterSettings();doneCard('card-newsletter')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-newsletter')">✕</button>
+            </div>
+          </div>
           <label class="alabel">Heading</label>
           <input type="text" id="as-nltitle" placeholder="Stay Informed. Stay Empowered.">
           <label class="alabel">Description</label>
           <textarea id="as-nltext" style="min-height:70px" placeholder="Weekly women's health insights..."></textarea>
           <label class="alabel">Button Text</label>
           <input type="text" id="as-nlbtn" placeholder="Subscribe Now">
-          <button class="admin-save-btn" onclick="saveNewsletterSettings()">💾 Save Newsletter</button>
         </div>
+
       </div>
     </div>
 
-    <!-- ABOUT & PROFILE TAB -->
+    <!-- ── ABOUT TAB ── -->
     <div class="atab-pane" id="atab-about-edit">
       <h3 class="admin-section-title">About Page &amp; Founder Profile</h3>
-      <p style="font-size:.82rem;color:var(--g1);margin-bottom:1.5rem;padding:.6rem 1rem;background:rgba(201,168,76,.06);border-left:3px solid var(--g1);border-radius:0 4px 4px 0">✦ Use the Text tab for easy editing, or Code tab to paste HTML directly. All saved to storage.</p>
       <div class="admin-grid">
-        <div class="admin-card">
-          <h4>About Page Introduction</h4>
+
+        <!-- card: about intro -->
+        <div class="admin-card locked" id="card-about-intro">
+          <div class="card-header">
+            <h4>📖 About Introduction <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-about-intro')">✎ Edit</button>
+              <button class="btn-save" onclick="saveAboutIntro();doneCard('card-about-intro')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-about-intro')">✕</button>
+            </div>
+          </div>
           <label class="alabel">Paragraph 1</label>
-          <textarea id="ae-intro1" style="min-height:90px" placeholder="BloomWell was founded by..."></textarea>
+          <textarea id="ae-intro1" style="min-height:85px" placeholder="BloomWell was founded by..."></textarea>
           <label class="alabel">Paragraph 2</label>
-          <textarea id="ae-intro2" style="min-height:90px" placeholder="Maria combines her expertise..."></textarea>
+          <textarea id="ae-intro2" style="min-height:85px" placeholder="Maria combines her expertise..."></textarea>
           <label class="alabel">Paragraph 3</label>
-          <textarea id="ae-intro3" style="min-height:90px" placeholder="BloomWell serves readers..."></textarea>
-          <button class="admin-save-btn" onclick="saveAboutIntro()">💾 Save Introduction</button>
+          <textarea id="ae-intro3" style="min-height:85px" placeholder="BloomWell serves readers..."></textarea>
         </div>
-        <div class="admin-card">
-          <h4>Founder Bio</h4>
+
+        <!-- card: founder bio -->
+        <div class="admin-card locked" id="card-founder-bio">
+          <div class="card-header">
+            <h4>👩 Founder Bio <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-founder-bio')">✎ Edit</button>
+              <button class="btn-save" onclick="saveFounderBio();doneCard('card-founder-bio')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-founder-bio')">✕</button>
+            </div>
+          </div>
           <label class="alabel">Founder Name</label>
           <input type="text" id="ae-fname" placeholder="Maria Kanwal">
           <label class="alabel">Title / Roles</label>
           <input type="text" id="ae-ftitle" placeholder="Research Associate · SEO Writer · Scholar · Author">
           <label class="alabel">Bio Paragraph 1</label>
-          <textarea id="ae-fbio1" style="min-height:90px" placeholder="Maria Kanwal is a Research Associate..."></textarea>
+          <textarea id="ae-fbio1" style="min-height:85px" placeholder="Maria Kanwal is a Research Associate..."></textarea>
           <label class="alabel">Bio Paragraph 2</label>
-          <textarea id="ae-fbio2" style="min-height:80px" placeholder="She holds a BDDS..."></textarea>
-          <button class="admin-save-btn" onclick="saveFounderBio()">💾 Save Bio</button>
+          <textarea id="ae-fbio2" style="min-height:75px" placeholder="She holds a BDDS..."></textarea>
         </div>
-        <div class="admin-card">
-          <h4>Social &amp; Academic Links</h4>
+
+        <!-- card: social links -->
+        <div class="admin-card locked" id="card-social-links">
+          <div class="card-header">
+            <h4>🔗 Social &amp; Academic Links <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-social-links')">✎ Edit</button>
+              <button class="btn-save" onclick="saveSocialLinks();doneCard('card-social-links')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-social-links')">✕</button>
+            </div>
+          </div>
           <label class="alabel">Email Address</label>
           <input type="text" id="ae-email" placeholder="medrankseo@gmail.com">
           <label class="alabel">LinkedIn URL</label>
@@ -1591,44 +1663,58 @@ footer{
           <input type="text" id="ae-orcid" placeholder="https://orcid.org/...">
           <label class="alabel">Upwork URL</label>
           <input type="text" id="ae-upwork" placeholder="https://www.upwork.com/...">
-          <button class="admin-save-btn" onclick="saveSocialLinks()">💾 Save Links</button>
         </div>
-        <div class="admin-card" style="grid-column:1/-1">
-          <h4>Custom About Page HTML <span style="font-size:.72rem;color:var(--muted);font-weight:400">(advanced — overrides text fields above)</span></h4>
-          <div class="editor-tabs" style="margin-bottom:.6rem">
-            <button class="editor-tab-btn active" onclick="switchAboutTab('text',this)">📝 Text Fields</button>
-            <button class="editor-tab-btn" onclick="switchAboutTab('code',this)">💻 Raw HTML</button>
+
+        <!-- card: custom about html -->
+        <div class="admin-card locked" id="card-about-html" style="grid-column:1/-1">
+          <div class="card-header">
+            <h4>💻 Custom About HTML <span style="font-size:.7rem;color:var(--muted);font-weight:400">(advanced)</span> <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-about-html')">✎ Edit</button>
+              <button class="btn-save" onclick="saveAboutCustomHTML();doneCard('card-about-html')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-about-html')">✕</button>
+            </div>
           </div>
-          <div id="about-pane-text" class="editor-pane active">
-            <p style="font-size:.8rem;color:var(--lt);margin-bottom:.5rem">Edit using the fields above — they are reflected here when you save.</p>
-            <div id="about-text-preview" style="background:var(--p5);padding:1rem;border-radius:4px;font-size:.85rem;color:var(--mid);line-height:1.7;min-height:80px;border:1px solid var(--border)">Preview will appear after saving...</div>
-          </div>
-          <div id="about-pane-code" class="editor-pane">
-            <p class="code-hint-text">Paste full HTML for the About page intro section. Leave blank to use text fields.</p>
-            <textarea id="ae-custom-html" class="code-textarea" placeholder="<p>Your custom HTML here...</p>"></textarea>
-            <button class="admin-save-btn" style="margin-top:.6rem" onclick="saveAboutCustomHTML()">💾 Save Custom HTML</button>
-          </div>
+          <p class="code-hint-text">Paste full HTML to override About intro paragraphs. Leave blank to use text fields above.</p>
+          <textarea id="ae-custom-html" class="code-textarea" placeholder="&lt;p&gt;Your custom HTML here...&lt;/p&gt;"></textarea>
         </div>
+
       </div>
     </div>
 
-    <!-- CONTACT INFO TAB -->
+    <!-- ── CONTACT TAB ── -->
     <div class="atab-pane" id="atab-contact-edit">
       <h3 class="admin-section-title">Contact Page Settings</h3>
-      <p style="font-size:.82rem;color:var(--g1);margin-bottom:1.5rem;padding:.6rem 1rem;background:rgba(201,168,76,.06);border-left:3px solid var(--g1);border-radius:0 4px 4px 0">✦ Edit contact page text and details. Use Code tab for custom HTML.</p>
       <div class="admin-grid">
-        <div class="admin-card">
-          <h4>Contact Page Text</h4>
+
+        <!-- card: contact text -->
+        <div class="admin-card locked" id="card-contact-text">
+          <div class="card-header">
+            <h4>📝 Page Text <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-contact-text')">✎ Edit</button>
+              <button class="btn-save" onclick="saveContactSettings();doneCard('card-contact-text')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-contact-text')">✕</button>
+            </div>
+          </div>
           <label class="alabel">Page Heading</label>
           <input type="text" id="ac-heading" placeholder="Let's Connect">
           <label class="alabel">Subheading</label>
           <input type="text" id="ac-sub" placeholder="Reach out to Maria Kanwal directly...">
           <label class="alabel">Description</label>
-          <textarea id="ac-desc" style="min-height:90px" placeholder="Whether you have a health question..."></textarea>
-          <button class="admin-save-btn" onclick="saveContactSettings()">💾 Save Text</button>
+          <textarea id="ac-desc" style="min-height:85px" placeholder="Whether you have a health question..."></textarea>
         </div>
-        <div class="admin-card">
-          <h4>Contact Details</h4>
+
+        <!-- card: contact details -->
+        <div class="admin-card locked" id="card-contact-details">
+          <div class="card-header">
+            <h4>📋 Contact Details <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-contact-details')">✎ Edit</button>
+              <button class="btn-save" onclick="saveContactDetails();doneCard('card-contact-details')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-contact-details')">✕</button>
+            </div>
+          </div>
           <label class="alabel">Email Address</label>
           <input type="text" id="ac-email" placeholder="medrankseo@gmail.com">
           <label class="alabel">LinkedIn URL</label>
@@ -1639,66 +1725,82 @@ footer{
           <input type="text" id="ac-scholar" placeholder="https://scholar.google.com/...">
           <label class="alabel">Blog URL</label>
           <input type="text" id="ac-blog" placeholder="https://journey-towards-health...">
-          <button class="admin-save-btn" onclick="saveContactDetails()">💾 Save Details</button>
         </div>
-        <div class="admin-card">
-          <h4>Custom Contact HTML <span style="font-size:.72rem;color:var(--muted);font-weight:400">(optional)</span></h4>
-          <div class="editor-tabs" style="margin-bottom:.6rem">
-            <button class="editor-tab-btn active" onclick="switchContactTab('text',this)">📝 Text Fields</button>
-            <button class="editor-tab-btn" onclick="switchContactTab('code',this)">💻 Raw HTML</button>
+
+        <!-- card: custom contact html -->
+        <div class="admin-card locked" id="card-contact-html">
+          <div class="card-header">
+            <h4>💻 Custom Contact HTML <span style="font-size:.7rem;color:var(--muted);font-weight:400">(optional)</span> <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-contact-html')">✎ Edit</button>
+              <button class="btn-save" onclick="saveContactCustomHTML();doneCard('card-contact-html')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-contact-html')">✕</button>
+            </div>
           </div>
-          <div id="contact-pane-text" class="editor-pane active">
-            <p style="font-size:.8rem;color:var(--lt)">Contact info is edited using the fields on the left.</p>
-          </div>
-          <div id="contact-pane-code" class="editor-pane">
-            <p class="code-hint-text">Paste custom HTML to override the left column of the contact page.</p>
-            <textarea id="ac-custom-html" class="code-textarea" placeholder="<div>Custom contact content...</div>"></textarea>
-            <button class="admin-save-btn" style="margin-top:.6rem" onclick="saveContactCustomHTML()">💾 Save Custom HTML</button>
-          </div>
+          <p class="code-hint-text">Paste custom HTML to override the contact left column.</p>
+          <textarea id="ac-custom-html" class="code-textarea" placeholder="&lt;div&gt;Custom contact content...&lt;/div&gt;"></textarea>
         </div>
+
       </div>
     </div>
 
-    <!-- SECURITY / PASSWORD TAB -->
+    <!-- ── PASSWORD TAB ── -->
     <div class="atab-pane" id="atab-security">
       <h3 class="admin-section-title">Password &amp; Security</h3>
       <div class="admin-grid">
-        <div class="admin-card">
-          <h4>🔐 Change Admin Password</h4>
-          <p style="font-size:.82rem;color:var(--lt);margin-bottom:1rem;line-height:1.6">Your password is stored locally in your browser. Default password is <code style="background:var(--p5);padding:.1rem .4rem;border-radius:3px;font-size:.8rem">BloomWell2025!</code></p>
+
+        <!-- card: change password -->
+        <div class="admin-card locked" id="card-password">
+          <div class="card-header">
+            <h4>🔐 Change Password <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-password')">✎ Edit</button>
+              <button class="btn-save" onclick="changePassword();doneCard('card-password')">💾 Update</button>
+              <button class="btn-cancel" onclick="cancelCard('card-password')">✕</button>
+            </div>
+          </div>
+          <p style="font-size:.82rem;color:var(--lt);margin-bottom:1rem;line-height:1.6">Default password: <code style="background:var(--p5);padding:.1rem .4rem;border-radius:3px;font-size:.78rem">BloomWell2025!</code></p>
           <label class="alabel">Current Password</label>
           <input type="password" id="sec-current" placeholder="Enter current password">
           <label class="alabel">New Password <span style="color:var(--muted);font-weight:400">(min 8 characters)</span></label>
           <input type="password" id="sec-new" placeholder="New password">
           <label class="alabel">Confirm New Password</label>
           <input type="password" id="sec-confirm" placeholder="Repeat new password">
-          <div id="sec-msg" style="font-size:.82rem;margin:.5rem 0;min-height:1.4rem;padding:.3rem 0"></div>
-          <button class="admin-save-btn" onclick="changePassword()">🔒 Update Password</button>
+          <div id="sec-msg" style="font-size:.82rem;margin:.5rem 0;min-height:1.2rem;"></div>
         </div>
-        <div class="admin-card">
-          <h4>Session Info</h4>
-          <p style="font-size:.85rem;color:var(--lt);margin-bottom:1rem;line-height:1.65">You are currently logged in as <strong style="color:var(--ink)">Admin</strong>. Your session persists until you log out or close the tab.</p>
-          <div style="background:var(--p5);border-radius:4px;padding:.9rem;margin-bottom:1rem;border:1px solid var(--border)">
-            <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Storage Status</div>
-            <div id="storage-status" style="font-size:.82rem;color:var(--mid)">Checking...</div>
+
+        <!-- card: session -->
+        <div class="admin-card" id="card-session">
+          <div class="card-header">
+            <h4>🖥 Session &amp; Status</h4>
           </div>
-          <button class="admin-danger-btn" onclick="logoutAdmin()">Log Out of Admin</button>
+          <p style="font-size:.85rem;color:var(--lt);margin-bottom:1rem;line-height:1.65">Logged in as <strong style="color:var(--ink)">Admin</strong>. Session persists until you log out or close the tab.</p>
+          <div style="background:var(--p5);border-radius:4px;padding:.9rem;margin-bottom:1rem;border:1px solid var(--border)">
+            <div style="font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem">Storage Status</div>
+            <div id="storage-status" style="font-size:.82rem;color:var(--mid);line-height:1.7">Checking...</div>
+          </div>
+          <button class="admin-danger-btn" onclick="logoutAdmin()">Log Out</button>
         </div>
-        <div class="admin-card">
-          <h4>🗑 Clear Saved Data</h4>
-          <p style="font-size:.82rem;color:var(--lt);margin-bottom:1rem;line-height:1.65">Reset individual sections of stored data. This cannot be undone.</p>
-          <div style="display:flex;flex-direction:column;gap:.6rem">
-            <button class="admin-danger-btn" onclick="clearData('bwBlogs3','blog posts')">Clear All Blog Posts</button>
+
+        <!-- card: clear data -->
+        <div class="admin-card" id="card-clear">
+          <div class="card-header">
+            <h4>🗑 Clear Saved Data</h4>
+          </div>
+          <p style="font-size:.82rem;color:var(--lt);margin-bottom:1rem;line-height:1.65">Reset sections of stored data. <strong>Cannot be undone.</strong></p>
+          <div style="display:flex;flex-direction:column;gap:.55rem">
+            <button class="admin-danger-btn" onclick="clearData('bwBlogs3','blog posts')">Clear Blog Posts</button>
             <button class="admin-danger-btn" onclick="clearData('bwSiteSettings','site settings')">Clear Site Settings</button>
             <button class="admin-danger-btn" onclick="clearData('bwAboutSettings','about settings')">Clear About Settings</button>
             <button class="admin-danger-btn" onclick="clearData('bwContactSettings','contact settings')">Clear Contact Settings</button>
           </div>
         </div>
+
       </div>
     </div>
+
   </div>
 </div>
-
 <!-- PASSWORD MODAL -->
 <div class="pw-overlay" id="pwOverlay">
   <div class="pw-box">
@@ -1875,7 +1977,7 @@ footer{
     </div>
     <div class="fcol">
       <h5>Connect</h5>
-      <a href="mailto:medrankseo@gmail.com">Email Maria</a>
+      <a href="/cdn-cgi/l/email-protection#6508000117040b0e16000a250208040c094b060a08">Email Maria</a>
       <a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">LinkedIn</a>
       <a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Upwork</a>
       <a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">Google Scholar</a>
@@ -1888,7 +1990,7 @@ footer{
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var catLabels={hormones:'Hormonal Health',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};
 var catColors={hormones:'#EDE7FF',fertility:'#E8F5E9',menopause:'#E8EAF6',mental:'#FFF8E1',nutrition:'#E8F5E9',fitness:'#FFF3E0'};
 var ktIcons=['✦','◈','◇','✧','◉','✦'];
@@ -2063,6 +2165,64 @@ function saveEditBlog(){
 function deleteBlog(id){var b=blogs.find(function(x){return x.id===id;});if(!b)return;if(!confirm('Delete "'+b.title+'"?\n\nThis cannot be undone.'))return;blogs=blogs.filter(function(x){return x.id!==id;});saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('Deleted.');}
 
 function switchAdminTab(tab,btn){document.querySelectorAll('.atab-pane').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.atab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('atab-'+tab).classList.add('active');btn.classList.add('active');}
+
+/* ===== EDIT / LOCK CARD SYSTEM ===== */
+var cardOriginals={};
+function editCard(id){
+  var card=document.getElementById(id);
+  if(!card)return;
+  // Store original values for cancel
+  var inputs=card.querySelectorAll('input,select,textarea');
+  var snap={};
+  inputs.forEach(function(el){snap[el.id]=el.value;});
+  cardOriginals[id]=snap;
+  card.classList.remove('locked');
+  card.classList.add('editing');
+  // Focus first input
+  var first=card.querySelector('input:not([type=password]),textarea');
+  if(first)setTimeout(function(){first.focus();},50);
+}
+function doneCard(id){
+  var card=document.getElementById(id);
+  if(!card)return;
+  card.classList.remove('editing');
+  card.classList.add('locked');
+  delete cardOriginals[id];
+}
+function cancelCard(id){
+  var card=document.getElementById(id);
+  if(!card)return;
+  // Restore original values
+  var snap=cardOriginals[id]||{};
+  Object.keys(snap).forEach(function(elId){
+    var el=document.getElementById(elId);
+    if(el)el.value=snap[elId];
+  });
+  card.classList.remove('editing');
+  card.classList.add('locked');
+  delete cardOriginals[id];
+}
+/* Override changePassword to NOT call doneCard if validation fails */
+var _origChangePw=typeof changePassword!=='undefined'?changePassword:null;
+function changePassword(){
+  var cur=document.getElementById('sec-current').value;
+  var nw=document.getElementById('sec-new').value;
+  var cf=document.getElementById('sec-confirm').value;
+  var msg=document.getElementById('sec-msg');
+  if(!cur||!nw||!cf){if(msg){msg.style.color='#c0392b';msg.textContent='Please fill all fields.';}return false;}
+  if(nw.length<8){if(msg){msg.style.color='#c0392b';msg.textContent='New password must be at least 8 characters.';}return false;}
+  if(nw!==cf){if(msg){msg.style.color='#c0392b';msg.textContent='Passwords do not match.';}return false;}
+  var stored=getAdminPass();
+  if(cur!==stored){if(msg){msg.style.color='#c0392b';msg.textContent='Current password is incorrect.';}return false;}
+  try{localStorage.setItem(ADMIN_PASS_KEY,nw);}catch(e){}
+  if(msg){msg.style.color='#27ae60';msg.textContent='✓ Password updated successfully!';}
+  document.getElementById('sec-current').value='';
+  document.getElementById('sec-new').value='';
+  document.getElementById('sec-confirm').value='';
+  showToast('🔒 Password changed!');
+  setTimeout(function(){doneCard('card-password');},800);
+  return true;
+}
 function switchAboutTab(tab,btn){var btns=document.querySelectorAll('#atab-about-edit .editor-tab-btn');btns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.getElementById('about-pane-text').classList.toggle('active',tab==='text');document.getElementById('about-pane-code').classList.toggle('active',tab==='code');}
 function switchContactTab(tab,btn){var btns=document.querySelectorAll('#atab-contact-edit .editor-tab-btn');btns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.getElementById('contact-pane-text').classList.toggle('active',tab==='text');document.getElementById('contact-pane-code').classList.toggle('active',tab==='code');}
 
@@ -2157,6 +2317,12 @@ function loadAdminFields(){
   setV('ac-custom-html',c.customHTML||'');
   /* storage status */
   updateStorageStatus();
+  // Lock all editable cards after loading values
+  lockAllCards();
+}
+function lockAllCards(){
+  var ids=['card-site-title','card-hero','card-newsletter','card-about-intro','card-founder-bio','card-social-links','card-about-html','card-contact-text','card-contact-details','card-contact-html','card-password'];
+  ids.forEach(function(id){var c=document.getElementById(id);if(c){c.classList.remove('editing');c.classList.add('locked');}});
 }
 function setV(id,val){var el=document.getElementById(id);if(el)el.value=val||'';}
 function getV(id){var el=document.getElementById(id);return el?el.value.trim():'';}
@@ -2413,9 +2579,14 @@ function refreshAdminBlogList(){
 function exportBlogs(){try{var d=JSON.stringify(blogs,null,2);var bl=new Blob([d],{type:'application/json'});var u=URL.createObjectURL(bl);var a=document.createElement('a');a.href=u;a.download='bloomwell-posts.json';a.click();URL.revokeObjectURL(u);}catch(e){alert('Export failed.');}}
 function resetToDefault(){if(!confirm('Reset all posts to defaults? Custom posts will be lost.'))return;blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('↩ Reset to default posts.');}
 
-/* Init — load everything on page load */
+/* ===== INIT ===== */
 initAuth();
 applySettingsToPage();
+
+document.getElementById('addBlogModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.getElementById('editBlogModal').addEventListener('click',function(e){if(e.target===this)closeEditModal();});
+document.querySelectorAll('.modal-box').forEach(function(box){box.addEventListener('click',function(e){e.stopPropagation();});});
+window.addEventListener('hashchange',function(){if(location.hash==='#admin')showPage('admin');});
 </script>
 </body>
 </html>
