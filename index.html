@@ -687,7 +687,7 @@ nav{
 .ci a{color:var(--p2);text-decoration:none;font-size:.82rem;}
 .ci a:hover{color:var(--g1);}
 
-/* ===== CONTACT FORM - FIXED ===== */
+/* ===== CONTACT FORM ===== */
 .cform{
   background:var(--white);border-radius:8px;
   border:1px solid var(--border);
@@ -713,7 +713,6 @@ nav{
   transition:all .25s;margin-top:.4rem;letter-spacing:.06em;text-transform:uppercase;
 }
 .form-submit:hover{background:linear-gradient(135deg,var(--p2),var(--p3));transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,27,105,.25);}
-/* FIXED: success state */
 .form-success{
   display:none;text-align:center;padding:3rem 2rem;
   background:linear-gradient(135deg,var(--p5),var(--white));
@@ -752,9 +751,10 @@ nav{
 .admin-card input:focus,.admin-card select:focus,.admin-card textarea:focus{border-color:var(--p3);}
 .admin-card textarea{min-height:90px;resize:vertical;}
 .alabel{font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
+
 /* ===== CARD EDIT/LOCK SYSTEM ===== */
 .card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;padding-bottom:.8rem;border-bottom:1px solid var(--border);}
-.card-header h4{font-family:var(--fh);font-size:1.05rem;font-weight:600;color:var(--ink);margin:0;display:flex;align-items:center;gap:.5rem;}
+.card-header h4{font-family:var(--fh);font-size:1.05rem;font-weight:600;color:var(--ink);margin:0;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
 .card-btns{display:flex;gap:.4rem;align-items:center;flex-shrink:0;}
 .btn-edit{background:var(--p5);color:var(--p2);border:1.5px solid var(--border);border-radius:3px;padding:.28rem .8rem;font-family:var(--fb);font-size:.7rem;font-weight:700;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:all .18s;display:inline-flex;align-items:center;gap:.3rem;}
 .btn-edit:hover{background:var(--p1);color:var(--g2);border-color:var(--p1);}
@@ -764,10 +764,22 @@ nav{
 .btn-cancel:hover{border-color:#c0392b;color:#c0392b;}
 .badge-saved{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;background:rgba(39,174,96,.12);color:#27ae60;white-space:nowrap;}
 .badge-editing{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;background:rgba(123,82,192,.13);color:var(--p3);white-space:nowrap;display:none;}
-.admin-card.locked input,.admin-card.locked select,.admin-card.locked textarea{background:transparent!important;border-color:transparent!important;color:var(--mid)!important;pointer-events:none!important;cursor:default!important;resize:none!important;padding-left:0!important;padding-right:0!important;box-shadow:none!important;}
+
+/* Locked state */
+.admin-card.locked input,.admin-card.locked select,.admin-card.locked textarea{
+  background:transparent!important;border-color:transparent!important;
+  color:var(--mid)!important;pointer-events:none!important;cursor:default!important;
+  resize:none!important;padding-left:0!important;padding-right:0!important;box-shadow:none!important;
+}
 .admin-card.locked .code-textarea{background:#16102a!important;color:#666!important;pointer-events:none!important;}
+
+/* Editing state */
 .admin-card.editing{border-color:var(--p3)!important;box-shadow:0 0 0 3px rgba(123,82,192,.1),0 6px 24px rgba(45,27,105,.1)!important;}
-.admin-card.editing input,.admin-card.editing select,.admin-card.editing textarea{background:var(--white)!important;border-color:var(--border)!important;color:var(--ink)!important;pointer-events:auto!important;cursor:text!important;resize:vertical!important;padding:.5rem .7rem!important;box-shadow:none!important;}
+.admin-card.editing input,.admin-card.editing select,.admin-card.editing textarea{
+  background:var(--white)!important;border-color:var(--border)!important;
+  color:var(--ink)!important;pointer-events:auto!important;cursor:text!important;
+  resize:vertical!important;padding:.5rem .7rem!important;box-shadow:none!important;
+}
 .admin-card.editing select{cursor:pointer!important;}
 .admin-card.editing .code-textarea{background:#0E0818!important;color:#c9d1e0!important;pointer-events:auto!important;}
 .admin-card.editing .btn-edit{display:none!important;}
@@ -775,7 +787,7 @@ nav{
 .admin-card.editing .btn-cancel{display:inline-flex!important;}
 .admin-card.editing .badge-saved{display:none!important;}
 .admin-card.editing .badge-editing{display:inline-block!important;}
-.admin-card .admin-save-btn{display:none;}
+
 .admin-save-btn{
   background:linear-gradient(135deg,var(--p1),var(--p2));color:var(--white);
   border:none;border-radius:2px;padding:.6rem 1.4rem;font-family:var(--fb);
@@ -802,6 +814,9 @@ nav{
 .card-edit-btn:hover{background:var(--p1);color:var(--g2);}
 .card-del-btn{background:#fde8e8;color:#c0392b;}
 .card-del-btn:hover{background:#c0392b;color:var(--white);}
+
+/* ===== TOPICS ADMIN GRID ===== */
+.topics-admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;}
 
 /* ===== PASSWORD MODAL ===== */
 .pw-overlay{
@@ -992,8 +1007,8 @@ footer{
   .pub-grid{grid-template-columns:1fr;}
   .apps-grid{grid-template-columns:1fr 1fr;}
   .platforms-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+  .topics-admin-grid{grid-template-columns:1fr 1fr;}
 }
-
 @media(max-width:600px){
   .hero{padding-top:60px;}
   .hero-left{padding:40px 5% 32px;}
@@ -1041,6 +1056,7 @@ footer{
   .author-profile-section{padding:0 4% 50px;}
   .platforms-grid{grid-template-columns:1fr 1fr;}
   .cform-inner{padding:1.5rem;}
+  .topics-admin-grid{grid-template-columns:1fr;}
 }
 @media(max-width:400px){
   .hero h1{font-size:1.95rem;}
@@ -1112,35 +1128,35 @@ footer{
   <div class="hero" id="heroSection">
     <div class="hero-divider"></div>
     <div class="hero-left">
-      <div class="hero-issue">Founded by Maria Kanwal · MedRankSEO</div>
-      <h1>Empowering<br>Women Through<br><em>Every Stage</em><br>of Life</h1>
-      <p class="hero-sub">From hormonal health to mental wellness — BloomWell provides expert-backed, science-informed guidance designed specifically for women's bodies and minds.</p>
+      <div class="hero-issue" id="heroIssueLabel">Founded by Maria Kanwal · MedRankSEO</div>
+      <h1 id="heroTitle">Empowering<br>Women Through<br><em>Every Stage</em><br>of Life</h1>
+      <p class="hero-sub" id="heroSub">From hormonal health to mental wellness — BloomWell provides expert-backed, science-informed guidance designed specifically for women's bodies and minds.</p>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="showPage('blogs')">Explore Articles</button>
-        <button class="btn-outline" onclick="showPage('about')">Our Mission</button>
+        <button class="btn-primary" id="heroBtnPrimary" onclick="showPage('blogs')">Explore Articles</button>
+        <button class="btn-outline" id="heroBtnSecondary" onclick="showPage('about')">Our Mission</button>
       </div>
     </div>
     <div class="hero-right">
       <div class="hero-stats">
         <div class="hstat">
-          <div class="hstat-num">15+</div>
-          <div class="hstat-label">Expert Articles</div>
-          <div class="hstat-desc">Peer-reviewed, evidence-based women's health content</div>
+          <div class="hstat-num" id="stat1num">15+</div>
+          <div class="hstat-label" id="stat1label">Expert Articles</div>
+          <div class="hstat-desc" id="stat1desc">Peer-reviewed, evidence-based women's health content</div>
         </div>
         <div class="hstat">
-          <div class="hstat-num">6</div>
-          <div class="hstat-label">Health Topics</div>
-          <div class="hstat-desc">Hormones, fertility, menopause, mental health &amp; more</div>
+          <div class="hstat-num" id="stat2num">6</div>
+          <div class="hstat-label" id="stat2label">Health Topics</div>
+          <div class="hstat-desc" id="stat2desc">Hormones, fertility, menopause, mental health &amp; more</div>
         </div>
         <div class="hstat">
-          <div class="hstat-num">5</div>
-          <div class="hstat-label">Published Books</div>
-          <div class="hstat-desc">Academic and research publications by Maria Kanwal</div>
+          <div class="hstat-num" id="stat3num">5</div>
+          <div class="hstat-label" id="stat3label">Published Books</div>
+          <div class="hstat-desc" id="stat3desc">Academic and research publications by Maria Kanwal</div>
         </div>
         <div class="hstat">
-          <div class="hstat-num">9+</div>
-          <div class="hstat-label">Research Papers</div>
-          <div class="hstat-desc">International research across health, diplomacy &amp; tech</div>
+          <div class="hstat-num" id="stat4num">9+</div>
+          <div class="hstat-label" id="stat4label">Research Papers</div>
+          <div class="hstat-desc" id="stat4desc">International research across health, diplomacy &amp; tech</div>
         </div>
       </div>
     </div>
@@ -1152,38 +1168,38 @@ footer{
       <h2 class="stitle">Everything You Need<br>to <em>Know</em></h2>
       <p class="ssub">Comprehensive resources covering the full spectrum of women's health — organised so you can find what matters to you right now.</p>
     </div>
-    <div class="topics-grid">
-      <div class="tcard" onclick="showPage('blogs');filterBlogsNav('hormones')">
+    <div class="topics-grid" id="topicsGrid">
+      <div class="tcard" data-topic-idx="0" onclick="showPage('blogs');filterBlogsNav('hormones')">
         <div class="tcard-num">01</div>
         <div class="ticon">⚗️</div><h3>Hormonal Health</h3>
         <p>Understand estrogen, progesterone, and cortisol balance and how they affect mood, energy, and metabolism.</p>
         <span class="ttag">8 Articles</span>
       </div>
-      <div class="tcard" onclick="showPage('blogs');filterBlogsNav('fertility')">
+      <div class="tcard" data-topic-idx="1" onclick="showPage('blogs');filterBlogsNav('fertility')">
         <div class="tcard-num">02</div>
         <div class="ticon">🌱</div><h3>Fertility &amp; Pregnancy</h3>
         <p>From conception planning through each trimester — evidence-based guidance for your journey to motherhood.</p>
         <span class="ttag">12 Articles</span>
       </div>
-      <div class="tcard" onclick="showPage('blogs');filterBlogsNav('menopause')">
+      <div class="tcard" data-topic-idx="2" onclick="showPage('blogs');filterBlogsNav('menopause')">
         <div class="tcard-num">03</div>
         <div class="ticon">🌙</div><h3>Menopause &amp; Perimenopause</h3>
         <p>Navigate the transition with confidence. Manage symptoms naturally and understand what your body is experiencing.</p>
         <span class="ttag">10 Articles</span>
       </div>
-      <div class="tcard" onclick="showPage('blogs');filterBlogsNav('mental')">
+      <div class="tcard" data-topic-idx="3" onclick="showPage('blogs');filterBlogsNav('mental')">
         <div class="tcard-num">04</div>
         <div class="ticon">🧠</div><h3>Mental Wellness</h3>
         <p>Anxiety, depression, postpartum mental health, and stress management strategies rooted in science.</p>
         <span class="ttag">9 Articles</span>
       </div>
-      <div class="tcard" onclick="showPage('blogs');filterBlogsNav('nutrition')">
+      <div class="tcard" data-topic-idx="4" onclick="showPage('blogs');filterBlogsNav('nutrition')">
         <div class="tcard-num">05</div>
         <div class="ticon">🥗</div><h3>Nutrition for Women</h3>
         <p>How nutritional needs shift through your cycle, pregnancy, and beyond — and what to eat at every stage.</p>
         <span class="ttag">11 Articles</span>
       </div>
-      <div class="tcard" onclick="showPage('blogs');filterBlogsNav('fitness')">
+      <div class="tcard" data-topic-idx="5" onclick="showPage('blogs');filterBlogsNav('fitness')">
         <div class="tcard-num">06</div>
         <div class="ticon">💪</div><h3>Fitness &amp; Movement</h3>
         <p>Exercise science tailored to women's physiology — maximise results while respecting hormonal rhythms.</p>
@@ -1193,11 +1209,11 @@ footer{
   </section>
 
   <div class="newsletter">
-    <h2>Stay <em>Informed.</em> Stay Empowered.</h2>
-    <p>Weekly women's health insights from Maria Kanwal — no noise, just knowledge.</p>
+    <h2 id="nlHeading">Stay <em>Informed.</em> Stay Empowered.</h2>
+    <p id="nlText">Weekly women's health insights from Maria Kanwal — no noise, just knowledge.</p>
     <div class="nl-form">
       <input type="email" placeholder="your@email.com">
-      <button onclick="nlSignup()">Subscribe Now</button>
+      <button id="nlBtn" onclick="nlSignup()">Subscribe Now</button>
     </div>
   </div>
 </div>
@@ -1239,9 +1255,9 @@ footer{
     <div>
       <div class="about-eyebrow">Our Story</div>
       <h1>Born from a Need for <em>Real</em> Women's Health Information</h1>
-      <p>BloomWell was founded by Maria Kanwal — Research Associate, Assistant Digital Editor, SEO Content Writer, Digital Marketing Strategist, Scholar, and Author — who was frustrated by the abundance of incomplete and fear-mongering women's health content online.</p>
-      <p>Maria combines her expertise in medical SEO, AI-optimised content, and E-E-A-T compliance to create women's health resources that are not just informative, but truly trustworthy and search-optimised.</p>
-      <p>BloomWell serves readers across dozens of countries with content that respects women's intelligence and honours the complexity of female health across every life stage.</p>
+      <p id="aboutIntro1">BloomWell was founded by Maria Kanwal — Research Associate, Assistant Digital Editor, SEO Content Writer, Digital Marketing Strategist, Scholar, and Author — who was frustrated by the abundance of incomplete and fear-mongering women's health content online.</p>
+      <p id="aboutIntro2">Maria combines her expertise in medical SEO, AI-optimised content, and E-E-A-T compliance to create women's health resources that are not just informative, but truly trustworthy and search-optimised.</p>
+      <p id="aboutIntro3">BloomWell serves readers across dozens of countries with content that respects women's intelligence and honours the complexity of female health across every life stage.</p>
       <button class="btn-primary" onclick="showPage('blogs')" style="margin-top:1rem">Read Our Articles</button>
     </div>
     <div class="about-cards">
@@ -1264,214 +1280,94 @@ footer{
     <div class="founder-card">
       <div class="founder-img">👩‍💻</div>
       <div>
-        <div class="founder-name">Maria Kanwal</div>
-        <div class="founder-title">Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · Scholar · Author</div>
-        <p class="founder-desc">Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors. She currently works with Dubai-based clinics and international clients, creating SEO-optimized web pages, blogs, and Google Business Profile content.</p>
-        <p class="founder-desc">She holds a BDDS (Defence &amp; Diplomatic Studies) from Fatima Jinnah Women University, Rawalpindi (CGPA: 3.32 / 81.89%). She specialises in On-Page SEO, Off-Page SEO, Technical SEO, SEM, SMM, and content strategy development.</p>
+        <div class="founder-name" id="founderName">Maria Kanwal</div>
+        <div class="founder-title" id="founderTitle">Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · Scholar · Author</div>
+        <p class="founder-desc" id="founderBio1">Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors. She currently works with Dubai-based clinics and international clients, creating SEO-optimized web pages, blogs, and Google Business Profile content.</p>
+        <p class="founder-desc" id="founderBio2">She holds a BDDS (Defence &amp; Diplomatic Studies) from Fatima Jinnah Women University, Rawalpindi (CGPA: 3.32 / 81.89%). She specialises in On-Page SEO, Off-Page SEO, Technical SEO, SEM, SMM, and content strategy development.</p>
         <div class="profile-stats">
           <div class="pstat"><div class="pstat-num">5</div><div class="pstat-lab">Published Books</div></div>
           <div class="pstat"><div class="pstat-num">9+</div><div class="pstat-lab">Research Papers</div></div>
           <div class="pstat"><div class="pstat-num">10+</div><div class="pstat-lab">Digital Platforms</div></div>
         </div>
         <div class="founder-links">
-          <a class="flink" href="/cdn-cgi/l/email-protection#9bf6feffe9faf5f0e8fef4dbfcf6faf2f7b5f8f4f6">📧 Email</a>
-          <a class="flink" href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">💼 LinkedIn</a>
-          <a class="flink" href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">🎓 Scholar</a>
-          <a class="flink" href="https://ssrn.com/author=5225172" target="_blank">📄 SSRN</a>
-          <a class="flink" href="https://orcid.org/0000-0003-1528-4424" target="_blank">🆔 ORCID</a>
-          <a class="flink" href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">💻 Upwork</a>
+          <a class="flink" href="mailto:medrankseo@gmail.com">📧 Email</a>
+          <a class="flink" id="flinkLinkedin" href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">💼 LinkedIn</a>
+          <a class="flink" id="flinkScholar" href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">🎓 Scholar</a>
+          <a class="flink" id="flinkSsrn" href="https://ssrn.com/author=5225172" target="_blank">📄 SSRN</a>
+          <a class="flink" id="flinkOrcid" href="https://orcid.org/0000-0003-1528-4424" target="_blank">🆔 ORCID</a>
+          <a class="flink" id="flinkUpwork" href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">💻 Upwork</a>
           <a class="flink" href="https://journey-towards-health-and-wellness.blogspot.com/?m=1" target="_blank">📝 Blog</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ===== AUTHOR PROFILE SECTIONS ===== -->
+  <!-- AUTHOR PROFILE SECTIONS -->
   <div class="author-profile-section">
-
-    <!-- Digital Platforms -->
     <h2 class="ap-section-title"><span class="ap-icon">🌐</span> Digital Platforms</h2>
     <div class="platforms-grid">
-      <a class="platform-card" href="https://womenhub.sbs/" target="_blank">
-        <span class="pc-icon">🌸</span>
-        <div><div class="pc-name">Women Hub</div><div class="pc-url">womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://bloomwell.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">🌺</span>
-        <div><div class="pc-name">Bloom Well</div><div class="pc-url">bloomwell.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://herworld.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">🌍</span>
-        <div><div class="pc-name">Her World</div><div class="pc-url">herworld.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://lumierebeauty.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">✨</span>
-        <div><div class="pc-name">Lumiere Beauty</div><div class="pc-url">lumierebeauty.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://yourbeautyyourglow.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">💎</span>
-        <div><div class="pc-name">Your Beauty Your Glow</div><div class="pc-url">yourbeautyyourglow.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://sherises.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">🌟</span>
-        <div><div class="pc-name">She Rises</div><div class="pc-url">sherises.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://perfectbeautytips.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">💄</span>
-        <div><div class="pc-name">Perfect Beauty Tips</div><div class="pc-url">perfectbeautytips.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://lacuniacookingrecipes.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">🍳</span>
-        <div><div class="pc-name">LaCunia Cooking Recipes</div><div class="pc-url">lacuniacookingrecipes.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="http://saveourkitchen.womenhub.sbs/" target="_blank">
-        <span class="pc-icon">🥘</span>
-        <div><div class="pc-name">Save Our Kitchen</div><div class="pc-url">saveourkitchen.womenhub.sbs</div></div>
-      </a>
-      <a class="platform-card" href="https://mariakanwal123.github.io/med-rank-seo/" target="_blank">
-        <span class="pc-icon">🔍</span>
-        <div><div class="pc-name">Med Rank SEO</div><div class="pc-url">mariakanwal123.github.io</div></div>
-      </a>
+      <a class="platform-card" href="https://womenhub.sbs/" target="_blank"><span class="pc-icon">🌸</span><div><div class="pc-name">Women Hub</div><div class="pc-url">womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://bloomwell.womenhub.sbs/" target="_blank"><span class="pc-icon">🌺</span><div><div class="pc-name">Bloom Well</div><div class="pc-url">bloomwell.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://herworld.womenhub.sbs/" target="_blank"><span class="pc-icon">🌍</span><div><div class="pc-name">Her World</div><div class="pc-url">herworld.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://lumierebeauty.womenhub.sbs/" target="_blank"><span class="pc-icon">✨</span><div><div class="pc-name">Lumiere Beauty</div><div class="pc-url">lumierebeauty.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://yourbeautyyourglow.womenhub.sbs/" target="_blank"><span class="pc-icon">💎</span><div><div class="pc-name">Your Beauty Your Glow</div><div class="pc-url">yourbeautyyourglow.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://sherises.womenhub.sbs/" target="_blank"><span class="pc-icon">🌟</span><div><div class="pc-name">She Rises</div><div class="pc-url">sherises.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://perfectbeautytips.womenhub.sbs/" target="_blank"><span class="pc-icon">💄</span><div><div class="pc-name">Perfect Beauty Tips</div><div class="pc-url">perfectbeautytips.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://lacuniacookingrecipes.womenhub.sbs/" target="_blank"><span class="pc-icon">🍳</span><div><div class="pc-name">LaCunia Cooking Recipes</div><div class="pc-url">lacuniacookingrecipes.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="http://saveourkitchen.womenhub.sbs/" target="_blank"><span class="pc-icon">🥘</span><div><div class="pc-name">Save Our Kitchen</div><div class="pc-url">saveourkitchen.womenhub.sbs</div></div></a>
+      <a class="platform-card" href="https://mariakanwal123.github.io/med-rank-seo/" target="_blank"><span class="pc-icon">🔍</span><div><div class="pc-name">Med Rank SEO</div><div class="pc-url">mariakanwal123.github.io</div></div></a>
     </div>
 
-    <!-- Digital Applications -->
     <h2 class="ap-section-title"><span class="ap-icon">📱</span> Digital Applications</h2>
     <div class="apps-grid">
-      <a class="app-card" href="https://mariakanwal123.github.io/ramadan-calendar-2026/" target="_blank">
-        <span class="app-icon">🌙</span>
-        <div class="app-name">Ramadan Calendar 2026</div>
-        <p class="app-desc">Islamic calendar &amp; daily schedule app for Ramadan 2026 — track prayer times, suhoor &amp; iftar.</p>
-        <span class="app-open-btn">Open App ↗</span>
-      </a>
-      <a class="app-card" href="https://mariakanwal123.github.io/little-muslims-islamic-app-2026/" target="_blank">
-        <span class="app-icon">⭐</span>
-        <div class="app-name">Little Muslims Islamic App 2026</div>
-        <p class="app-desc">Islamic education &amp; faith-based tools for Muslim children — interactive &amp; engaging learning.</p>
-        <span class="app-open-btn">Open App ↗</span>
-      </a>
-      <a class="app-card" href="https://mariakanwal123.github.io/ramadan-2026-wellness-guide/" target="_blank">
-        <span class="app-icon">💚</span>
-        <div class="app-name">Ramadan 2026 Wellness Guide</div>
-        <p class="app-desc">Structured spiritual wellness &amp; health guidance for Ramadan — nutrition, mindfulness &amp; more.</p>
-        <span class="app-open-btn">Open App ↗</span>
-      </a>
+      <a class="app-card" href="https://mariakanwal123.github.io/ramadan-calendar-2026/" target="_blank"><span class="app-icon">🌙</span><div class="app-name">Ramadan Calendar 2026</div><p class="app-desc">Islamic calendar &amp; daily schedule app for Ramadan 2026 — track prayer times, suhoor &amp; iftar.</p><span class="app-open-btn">Open App ↗</span></a>
+      <a class="app-card" href="https://mariakanwal123.github.io/little-muslims-islamic-app-2026/" target="_blank"><span class="app-icon">⭐</span><div class="app-name">Little Muslims Islamic App 2026</div><p class="app-desc">Islamic education &amp; faith-based tools for Muslim children — interactive &amp; engaging learning.</p><span class="app-open-btn">Open App ↗</span></a>
+      <a class="app-card" href="https://mariakanwal123.github.io/ramadan-2026-wellness-guide/" target="_blank"><span class="app-icon">💚</span><div class="app-name">Ramadan 2026 Wellness Guide</div><p class="app-desc">Structured spiritual wellness &amp; health guidance for Ramadan — nutrition, mindfulness &amp; more.</p><span class="app-open-btn">Open App ↗</span></a>
     </div>
 
-    <!-- Published Books -->
     <h2 class="ap-section-title"><span class="ap-icon">📚</span> Published Books</h2>
     <div class="books-list">
-      <div class="book-item">
-        <div class="book-num">01</div>
-        <div class="book-info">
-          <div class="book-title">Revealing Environmental Influences on Breast Cancer Risk</div>
-          <div class="book-isbn">ISBN: 978-1-304-42043-5</div>
-        </div>
-      </div>
-      <div class="book-item">
-        <div class="book-num">02</div>
-        <div class="book-info">
-          <div class="book-title">Progressive Voices: Charting Women's Empowerment</div>
-          <div class="book-isbn">ISBN: 978-1-304-43380-0</div>
-        </div>
-      </div>
-      <div class="book-item">
-        <div class="book-num">03</div>
-        <div class="book-info">
-          <div class="book-title">Pakistan's Economic Transformation from Agrarian Society to an Emerging Market</div>
-          <div class="book-isbn">ISBN: 978-1-304-42026-8</div>
-        </div>
-      </div>
-      <div class="book-item">
-        <div class="book-num">04</div>
-        <div class="book-info">
-          <div class="book-title">Death or Evolution of Globalization during COVID-19 Era</div>
-          <div class="book-isbn">ISBN: 978-1-304-42030-5</div>
-        </div>
-      </div>
-      <div class="book-item">
-        <div class="book-num">05</div>
-        <div class="book-info">
-          <div class="book-title">Rise of Chinese Public Diplomacy during COVID-19 Era</div>
-          <div class="book-isbn">Published Research Monograph · ELIVA PRESS</div>
-        </div>
-      </div>
+      <div class="book-item"><div class="book-num">01</div><div class="book-info"><div class="book-title">Revealing Environmental Influences on Breast Cancer Risk</div><div class="book-isbn">ISBN: 978-1-304-42043-5</div></div></div>
+      <div class="book-item"><div class="book-num">02</div><div class="book-info"><div class="book-title">Progressive Voices: Charting Women's Empowerment</div><div class="book-isbn">ISBN: 978-1-304-43380-0</div></div></div>
+      <div class="book-item"><div class="book-num">03</div><div class="book-info"><div class="book-title">Pakistan's Economic Transformation from Agrarian Society to an Emerging Market</div><div class="book-isbn">ISBN: 978-1-304-42026-8</div></div></div>
+      <div class="book-item"><div class="book-num">04</div><div class="book-info"><div class="book-title">Death or Evolution of Globalization during COVID-19 Era</div><div class="book-isbn">ISBN: 978-1-304-42030-5</div></div></div>
+      <div class="book-item"><div class="book-num">05</div><div class="book-info"><div class="book-title">Rise of Chinese Public Diplomacy during COVID-19 Era</div><div class="book-isbn">Published Research Monograph · ELIVA PRESS</div></div></div>
     </div>
 
-    <!-- Research Papers -->
     <h2 class="ap-section-title"><span class="ap-icon">🔬</span> Selected Research Papers</h2>
     <div class="papers-list">
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4786199" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">Assessing the Impact of the 2024 Hualien Earthquake in Taiwan</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4382051" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">Natural Disaster Earthquake in Turkiye and Syria 2023: Humanitarian Response</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667601" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">China Pakistan Economic Corridor (CPEC) 10 Years Celebrations</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667577" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">3 Generative AI Applications for IoT You Must Know About</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4312258" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">Brexit and its Implications for European Union</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4300138" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">Floods in Pakistan: Global Warming or Foreign Nations</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4126228" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">Rise of Chinese Public Diplomacy during COVID-19 Era</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105194" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">Nuclear Weapons a Source of Peace and Stability Between India and Pakistan</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
-      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4101253" target="_blank">
-        <div class="paper-dot"></div>
-        <div class="paper-title">Death of Globalization during COVID-19 Era</div>
-        <div class="paper-link-icon">↗</div>
-      </a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4786199" target="_blank"><div class="paper-dot"></div><div class="paper-title">Assessing the Impact of the 2024 Hualien Earthquake in Taiwan</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4382051" target="_blank"><div class="paper-dot"></div><div class="paper-title">Natural Disaster Earthquake in Turkiye and Syria 2023: Humanitarian Response</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667601" target="_blank"><div class="paper-dot"></div><div class="paper-title">China Pakistan Economic Corridor (CPEC) 10 Years Celebrations</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667577" target="_blank"><div class="paper-dot"></div><div class="paper-title">3 Generative AI Applications for IoT You Must Know About</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4312258" target="_blank"><div class="paper-dot"></div><div class="paper-title">Brexit and its Implications for European Union</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4300138" target="_blank"><div class="paper-dot"></div><div class="paper-title">Floods in Pakistan: Global Warming or Foreign Nations</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4126228" target="_blank"><div class="paper-dot"></div><div class="paper-title">Rise of Chinese Public Diplomacy during COVID-19 Era</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105194" target="_blank"><div class="paper-dot"></div><div class="paper-title">Nuclear Weapons a Source of Peace and Stability Between India and Pakistan</div><div class="paper-link-icon">↗</div></a>
+      <a class="paper-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4101253" target="_blank"><div class="paper-dot"></div><div class="paper-title">Death of Globalization during COVID-19 Era</div><div class="paper-link-icon">↗</div></a>
     </div>
-
-  </div><!-- /author-profile-section -->
-</div><!-- /page-about -->
+  </div>
+</div>
 
 <!-- CONTACT PAGE -->
 <div id="page-contact" class="page">
   <div class="contact-top">
     <div class="slabel" style="color:var(--g1)">Get In Touch</div>
-    <h1>Let's <em>Connect</em></h1>
-    <p>Reach out to Maria Kanwal directly — every message is read personally within 2 business days.</p>
+    <h1 id="contactHeading">Let's <em>Connect</em></h1>
+    <p id="contactSub">Reach out to Maria Kanwal directly — every message is read personally within 2 business days.</p>
   </div>
   <div class="contact-layout">
     <div class="cinfo">
       <h3>Connect with Maria</h3>
-      <p>Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.</p>
-      <div class="ci"><div class="ci-icon">📧</div><div><h5>Email</h5><p><a href="/cdn-cgi/l/email-protection#c2afa7a6b0a3aca9b1a7ad82a5afa3abaeeca1adaf"><span class="__cf_email__" data-cfemail="402d252432212e2b33252f00272d21292c6e232f2d">[email&#160;protected]</span></a></p></div></div>
-      <div class="ci"><div class="ci-icon">💼</div><div><h5>LinkedIn</h5><p><a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">Maria Kanwal on LinkedIn</a></p></div></div>
-      <div class="ci"><div class="ci-icon">💻</div><div><h5>Upwork</h5><p><a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Hire Maria on Upwork</a></p></div></div>
-      <div class="ci"><div class="ci-icon">🎓</div><div><h5>Google Scholar</h5><p><a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">View Publications</a></p></div></div>
-      <div class="ci"><div class="ci-icon">📝</div><div><h5>Health &amp; Wellness Blog</h5><p><a href="https://journey-towards-health-and-wellness.blogspot.com/?m=1" target="_blank">Visit Original Blog</a></p></div></div>
+      <p id="contactDesc">Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.</p>
+      <div class="ci"><div class="ci-icon">📧</div><div><h5>Email</h5><p><a id="contactEmailLink" href="mailto:medrankseo@gmail.com">medrankseo@gmail.com</a></p></div></div>
+      <div class="ci"><div class="ci-icon">💼</div><div><h5>LinkedIn</h5><p><a id="contactLinkedinLink" href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">Maria Kanwal on LinkedIn</a></p></div></div>
+      <div class="ci"><div class="ci-icon">💻</div><div><h5>Upwork</h5><p><a id="contactUpworkLink" href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Hire Maria on Upwork</a></p></div></div>
+      <div class="ci"><div class="ci-icon">🎓</div><div><h5>Google Scholar</h5><p><a id="contactScholarLink" href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">View Publications</a></p></div></div>
+      <div class="ci"><div class="ci-icon">📝</div><div><h5>Health &amp; Wellness Blog</h5><p><a id="contactBlogLink" href="https://journey-towards-health-and-wellness.blogspot.com/?m=1" target="_blank">Visit Original Blog</a></p></div></div>
       <div class="ci"><div class="ci-icon">🔍</div><div><h5>MedRankSEO Services</h5><p>Medical SEO · AI Content · E-E-A-T · Local SEO for Clinics</p></div></div>
     </div>
-
-    <!-- FIXED CONTACT FORM -->
     <div class="cform" id="cformWrap">
-      <!-- Form fields -->
       <div class="cform-inner" id="cformFields">
         <h3>Send a Message</h3>
         <p style="font-size:.8rem;color:var(--lt);margin-bottom:1.2rem;line-height:1.6;padding:.65rem .9rem;background:var(--p5);border-radius:4px;border:1px solid var(--border)">✦ Fill in the form — clicking <strong>Send Message</strong> will open your email app with everything pre-filled, ready to send to Maria.</p>
@@ -1493,14 +1389,13 @@ footer{
         <div class="cfg"><label>Message</label><textarea id="cf-message" placeholder="How can Maria help you?" style="min-height:130px"></textarea></div>
         <div id="cf-error" style="display:none;color:#c0392b;font-size:.8rem;margin-bottom:.7rem;padding:.5rem .8rem;background:#fde8e8;border-radius:4px;border-left:3px solid #c0392b"></div>
         <button class="form-submit" onclick="submitContactForm()">Send Message via Email →</button>
-        <p style="font-size:.72rem;color:var(--muted);margin-top:.75rem;text-align:center;line-height:1.5">Or email directly: <a href="/cdn-cgi/l/email-protection#c5a8a0a1b7a4abaeb6a0aa85a2a8a4aca9eba6aaa8" style="color:var(--p2);text-decoration:none;font-weight:600"><span class="__cf_email__" data-cfemail="4d2028293f2c23263e28220d2a202c2421632e2220">[email&#160;protected]</span></a></p>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:.75rem;text-align:center;line-height:1.5">Or email directly: <a href="mailto:medrankseo@gmail.com" style="color:var(--p2);text-decoration:none;font-weight:600">medrankseo@gmail.com</a></p>
       </div>
-      <!-- Success state -->
       <div class="form-success" id="formSuccess">
         <div class="suc-tick">✦</div>
         <h4>Email App Opened!</h4>
         <p>Your message has been pre-filled in your email app. Please click <strong>Send</strong> there to deliver it to Maria.</p>
-        <p style="margin-top:.8rem;font-size:.82rem">Or email directly at <a href="/cdn-cgi/l/email-protection#503d353422313e3b23353f10373d31393c7e333f3d" style="color:var(--p2);font-weight:600"><span class="__cf_email__" data-cfemail="e8858d8c9a8986839b8d87a88f85898184c68b8785">[email&#160;protected]</span></a></p>
+        <p style="margin-top:.8rem;font-size:.82rem">Or email directly at <a href="mailto:medrankseo@gmail.com" style="color:var(--p2);font-weight:600">medrankseo@gmail.com</a></p>
         <button onclick="resetContactForm()" style="margin-top:1.2rem;background:none;border:1.5px solid var(--border);color:var(--lt);padding:.55rem 1.3rem;border-radius:4px;cursor:pointer;font-family:var(--fb);font-size:.8rem;font-weight:600">Send Another Message</button>
       </div>
     </div>
@@ -1511,12 +1406,14 @@ footer{
 <div id="page-admin" class="page">
   <div class="admin-panel">
     <h1>Admin Panel</h1>
-    <p style="font-size:.82rem;color:var(--lt);margin-top:-.8rem;margin-bottom:1.5rem">Click <strong style="color:var(--p2)">✎ Edit</strong> on any card to unlock it for editing, then <strong style="color:var(--p2)">💾 Save</strong> to apply and persist changes.</p>
+    <p style="font-size:.82rem;color:var(--lt);margin-top:-.8rem;margin-bottom:1.5rem">Click <strong style="color:var(--p2)">✎ Edit</strong> on any card to unlock it for editing, then <strong style="color:var(--p2)">💾 Save</strong> to apply and persist changes across the site.</p>
     <div class="admin-tabs">
       <button class="atab-btn active" onclick="switchAdminTab('blog-settings',this)">📝 Blogs</button>
-      <button class="atab-btn" onclick="switchAdminTab('site-settings',this)">🏠 Site &amp; Hero</button>
-      <button class="atab-btn" onclick="switchAdminTab('about-edit',this)">👩 About &amp; Profile</button>
-      <button class="atab-btn" onclick="switchAdminTab('contact-edit',this)">📬 Contact Info</button>
+      <button class="atab-btn" onclick="switchAdminTab('topics-edit',this)">🗂 Topics</button>
+      <button class="atab-btn" onclick="switchAdminTab('hero-edit',this)">🦸 Hero</button>
+      <button class="atab-btn" onclick="switchAdminTab('newsletter-edit',this)">📬 Newsletter</button>
+      <button class="atab-btn" onclick="switchAdminTab('about-edit',this)">👩 About</button>
+      <button class="atab-btn" onclick="switchAdminTab('contact-edit',this)">📞 Contact</button>
       <button class="atab-btn" onclick="switchAdminTab('security',this)">🔐 Password</button>
     </div>
 
@@ -1532,43 +1429,31 @@ footer{
       <div id="adminBlogList"></div>
     </div>
 
-    <!-- ── SITE & HERO TAB ── -->
-    <div class="atab-pane" id="atab-site-settings">
-      <h3 class="admin-section-title">Site &amp; Hero Settings</h3>
+    <!-- ── TOPICS TAB ── -->
+    <div class="atab-pane" id="atab-topics-edit">
+      <h3 class="admin-section-title">Edit Health Topics Cards</h3>
+      <p style="font-size:.85rem;color:var(--lt);margin-bottom:1.5rem;line-height:1.65">Edit the 6 topic cards shown on the home page. Changes are saved instantly to localStorage and applied to the live site.</p>
+      <div class="topics-admin-grid" id="topicsAdminGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── HERO TAB ── -->
+    <div class="atab-pane" id="atab-hero-edit">
+      <h3 class="admin-section-title">Hero Section</h3>
       <div class="admin-grid">
 
-        <!-- card: site title -->
-        <div class="admin-card locked" id="card-site-title">
+        <div class="admin-card locked" id="card-hero-text">
           <div class="card-header">
-            <h4>🌐 Site Title &amp; Footer <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <h4>🦸 Hero Text <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
-              <button class="btn-edit" onclick="editCard('card-site-title')">✎ Edit</button>
-              <button class="btn-save" onclick="saveSiteSettings();doneCard('card-site-title')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-site-title')">✕</button>
-            </div>
-          </div>
-          <label class="alabel">Site Name</label>
-          <input type="text" id="as-sitename" placeholder="BloomWell">
-          <label class="alabel">Tagline (Footer)</label>
-          <input type="text" id="as-tagline" placeholder="Women's Health and Wellness by Maria Kanwal">
-          <label class="alabel">Footer Copyright Text</label>
-          <input type="text" id="as-copyright" placeholder="© 2025 BloomWell · Founded by Maria Kanwal">
-        </div>
-
-        <!-- card: hero -->
-        <div class="admin-card locked" id="card-hero">
-          <div class="card-header">
-            <h4>🦸 Hero Section <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
-            <div class="card-btns">
-              <button class="btn-edit" onclick="editCard('card-hero')">✎ Edit</button>
-              <button class="btn-save" onclick="saveHeroSettings();doneCard('card-hero')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-hero')">✕</button>
+              <button class="btn-edit" onclick="editCard('card-hero-text')">✎ Edit</button>
+              <button class="btn-save" onclick="saveHeroText();doneCard('card-hero-text')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-hero-text')">✕ Cancel</button>
             </div>
           </div>
           <label class="alabel">Issue Label (above title)</label>
           <input type="text" id="as-herolabel" placeholder="Founded by Maria Kanwal · MedRankSEO">
-          <label class="alabel">Hero Title</label>
-          <input type="text" id="as-herotitle" placeholder="Empowering Women Through Every Stage of Life">
           <label class="alabel">Hero Subtitle</label>
           <textarea id="as-herosub" style="min-height:80px" placeholder="From hormonal health to mental wellness..."></textarea>
           <label class="alabel">Primary Button Text</label>
@@ -1577,24 +1462,64 @@ footer{
           <input type="text" id="as-herobtn2" placeholder="Our Mission">
         </div>
 
-        <!-- card: newsletter -->
+        <div class="admin-card locked" id="card-hero-stats">
+          <div class="card-header">
+            <h4>📊 Hero Stats <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <div class="card-btns">
+              <button class="btn-edit" onclick="editCard('card-hero-stats')">✎ Edit</button>
+              <button class="btn-save" onclick="saveHeroStats();doneCard('card-hero-stats')">💾 Save</button>
+              <button class="btn-cancel" onclick="cancelCard('card-hero-stats')">✕ Cancel</button>
+            </div>
+          </div>
+          <label class="alabel">Stat 1 — Number</label>
+          <input type="text" id="hs-s1num" placeholder="15+">
+          <label class="alabel">Stat 1 — Label</label>
+          <input type="text" id="hs-s1label" placeholder="Expert Articles">
+          <label class="alabel">Stat 1 — Description</label>
+          <input type="text" id="hs-s1desc" placeholder="Peer-reviewed, evidence-based...">
+          <label class="alabel">Stat 2 — Number</label>
+          <input type="text" id="hs-s2num" placeholder="6">
+          <label class="alabel">Stat 2 — Label</label>
+          <input type="text" id="hs-s2label" placeholder="Health Topics">
+          <label class="alabel">Stat 2 — Description</label>
+          <input type="text" id="hs-s2desc" placeholder="Hormones, fertility, menopause...">
+          <label class="alabel">Stat 3 — Number</label>
+          <input type="text" id="hs-s3num" placeholder="5">
+          <label class="alabel">Stat 3 — Label</label>
+          <input type="text" id="hs-s3label" placeholder="Published Books">
+          <label class="alabel">Stat 3 — Description</label>
+          <input type="text" id="hs-s3desc" placeholder="Academic and research publications...">
+          <label class="alabel">Stat 4 — Number</label>
+          <input type="text" id="hs-s4num" placeholder="9+">
+          <label class="alabel">Stat 4 — Label</label>
+          <input type="text" id="hs-s4label" placeholder="Research Papers">
+          <label class="alabel">Stat 4 — Description</label>
+          <input type="text" id="hs-s4desc" placeholder="International research...">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── NEWSLETTER TAB ── -->
+    <div class="atab-pane" id="atab-newsletter-edit">
+      <h3 class="admin-section-title">Newsletter Section</h3>
+      <div class="admin-grid">
         <div class="admin-card locked" id="card-newsletter">
           <div class="card-header">
-            <h4>📬 Newsletter Section <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
+            <h4>📬 Newsletter Content <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
               <button class="btn-edit" onclick="editCard('card-newsletter')">✎ Edit</button>
               <button class="btn-save" onclick="saveNewsletterSettings();doneCard('card-newsletter')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-newsletter')">✕</button>
+              <button class="btn-cancel" onclick="cancelCard('card-newsletter')">✕ Cancel</button>
             </div>
           </div>
-          <label class="alabel">Heading</label>
-          <input type="text" id="as-nltitle" placeholder="Stay Informed. Stay Empowered.">
+          <label class="alabel">Heading (wrap word in *asterisks* for italic gold)</label>
+          <input type="text" id="as-nltitle" placeholder="Stay *Informed.* Stay Empowered.">
           <label class="alabel">Description</label>
           <textarea id="as-nltext" style="min-height:70px" placeholder="Weekly women's health insights..."></textarea>
           <label class="alabel">Button Text</label>
           <input type="text" id="as-nlbtn" placeholder="Subscribe Now">
         </div>
-
       </div>
     </div>
 
@@ -1603,80 +1528,61 @@ footer{
       <h3 class="admin-section-title">About Page &amp; Founder Profile</h3>
       <div class="admin-grid">
 
-        <!-- card: about intro -->
         <div class="admin-card locked" id="card-about-intro">
           <div class="card-header">
             <h4>📖 About Introduction <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
               <button class="btn-edit" onclick="editCard('card-about-intro')">✎ Edit</button>
               <button class="btn-save" onclick="saveAboutIntro();doneCard('card-about-intro')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-about-intro')">✕</button>
+              <button class="btn-cancel" onclick="cancelCard('card-about-intro')">✕ Cancel</button>
             </div>
           </div>
           <label class="alabel">Paragraph 1</label>
-          <textarea id="ae-intro1" style="min-height:85px" placeholder="BloomWell was founded by..."></textarea>
+          <textarea id="ae-intro1" style="min-height:85px"></textarea>
           <label class="alabel">Paragraph 2</label>
-          <textarea id="ae-intro2" style="min-height:85px" placeholder="Maria combines her expertise..."></textarea>
+          <textarea id="ae-intro2" style="min-height:85px"></textarea>
           <label class="alabel">Paragraph 3</label>
-          <textarea id="ae-intro3" style="min-height:85px" placeholder="BloomWell serves readers..."></textarea>
+          <textarea id="ae-intro3" style="min-height:85px"></textarea>
         </div>
 
-        <!-- card: founder bio -->
         <div class="admin-card locked" id="card-founder-bio">
           <div class="card-header">
             <h4>👩 Founder Bio <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
               <button class="btn-edit" onclick="editCard('card-founder-bio')">✎ Edit</button>
               <button class="btn-save" onclick="saveFounderBio();doneCard('card-founder-bio')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-founder-bio')">✕</button>
+              <button class="btn-cancel" onclick="cancelCard('card-founder-bio')">✕ Cancel</button>
             </div>
           </div>
           <label class="alabel">Founder Name</label>
-          <input type="text" id="ae-fname" placeholder="Maria Kanwal">
+          <input type="text" id="ae-fname">
           <label class="alabel">Title / Roles</label>
-          <input type="text" id="ae-ftitle" placeholder="Research Associate · SEO Writer · Scholar · Author">
+          <input type="text" id="ae-ftitle">
           <label class="alabel">Bio Paragraph 1</label>
-          <textarea id="ae-fbio1" style="min-height:85px" placeholder="Maria Kanwal is a Research Associate..."></textarea>
+          <textarea id="ae-fbio1" style="min-height:85px"></textarea>
           <label class="alabel">Bio Paragraph 2</label>
-          <textarea id="ae-fbio2" style="min-height:75px" placeholder="She holds a BDDS..."></textarea>
+          <textarea id="ae-fbio2" style="min-height:75px"></textarea>
         </div>
 
-        <!-- card: social links -->
         <div class="admin-card locked" id="card-social-links">
           <div class="card-header">
             <h4>🔗 Social &amp; Academic Links <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
               <button class="btn-edit" onclick="editCard('card-social-links')">✎ Edit</button>
               <button class="btn-save" onclick="saveSocialLinks();doneCard('card-social-links')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-social-links')">✕</button>
+              <button class="btn-cancel" onclick="cancelCard('card-social-links')">✕ Cancel</button>
             </div>
           </div>
-          <label class="alabel">Email Address</label>
-          <input type="text" id="ae-email" placeholder="medrankseo@gmail.com">
           <label class="alabel">LinkedIn URL</label>
-          <input type="text" id="ae-linkedin" placeholder="https://www.linkedin.com/in/...">
+          <input type="text" id="ae-linkedin">
           <label class="alabel">Google Scholar URL</label>
-          <input type="text" id="ae-scholar" placeholder="https://scholar.google.com/...">
+          <input type="text" id="ae-scholar">
           <label class="alabel">SSRN URL</label>
-          <input type="text" id="ae-ssrn" placeholder="https://ssrn.com/author=...">
+          <input type="text" id="ae-ssrn">
           <label class="alabel">ORCID URL</label>
-          <input type="text" id="ae-orcid" placeholder="https://orcid.org/...">
+          <input type="text" id="ae-orcid">
           <label class="alabel">Upwork URL</label>
-          <input type="text" id="ae-upwork" placeholder="https://www.upwork.com/...">
-        </div>
-
-        <!-- card: custom about html -->
-        <div class="admin-card locked" id="card-about-html" style="grid-column:1/-1">
-          <div class="card-header">
-            <h4>💻 Custom About HTML <span style="font-size:.7rem;color:var(--muted);font-weight:400">(advanced)</span> <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
-            <div class="card-btns">
-              <button class="btn-edit" onclick="editCard('card-about-html')">✎ Edit</button>
-              <button class="btn-save" onclick="saveAboutCustomHTML();doneCard('card-about-html')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-about-html')">✕</button>
-            </div>
-          </div>
-          <p class="code-hint-text">Paste full HTML to override About intro paragraphs. Leave blank to use text fields above.</p>
-          <textarea id="ae-custom-html" class="code-textarea" placeholder="&lt;p&gt;Your custom HTML here...&lt;/p&gt;"></textarea>
+          <input type="text" id="ae-upwork">
         </div>
 
       </div>
@@ -1687,58 +1593,42 @@ footer{
       <h3 class="admin-section-title">Contact Page Settings</h3>
       <div class="admin-grid">
 
-        <!-- card: contact text -->
         <div class="admin-card locked" id="card-contact-text">
           <div class="card-header">
             <h4>📝 Page Text <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
               <button class="btn-edit" onclick="editCard('card-contact-text')">✎ Edit</button>
               <button class="btn-save" onclick="saveContactSettings();doneCard('card-contact-text')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-contact-text')">✕</button>
+              <button class="btn-cancel" onclick="cancelCard('card-contact-text')">✕ Cancel</button>
             </div>
           </div>
-          <label class="alabel">Page Heading</label>
-          <input type="text" id="ac-heading" placeholder="Let's Connect">
+          <label class="alabel">Page Heading (use *word* for italic gold)</label>
+          <input type="text" id="ac-heading" placeholder="Let's *Connect*">
           <label class="alabel">Subheading</label>
-          <input type="text" id="ac-sub" placeholder="Reach out to Maria Kanwal directly...">
+          <input type="text" id="ac-sub">
           <label class="alabel">Description</label>
-          <textarea id="ac-desc" style="min-height:85px" placeholder="Whether you have a health question..."></textarea>
+          <textarea id="ac-desc" style="min-height:85px"></textarea>
         </div>
 
-        <!-- card: contact details -->
         <div class="admin-card locked" id="card-contact-details">
           <div class="card-header">
             <h4>📋 Contact Details <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
               <button class="btn-edit" onclick="editCard('card-contact-details')">✎ Edit</button>
               <button class="btn-save" onclick="saveContactDetails();doneCard('card-contact-details')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-contact-details')">✕</button>
+              <button class="btn-cancel" onclick="cancelCard('card-contact-details')">✕ Cancel</button>
             </div>
           </div>
           <label class="alabel">Email Address</label>
-          <input type="text" id="ac-email" placeholder="medrankseo@gmail.com">
+          <input type="text" id="ac-email">
           <label class="alabel">LinkedIn URL</label>
-          <input type="text" id="ac-linkedin" placeholder="https://www.linkedin.com/in/...">
+          <input type="text" id="ac-linkedin">
           <label class="alabel">Upwork URL</label>
-          <input type="text" id="ac-upwork" placeholder="https://www.upwork.com/...">
+          <input type="text" id="ac-upwork">
           <label class="alabel">Google Scholar URL</label>
-          <input type="text" id="ac-scholar" placeholder="https://scholar.google.com/...">
+          <input type="text" id="ac-scholar">
           <label class="alabel">Blog URL</label>
-          <input type="text" id="ac-blog" placeholder="https://journey-towards-health...">
-        </div>
-
-        <!-- card: custom contact html -->
-        <div class="admin-card locked" id="card-contact-html">
-          <div class="card-header">
-            <h4>💻 Custom Contact HTML <span style="font-size:.7rem;color:var(--muted);font-weight:400">(optional)</span> <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
-            <div class="card-btns">
-              <button class="btn-edit" onclick="editCard('card-contact-html')">✎ Edit</button>
-              <button class="btn-save" onclick="saveContactCustomHTML();doneCard('card-contact-html')">💾 Save</button>
-              <button class="btn-cancel" onclick="cancelCard('card-contact-html')">✕</button>
-            </div>
-          </div>
-          <p class="code-hint-text">Paste custom HTML to override the contact left column.</p>
-          <textarea id="ac-custom-html" class="code-textarea" placeholder="&lt;div&gt;Custom contact content...&lt;/div&gt;"></textarea>
+          <input type="text" id="ac-blog">
         </div>
 
       </div>
@@ -1749,27 +1639,25 @@ footer{
       <h3 class="admin-section-title">Password &amp; Security</h3>
       <div class="admin-grid">
 
-        <!-- card: change password -->
         <div class="admin-card locked" id="card-password">
           <div class="card-header">
             <h4>🔐 Change Password <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>
             <div class="card-btns">
               <button class="btn-edit" onclick="editCard('card-password')">✎ Edit</button>
-              <button class="btn-save" onclick="changePassword();doneCard('card-password')">💾 Update</button>
-              <button class="btn-cancel" onclick="cancelCard('card-password')">✕</button>
+              <button class="btn-save" onclick="changePassword()">💾 Update</button>
+              <button class="btn-cancel" onclick="cancelCard('card-password')">✕ Cancel</button>
             </div>
           </div>
           <p style="font-size:.82rem;color:var(--lt);margin-bottom:1rem;line-height:1.6">Default password: <code style="background:var(--p5);padding:.1rem .4rem;border-radius:3px;font-size:.78rem">BloomWell2025!</code></p>
           <label class="alabel">Current Password</label>
           <input type="password" id="sec-current" placeholder="Enter current password">
-          <label class="alabel">New Password <span style="color:var(--muted);font-weight:400">(min 8 characters)</span></label>
+          <label class="alabel">New Password (min 8 chars)</label>
           <input type="password" id="sec-new" placeholder="New password">
           <label class="alabel">Confirm New Password</label>
           <input type="password" id="sec-confirm" placeholder="Repeat new password">
           <div id="sec-msg" style="font-size:.82rem;margin:.5rem 0;min-height:1.2rem;"></div>
         </div>
 
-        <!-- card: session -->
         <div class="admin-card" id="card-session">
           <div class="card-header">
             <h4>🖥 Session &amp; Status</h4>
@@ -1782,7 +1670,6 @@ footer{
           <button class="admin-danger-btn" onclick="logoutAdmin()">Log Out</button>
         </div>
 
-        <!-- card: clear data -->
         <div class="admin-card" id="card-clear">
           <div class="card-header">
             <h4>🗑 Clear Saved Data</h4>
@@ -1791,6 +1678,7 @@ footer{
           <div style="display:flex;flex-direction:column;gap:.55rem">
             <button class="admin-danger-btn" onclick="clearData('bwBlogs3','blog posts')">Clear Blog Posts</button>
             <button class="admin-danger-btn" onclick="clearData('bwSiteSettings','site settings')">Clear Site Settings</button>
+            <button class="admin-danger-btn" onclick="clearData('bwTopicsSettings','topic cards')">Clear Topic Cards</button>
             <button class="admin-danger-btn" onclick="clearData('bwAboutSettings','about settings')">Clear About Settings</button>
             <button class="admin-danger-btn" onclick="clearData('bwContactSettings','contact settings')">Clear Contact Settings</button>
           </div>
@@ -1801,6 +1689,7 @@ footer{
 
   </div>
 </div>
+
 <!-- PASSWORD MODAL -->
 <div class="pw-overlay" id="pwOverlay">
   <div class="pw-box">
@@ -1864,7 +1753,7 @@ footer{
           <textarea class="rich-textarea" id="nTextContent" placeholder="Start writing your article here...&#10;&#10;## Section Heading&#10;Your paragraph text here.&#10;&#10;- Bullet point one&#10;- Bullet point two"></textarea>
         </div>
         <div class="editor-pane" id="add-pane-code">
-          <p class="code-hint-text">Paste full HTML. Supports: &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;div class="tip-box"&gt;, &lt;div class="key-takeaway"&gt; etc.</p>
+          <p class="code-hint-text">Paste full HTML. Supports: &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;div class="tip-box"&gt;, etc.</p>
           <textarea id="nFullHTML" class="code-textarea" placeholder="<h2>Section Heading</h2>&#10;<p>Your content here...</p>"></textarea>
         </div>
         <div class="editor-pane" id="add-pane-preview">
@@ -1931,8 +1820,8 @@ footer{
           <textarea class="rich-textarea" id="eTextContent" placeholder="Edit your content here..."></textarea>
         </div>
         <div class="editor-pane" id="edit-pane-code">
-          <p class="code-hint-text">Edit HTML directly. All tags supported.</p>
-          <textarea id="eFullHTML" class="code-textarea" placeholder="Edit your blog HTML here..."></textarea>
+          <p class="code-hint-text">Edit HTML directly.</p>
+          <textarea id="eFullHTML" class="code-textarea"></textarea>
         </div>
         <div class="editor-pane" id="edit-pane-preview">
           <div class="preview-pane" id="edit-preview-content">
@@ -1977,7 +1866,7 @@ footer{
     </div>
     <div class="fcol">
       <h5>Connect</h5>
-      <a href="/cdn-cgi/l/email-protection#6508000117040b0e16000a250208040c094b060a08">Email Maria</a>
+      <a href="mailto:medrankseo@gmail.com">Email Maria</a>
       <a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">LinkedIn</a>
       <a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Upwork</a>
       <a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">Google Scholar</a>
@@ -1985,16 +1874,35 @@ footer{
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 BloomWell · Founded by Maria Kanwal · MedRankSEO</span>
+    <span id="footerCopyright">© 2025 BloomWell · Founded by Maria Kanwal · MedRankSEO</span>
     <span>Made with care for women everywhere</span>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var catLabels={hormones:'Hormonal Health',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};
-var catColors={hormones:'#EDE7FF',fertility:'#E8F5E9',menopause:'#E8EAF6',mental:'#FFF8E1',nutrition:'#E8F5E9',fitness:'#FFF3E0'};
-var ktIcons=['✦','◈','◇','✧','◉','✦'];
+<script>
+/* ============================================================
+   BLOOMWELL — COMPLETE ADMIN SYSTEM WITH FULL EDIT/SAVE/CANCEL
+   ============================================================ */
 
+/* ───── CONSTANTS & KEYS ───── */
+var BLOGS_KEY       = 'bwBlogs3';
+var SITE_KEY        = 'bwSiteSettings';
+var TOPICS_KEY      = 'bwTopicsSettings';
+var ABOUT_KEY       = 'bwAboutSettings';
+var CONTACT_KEY     = 'bwContactSettings';
+var ADMIN_PASS_KEY  = 'bwAdminPass';
+var DEFAULT_PASS    = 'BloomWell2025!';
+
+var catLabels = {hormones:'Hormonal Health',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};
+var catColors = {hormones:'#EDE7FF',fertility:'#E8F5E9',menopause:'#E8EAF6',mental:'#FFF8E1',nutrition:'#E8F5E9',fitness:'#FFF3E0'};
+var ktIcons   = ['✦','◈','◇','✧','◉','✦'];
+
+/* ───── STORAGE HELPERS ───── */
+function ls_get(key){try{var v=localStorage.getItem(key);return v?JSON.parse(v):null;}catch(e){return null;}}
+function ls_set(key,val){try{localStorage.setItem(key,JSON.stringify(val));return true;}catch(e){return false;}}
+function getAdminPass(){try{return localStorage.getItem(ADMIN_PASS_KEY)||DEFAULT_PASS;}catch(e){return DEFAULT_PASS;}}
+
+/* ───── DEFAULT DATA ───── */
 var defaultBlogs=[
   {id:1,cat:'hormones',icon:'⚗️',date:'Jan 12, 2026',readTime:'9 min',title:"How to Balance Your Hormones Naturally: A Complete Guide",desc:"Discover science-backed strategies for balancing estrogen, progesterone, and cortisol through diet, lifestyle, and stress management.",intro:"Hormonal imbalance affects an estimated 80% of women at some point in their lives — yet most do not realise that targeted lifestyle changes can have a profound impact on hormonal equilibrium.",sections:[{h:"What Does Hormonal Balance Really Mean?",p:"Hormonal balance does not mean every hormone is at the same level at all times. Instead, it refers to the dynamic, ever-shifting equilibrium that changes throughout your menstrual cycle, across decades of life, and in response to daily habits."},{h:"Top Signs of Hormonal Imbalance in Women",p:"Common signs include irregular or painful periods, persistent fatigue despite adequate sleep, unexplained weight gain, mood swings, anxiety or depression, acne especially along the jaw and chin, hair thinning, brain fog, and low libido."},{h:"7 Science-Backed Ways to Balance Hormones Naturally",p:"First, prioritise blood sugar stability. Second, manage cortisol through stress reduction. Third, optimise sleep. Fourth, support liver detoxification with cruciferous vegetables. Fifth, feed your gut microbiome. Sixth, exercise strategically. Seventh, consider targeted supplements like magnesium glycinate and vitamin D under medical guidance."},{h:"When to See a Doctor",p:"If your symptoms are severe, persistent, or significantly impacting your quality of life, consult an endocrinologist or OB-GYN."}],infoItems:[{n:"80%",l:"of women experience hormonal imbalance"},{n:"7hrs+",l:"sleep needed for cortisol regulation"},{n:"25-35g",l:"daily fibre for estrogen metabolism"},{n:"3-4x",l:"weekly exercise for hormone health"}],infoTitle:"Hormonal Balance at a Glance",takeaways:["Blood sugar stability is the number one lever for hormonal health","Cortisol from chronic stress suppresses progesterone","Sleep less than 7 hours directly impairs hormonal regulation","Cruciferous vegetables help the liver clear excess estrogen"],conclusion:"Balancing hormones naturally is not about one magic supplement or quick fix — it is about consistent daily habits that support your body's innate intelligence."},
   {id:2,cat:'fertility',icon:'🌱',date:'Jan 28, 2026',readTime:'11 min',title:"Understanding Your Menstrual Cycle: The 4 Phases Explained",desc:"A comprehensive guide to the follicular, ovulatory, luteal, and menstrual phases — and how to harness each for optimal energy, mood, and productivity.",intro:"Your menstrual cycle is far more than a monthly inconvenience — it is a sophisticated hormonal symphony that shapes your energy, cognition, emotion, and physical capacity throughout every month of your life.",sections:[{h:"Phase 1: Menstruation (Days 1 to 5)",p:"Menstruation begins when estrogen and progesterone drop to their lowest levels. Energy is typically lower during this phase. Honour rest — this is your body's natural winter."},{h:"Phase 2: Follicular Phase (Days 1 to 13)",p:"Estrogen rises as FSH stimulates follicles. Your brain's serotonin receptors become more responsive — rising energy, improved mood, and sharper cognition."},{h:"Phase 3: Ovulation (Around Day 14)",p:"A surge in LH triggers the release of a mature egg. Estrogen peaks and testosterone rises briefly — boosting confidence, verbal fluency, and libido."},{h:"Phase 4: Luteal Phase (Days 15 to 28)",p:"The corpus luteum secretes progesterone. Progesterone is naturally calming — but when it drops in the final days, many women experience PMS symptoms."}],infoItems:[{n:"Days 1-5",l:"Menstruation — Rest and restore"},{n:"Days 6-13",l:"Follicular — Energy rising"},{n:"Day 14",l:"Ovulation — Peak energy"},{n:"Days 15-28",l:"Luteal — Slow down"}],infoTitle:"Your Menstrual Cycle at a Glance",takeaways:["Track your cycle to predict energy and mood patterns","The follicular phase is ideal for new projects and high-intensity workouts","Ovulation is your peak communication and confidence window","Reduce PMS with magnesium, B6, and lower caffeine in the luteal phase"],conclusion:"Your menstrual cycle is a built-in compass. When you learn to read its signals, you stop fighting your biology and start working with it."},
@@ -2005,17 +1913,71 @@ var defaultBlogs=[
   {id:7,cat:'hormones',icon:'🔬',date:'Mar 10, 2026',readTime:'13 min',title:"PCOS Explained: Symptoms, Causes, Diagnosis and Natural Management",desc:"A comprehensive deep-dive into Polycystic Ovary Syndrome — the most common hormonal disorder in women of reproductive age, affecting 1 in 10.",intro:"Polycystic Ovary Syndrome affects an estimated 1 in 10 women of reproductive age globally, making it the most common endocrine disorder in this population.",sections:[{h:"What Is PCOS?",p:"PCOS is characterised by three hallmark features: irregular or absent ovulation, elevated androgens, and polycystic ovaries on ultrasound. You can have PCOS without cysts."},{h:"Root Causes of PCOS",p:"Insulin resistance is present in up to 70 percent of women with PCOS. Elevated insulin drives the ovaries to produce excess testosterone, disrupting the ovulatory cycle."},{h:"Evidence-Based Natural Management",p:"A low-glycaemic diet is the most powerful foundation. Inositol has demonstrated effectiveness comparable to metformin. Spearmint tea has shown androgen-lowering effects in clinical trials."},{h:"When to Seek Medical Diagnosis",p:"PCOS requires formal diagnosis from a healthcare provider using the Rotterdam criteria."}],infoItems:[{n:"1 in 10",l:"Women of reproductive age affected"},{n:"70%",l:"of PCOS women have insulin resistance"},{n:"3x",l:"Higher rate of depression and anxiety"},{n:"5-10%",l:"Weight loss may restore ovulation"}],infoTitle:"PCOS — Key Facts",takeaways:["PCOS is the most common hormonal disorder in reproductive-age women","Insulin resistance drives most PCOS symptoms — diet is your most powerful tool","Spearmint tea has clinically demonstrated androgen-lowering effects"],conclusion:"PCOS is a complex but manageable condition. Lifestyle interventions are genuinely powerful — often matching pharmaceutical outcomes for mild-to-moderate PCOS."}
 ];
 
+var defaultTopics = [
+  {id:'t1',cat:'hormones',icon:'⚗️',title:'Hormonal Health',desc:'Understand estrogen, progesterone, and cortisol balance and how they affect mood, energy, and metabolism.',count:'8'},
+  {id:'t2',cat:'fertility',icon:'🌱',title:'Fertility & Pregnancy',desc:'From conception planning through each trimester — evidence-based guidance for your journey to motherhood.',count:'12'},
+  {id:'t3',cat:'menopause',icon:'🌙',title:'Menopause & Perimenopause',desc:'Navigate the transition with confidence. Manage symptoms naturally and understand what your body is experiencing.',count:'10'},
+  {id:'t4',cat:'mental',icon:'🧠',title:'Mental Wellness',desc:'Anxiety, depression, postpartum mental health, and stress management strategies rooted in science.',count:'9'},
+  {id:'t5',cat:'nutrition',icon:'🥗',title:'Nutrition for Women',desc:'How nutritional needs shift through your cycle, pregnancy, and beyond — and what to eat at every stage.',count:'11'},
+  {id:'t6',cat:'fitness',icon:'💪',title:'Fitness & Movement',desc:'Exercise science tailored to women\'s physiology — maximise results while respecting hormonal rhythms.',count:'7'}
+];
+
+var siteDefaults={
+  herolabel:'Founded by Maria Kanwal · MedRankSEO',
+  herosub:"From hormonal health to mental wellness — BloomWell provides expert-backed, science-informed guidance designed specifically for women's bodies and minds.",
+  herobtn1:'Explore Articles',herobtn2:'Our Mission',
+  stat1num:'15+',stat1label:'Expert Articles',stat1desc:'Peer-reviewed, evidence-based women\'s health content',
+  stat2num:'6',stat2label:'Health Topics',stat2desc:'Hormones, fertility, menopause, mental health & more',
+  stat3num:'5',stat3label:'Published Books',stat3desc:'Academic and research publications by Maria Kanwal',
+  stat4num:'9+',stat4label:'Research Papers',stat4desc:'International research across health, diplomacy & tech',
+  nltitle:'Stay *Informed.* Stay Empowered.',
+  nltext:'Weekly women\'s health insights from Maria Kanwal — no noise, just knowledge.',
+  nlbtn:'Subscribe Now'
+};
+
+var aboutDefaults={
+  intro1:"BloomWell was founded by Maria Kanwal — Research Associate, Assistant Digital Editor, SEO Content Writer, Digital Marketing Strategist, Scholar, and Author — who was frustrated by the abundance of incomplete and fear-mongering women's health content online.",
+  intro2:"Maria combines her expertise in medical SEO, AI-optimised content, and E-E-A-T compliance to create women's health resources that are not just informative, but truly trustworthy and search-optimised.",
+  intro3:"BloomWell serves readers across dozens of countries with content that respects women's intelligence and honours the complexity of female health across every life stage.",
+  fname:'Maria Kanwal',
+  ftitle:'Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · Scholar · Author',
+  fbio1:"Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors. She currently works with Dubai-based clinics and international clients, creating SEO-optimized web pages, blogs, and Google Business Profile content.",
+  fbio2:"She holds a BDDS (Defence & Diplomatic Studies) from Fatima Jinnah Women University, Rawalpindi (CGPA: 3.32 / 81.89%). She specialises in On-Page SEO, Off-Page SEO, Technical SEO, SEM, SMM, and content strategy development.",
+  linkedin:'https://www.linkedin.com/in/maria-kanwal-637629207/',
+  scholar:'https://scholar.google.com/citations?user=6jmGlYwAAAAJ',
+  ssrn:'https://ssrn.com/author=5225172',
+  orcid:'https://orcid.org/0000-0003-1528-4424',
+  upwork:'https://www.upwork.com/freelancers/~0137388680e9e3f335'
+};
+
+var contactDefaults={
+  heading:"Let's *Connect*",
+  sub:"Reach out to Maria Kanwal directly — every message is read personally within 2 business days.",
+  desc:"Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.",
+  email:'medrankseo@gmail.com',
+  linkedin:'https://www.linkedin.com/in/maria-kanwal-637629207/',
+  upwork:'https://www.upwork.com/freelancers/~0137388680e9e3f335',
+  scholar:'https://scholar.google.com/citations?user=6jmGlYwAAAAJ',
+  blog:'https://journey-towards-health-and-wellness.blogspot.com/?m=1'
+};
+
+/* ───── BLOGS ───── */
 var blogs=[];
 var nextId=8;
-var ADMIN_PASS_KEY='bwAdminPass';
-var DEFAULT_PASS='BloomWell2025!';
-function getAdminPass(){try{return localStorage.getItem(ADMIN_PASS_KEY)||DEFAULT_PASS;}catch(e){return DEFAULT_PASS;}}
-function loadBlogs(){try{var s=localStorage.getItem('bwBlogs3');if(s){var p=JSON.parse(s);if(Array.isArray(p)&&p.length){blogs=p;nextId=Math.max.apply(null,blogs.map(function(b){return b.id;}))+1;return;}}}catch(e){}blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;}
-function saveBlogs(){try{localStorage.setItem('bwBlogs3',JSON.stringify(blogs));}catch(e){}}
+
+function loadBlogs(){
+  try{var s=localStorage.getItem(BLOGS_KEY);if(s){var p=JSON.parse(s);if(Array.isArray(p)&&p.length){blogs=p;nextId=Math.max.apply(null,blogs.map(function(b){return b.id;}))+1;return;}}}catch(e){}
+  blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;
+}
+function saveBlogs(){try{localStorage.setItem(BLOGS_KEY,JSON.stringify(blogs));}catch(e){}}
 loadBlogs();
 
+/* ───── AUTH ───── */
 var isAuthenticated=false;
-function initAuth(){isAuthenticated=(typeof sessionStorage!=='undefined'&&sessionStorage.getItem('bwAdmin2')==='yes');updateAdminUI();}
+function initAuth(){
+  isAuthenticated=(typeof sessionStorage!=='undefined'&&sessionStorage.getItem('bwAdmin2')==='yes');
+  updateAdminUI();
+}
 function updateAdminUI(){
   var lockBtn=document.getElementById('adminLockBtn');
   var fab=document.getElementById('adminFab');
@@ -2028,25 +1990,362 @@ function updateAdminUI(){
 function handleAdminLock(){if(isAuthenticated){isAuthenticated=false;try{sessionStorage.removeItem('bwAdmin2');}catch(e){}updateAdminUI();}else{openPwModal();}}
 function openPwModal(){document.getElementById('pwOverlay').classList.add('open');document.getElementById('pwInput').value='';document.getElementById('pwErr').classList.remove('show');document.body.style.overflow='hidden';setTimeout(function(){document.getElementById('pwInput').focus();},100);}
 function closePwModal(){document.getElementById('pwOverlay').classList.remove('open');document.body.style.overflow='';}
-function checkPassword(){var entered=document.getElementById('pwInput').value;if(entered===getAdminPass()){isAuthenticated=true;try{sessionStorage.setItem('bwAdmin2','yes');}catch(e){}closePwModal();updateAdminUI();}else{document.getElementById('pwErr').classList.add('show');document.getElementById('pwInput').value='';document.getElementById('pwInput').style.borderColor='#e74c3c';setTimeout(function(){document.getElementById('pwInput').style.borderColor='';},1200);}}
+function checkPassword(){
+  var entered=document.getElementById('pwInput').value;
+  if(entered===getAdminPass()){
+    isAuthenticated=true;
+    try{sessionStorage.setItem('bwAdmin2','yes');}catch(e){}
+    closePwModal();updateAdminUI();
+  }else{
+    document.getElementById('pwErr').classList.add('show');
+    document.getElementById('pwInput').value='';
+    document.getElementById('pwInput').style.borderColor='#e74c3c';
+    setTimeout(function(){document.getElementById('pwInput').style.borderColor='';},1200);
+  }
+}
 document.getElementById('pwOverlay').addEventListener('click',function(e){if(e.target===this)closePwModal();});
 
+function logoutAdmin(){isAuthenticated=false;try{sessionStorage.removeItem('bwAdmin2');}catch(e){}updateAdminUI();showPage('home');}
+
+/* ───── CARD EDIT/LOCK SYSTEM ───── */
+var cardOriginals={};
+
+function editCard(id){
+  var card=document.getElementById(id);if(!card)return;
+  var inputs=card.querySelectorAll('input,select,textarea');
+  var snap={};
+  inputs.forEach(function(el){snap[el.id]=el.value;});
+  cardOriginals[id]=snap;
+  card.classList.remove('locked');card.classList.add('editing');
+  var first=card.querySelector('input:not([type=password]),textarea');
+  if(first)setTimeout(function(){first.focus();},50);
+}
+function doneCard(id){
+  var card=document.getElementById(id);if(!card)return;
+  card.classList.remove('editing');card.classList.add('locked');
+  delete cardOriginals[id];
+}
+function cancelCard(id){
+  var card=document.getElementById(id);if(!card)return;
+  var snap=cardOriginals[id]||{};
+  Object.keys(snap).forEach(function(elId){var el=document.getElementById(elId);if(el)el.value=snap[elId];});
+  card.classList.remove('editing');card.classList.add('locked');
+  delete cardOriginals[id];
+}
+function lockAllCards(){
+  ['card-hero-text','card-hero-stats','card-newsletter','card-about-intro','card-founder-bio',
+   'card-social-links','card-contact-text','card-contact-details','card-password'].forEach(function(id){
+    var c=document.getElementById(id);
+    if(c){c.classList.remove('editing');c.classList.add('locked');}
+  });
+}
+
+/* ───── FIELD HELPERS ───── */
+function setV(id,val){var el=document.getElementById(id);if(el)el.value=(val||'');}
+function getV(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+
+/* ───── TOPICS SYSTEM ───── */
+function loadTopicsData(){
+  var saved=ls_get(TOPICS_KEY);
+  if(saved&&Array.isArray(saved)&&saved.length)return saved;
+  return JSON.parse(JSON.stringify(defaultTopics));
+}
+
+function applyTopicsToPage(){
+  var topics=loadTopicsData();
+  var cards=document.querySelectorAll('#topicsGrid .tcard');
+  topics.forEach(function(t,i){
+    if(!cards[i])return;
+    var iconEl=cards[i].querySelector('.ticon');
+    var h3=cards[i].querySelector('h3');
+    var p=cards[i].querySelector('p');
+    var tag=cards[i].querySelector('.ttag');
+    if(iconEl)iconEl.textContent=t.icon;
+    if(h3)h3.textContent=t.title;
+    if(p)p.textContent=t.desc;
+    if(tag)tag.textContent=t.count+' Articles';
+  });
+}
+
+function renderTopicsAdminGrid(){
+  var grid=document.getElementById('topicsAdminGrid');if(!grid)return;
+  var topics=loadTopicsData();
+  var html='';
+  var nums=['01','02','03','04','05','06'];
+  topics.forEach(function(t,i){
+    var cardId='card-topic-'+t.id;
+    html+='<div class="admin-card locked" id="'+cardId+'">'
+      +'<div class="card-header">'
+      +'<h4>'+nums[i]+' '+t.icon+' '+t.title+' <span class="badge-saved">Saved</span><span class="badge-editing">Editing…</span></h4>'
+      +'<div class="card-btns">'
+      +'<button class="btn-edit" onclick="editCard(\''+cardId+'\')">✎ Edit</button>'
+      +'<button class="btn-save" onclick="saveTopicCard(\''+t.id+'\',\''+cardId+'\')">💾 Save</button>'
+      +'<button class="btn-cancel" onclick="cancelCard(\''+cardId+'\')">✕ Cancel</button>'
+      +'</div></div>'
+      +'<label class="alabel">Emoji / Icon</label>'
+      +'<input type="text" id="tc-icon-'+t.id+'" value="'+t.icon+'">'
+      +'<label class="alabel">Title</label>'
+      +'<input type="text" id="tc-title-'+t.id+'" value="'+t.title+'">'
+      +'<label class="alabel">Description</label>'
+      +'<textarea id="tc-desc-'+t.id+'" style="min-height:80px">'+t.desc+'</textarea>'
+      +'<label class="alabel">Article Count (number only)</label>'
+      +'<input type="text" id="tc-count-'+t.id+'" value="'+t.count+'">'
+      +'</div>';
+  });
+  grid.innerHTML=html;
+  lockAllTopicCards(topics);
+}
+
+function lockAllTopicCards(topics){
+  (topics||loadTopicsData()).forEach(function(t){
+    var c=document.getElementById('card-topic-'+t.id);
+    if(c){c.classList.remove('editing');c.classList.add('locked');}
+  });
+}
+
+function saveTopicCard(tid,cardId){
+  var topics=loadTopicsData();
+  var idx=-1;
+  for(var i=0;i<topics.length;i++){if(topics[i].id===tid){idx=i;break;}}
+  if(idx<0)return;
+  var icon=getV('tc-icon-'+tid)||topics[idx].icon;
+  var title=getV('tc-title-'+tid)||topics[idx].title;
+  var desc=getV('tc-desc-'+tid)||topics[idx].desc;
+  var count=getV('tc-count-'+tid)||topics[idx].count;
+  topics[idx].icon=icon;topics[idx].title=title;topics[idx].desc=desc;topics[idx].count=count;
+  if(ls_set(TOPICS_KEY,topics)){
+    applyTopicsToPage();
+    // Update card header title
+    var card=document.getElementById(cardId);
+    if(card){var h4=card.querySelector('.card-header h4');if(h4){var badges=h4.querySelectorAll('.badge-saved,.badge-editing');var nums=['01','02','03','04','05','06'];h4.textContent=nums[idx]+' '+icon+' '+title+' ';badges.forEach(function(b){h4.appendChild(b);});}}
+    doneCard(cardId);
+    showToast('✦ Topic "'+title+'" saved!');
+  }else{showToast('⚠ Could not save — storage error');}
+}
+
+/* ───── SITE SETTINGS APPLY ───── */
+function italicise(str){return (str||'').replace(/\*(.*?)\*/g,'<em>$1</em>');}
+
+function applySettingsToPage(){
+  var s=ls_get(SITE_KEY)||{};
+
+  /* Hero */
+  var hl=document.getElementById('heroIssueLabel');if(hl)hl.textContent=s.herolabel||siteDefaults.herolabel;
+  var hs=document.getElementById('heroSub');if(hs)hs.textContent=s.herosub||siteDefaults.herosub;
+  var hb1=document.getElementById('heroBtnPrimary');if(hb1)hb1.textContent=s.herobtn1||siteDefaults.herobtn1;
+  var hb2=document.getElementById('heroBtnSecondary');if(hb2)hb2.textContent=s.herobtn2||siteDefaults.herobtn2;
+
+  /* Stats */
+  setElText('stat1num',s.stat1num||siteDefaults.stat1num);
+  setElText('stat1label',s.stat1label||siteDefaults.stat1label);
+  setElText('stat1desc',s.stat1desc||siteDefaults.stat1desc);
+  setElText('stat2num',s.stat2num||siteDefaults.stat2num);
+  setElText('stat2label',s.stat2label||siteDefaults.stat2label);
+  setElText('stat2desc',s.stat2desc||siteDefaults.stat2desc);
+  setElText('stat3num',s.stat3num||siteDefaults.stat3num);
+  setElText('stat3label',s.stat3label||siteDefaults.stat3label);
+  setElText('stat3desc',s.stat3desc||siteDefaults.stat3desc);
+  setElText('stat4num',s.stat4num||siteDefaults.stat4num);
+  setElText('stat4label',s.stat4label||siteDefaults.stat4label);
+  setElText('stat4desc',s.stat4desc||siteDefaults.stat4desc);
+
+  /* Newsletter */
+  var nlH=document.getElementById('nlHeading');if(nlH)nlH.innerHTML=italicise(s.nltitle||siteDefaults.nltitle);
+  var nlT=document.getElementById('nlText');if(nlT)nlT.textContent=s.nltext||siteDefaults.nltext;
+  var nlB=document.getElementById('nlBtn');if(nlB)nlB.textContent=s.nlbtn||siteDefaults.nlbtn;
+
+  /* About */
+  var a=ls_get(ABOUT_KEY)||{};
+  setElText('aboutIntro1',a.intro1||aboutDefaults.intro1);
+  setElText('aboutIntro2',a.intro2||aboutDefaults.intro2);
+  setElText('aboutIntro3',a.intro3||aboutDefaults.intro3);
+  setElText('founderName',a.fname||aboutDefaults.fname);
+  setElText('founderTitle',a.ftitle||aboutDefaults.ftitle);
+  setElText('founderBio1',a.fbio1||aboutDefaults.fbio1);
+  setElText('founderBio2',a.fbio2||aboutDefaults.fbio2);
+  var fl=document.getElementById('flinkLinkedin');if(fl)fl.href=a.linkedin||aboutDefaults.linkedin;
+  var fsc=document.getElementById('flinkScholar');if(fsc)fsc.href=a.scholar||aboutDefaults.scholar;
+  var fss=document.getElementById('flinkSsrn');if(fss)fss.href=a.ssrn||aboutDefaults.ssrn;
+  var fo=document.getElementById('flinkOrcid');if(fo)fo.href=a.orcid||aboutDefaults.orcid;
+  var fu=document.getElementById('flinkUpwork');if(fu)fu.href=a.upwork||aboutDefaults.upwork;
+
+  /* Contact */
+  var c=ls_get(CONTACT_KEY)||{};
+  var ch=document.getElementById('contactHeading');if(ch)ch.innerHTML=italicise(c.heading||contactDefaults.heading);
+  setElText('contactSub',c.sub||contactDefaults.sub);
+  setElText('contactDesc',c.desc||contactDefaults.desc);
+  var cel=document.getElementById('contactEmailLink');if(cel){cel.href='mailto:'+(c.email||contactDefaults.email);cel.textContent=c.email||contactDefaults.email;}
+  var cll=document.getElementById('contactLinkedinLink');if(cll)cll.href=c.linkedin||contactDefaults.linkedin;
+  var cul=document.getElementById('contactUpworkLink');if(cul)cul.href=c.upwork||contactDefaults.upwork;
+  var csl=document.getElementById('contactScholarLink');if(csl)csl.href=c.scholar||contactDefaults.scholar;
+  var cbl=document.getElementById('contactBlogLink');if(cbl)cbl.href=c.blog||contactDefaults.blog;
+
+  /* Topics */
+  applyTopicsToPage();
+}
+
+function setElText(id,val){var el=document.getElementById(id);if(el)el.textContent=val||'';}
+
+/* ───── LOAD ADMIN FIELDS ───── */
+function loadAdminFields(){
+  var s=ls_get(SITE_KEY)||{};
+  /* Hero text */
+  setV('as-herolabel',s.herolabel||siteDefaults.herolabel);
+  setV('as-herosub',s.herosub||siteDefaults.herosub);
+  setV('as-herobtn1',s.herobtn1||siteDefaults.herobtn1);
+  setV('as-herobtn2',s.herobtn2||siteDefaults.herobtn2);
+  /* Stats */
+  setV('hs-s1num',s.stat1num||siteDefaults.stat1num);setV('hs-s1label',s.stat1label||siteDefaults.stat1label);setV('hs-s1desc',s.stat1desc||siteDefaults.stat1desc);
+  setV('hs-s2num',s.stat2num||siteDefaults.stat2num);setV('hs-s2label',s.stat2label||siteDefaults.stat2label);setV('hs-s2desc',s.stat2desc||siteDefaults.stat2desc);
+  setV('hs-s3num',s.stat3num||siteDefaults.stat3num);setV('hs-s3label',s.stat3label||siteDefaults.stat3label);setV('hs-s3desc',s.stat3desc||siteDefaults.stat3desc);
+  setV('hs-s4num',s.stat4num||siteDefaults.stat4num);setV('hs-s4label',s.stat4label||siteDefaults.stat4label);setV('hs-s4desc',s.stat4desc||siteDefaults.stat4desc);
+  /* Newsletter */
+  setV('as-nltitle',s.nltitle||siteDefaults.nltitle);
+  setV('as-nltext',s.nltext||siteDefaults.nltext);
+  setV('as-nlbtn',s.nlbtn||siteDefaults.nlbtn);
+  /* About */
+  var a=ls_get(ABOUT_KEY)||{};
+  setV('ae-intro1',a.intro1||aboutDefaults.intro1);
+  setV('ae-intro2',a.intro2||aboutDefaults.intro2);
+  setV('ae-intro3',a.intro3||aboutDefaults.intro3);
+  setV('ae-fname',a.fname||aboutDefaults.fname);
+  setV('ae-ftitle',a.ftitle||aboutDefaults.ftitle);
+  setV('ae-fbio1',a.fbio1||aboutDefaults.fbio1);
+  setV('ae-fbio2',a.fbio2||aboutDefaults.fbio2);
+  setV('ae-linkedin',a.linkedin||aboutDefaults.linkedin);
+  setV('ae-scholar',a.scholar||aboutDefaults.scholar);
+  setV('ae-ssrn',a.ssrn||aboutDefaults.ssrn);
+  setV('ae-orcid',a.orcid||aboutDefaults.orcid);
+  setV('ae-upwork',a.upwork||aboutDefaults.upwork);
+  /* Contact */
+  var c=ls_get(CONTACT_KEY)||{};
+  setV('ac-heading',c.heading||contactDefaults.heading);
+  setV('ac-sub',c.sub||contactDefaults.sub);
+  setV('ac-desc',c.desc||contactDefaults.desc);
+  setV('ac-email',c.email||contactDefaults.email);
+  setV('ac-linkedin',c.linkedin||contactDefaults.linkedin);
+  setV('ac-upwork',c.upwork||contactDefaults.upwork);
+  setV('ac-scholar',c.scholar||contactDefaults.scholar);
+  setV('ac-blog',c.blog||contactDefaults.blog);
+
+  updateStorageStatus();
+  lockAllCards();
+}
+
+/* ───── SAVE FUNCTIONS ───── */
+function saveHeroText(){
+  var s=ls_get(SITE_KEY)||{};
+  s.herolabel=getV('as-herolabel')||siteDefaults.herolabel;
+  s.herosub=getV('as-herosub')||siteDefaults.herosub;
+  s.herobtn1=getV('as-herobtn1')||siteDefaults.herobtn1;
+  s.herobtn2=getV('as-herobtn2')||siteDefaults.herobtn2;
+  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Hero text saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveHeroStats(){
+  var s=ls_get(SITE_KEY)||{};
+  s.stat1num=getV('hs-s1num')||siteDefaults.stat1num;s.stat1label=getV('hs-s1label')||siteDefaults.stat1label;s.stat1desc=getV('hs-s1desc')||siteDefaults.stat1desc;
+  s.stat2num=getV('hs-s2num')||siteDefaults.stat2num;s.stat2label=getV('hs-s2label')||siteDefaults.stat2label;s.stat2desc=getV('hs-s2desc')||siteDefaults.stat2desc;
+  s.stat3num=getV('hs-s3num')||siteDefaults.stat3num;s.stat3label=getV('hs-s3label')||siteDefaults.stat3label;s.stat3desc=getV('hs-s3desc')||siteDefaults.stat3desc;
+  s.stat4num=getV('hs-s4num')||siteDefaults.stat4num;s.stat4label=getV('hs-s4label')||siteDefaults.stat4label;s.stat4desc=getV('hs-s4desc')||siteDefaults.stat4desc;
+  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Hero stats saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveNewsletterSettings(){
+  var s=ls_get(SITE_KEY)||{};
+  s.nltitle=getV('as-nltitle')||siteDefaults.nltitle;
+  s.nltext=getV('as-nltext')||siteDefaults.nltext;
+  s.nlbtn=getV('as-nlbtn')||siteDefaults.nlbtn;
+  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Newsletter saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveAboutIntro(){
+  var a=ls_get(ABOUT_KEY)||{};
+  a.intro1=getV('ae-intro1')||aboutDefaults.intro1;
+  a.intro2=getV('ae-intro2')||aboutDefaults.intro2;
+  a.intro3=getV('ae-intro3')||aboutDefaults.intro3;
+  if(ls_set(ABOUT_KEY,a)){applySettingsToPage();showToast('✦ About intro saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveFounderBio(){
+  var a=ls_get(ABOUT_KEY)||{};
+  a.fname=getV('ae-fname')||aboutDefaults.fname;
+  a.ftitle=getV('ae-ftitle')||aboutDefaults.ftitle;
+  a.fbio1=getV('ae-fbio1')||aboutDefaults.fbio1;
+  a.fbio2=getV('ae-fbio2')||aboutDefaults.fbio2;
+  if(ls_set(ABOUT_KEY,a)){applySettingsToPage();showToast('✦ Founder bio saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveSocialLinks(){
+  var a=ls_get(ABOUT_KEY)||{};
+  a.linkedin=getV('ae-linkedin')||aboutDefaults.linkedin;
+  a.scholar=getV('ae-scholar')||aboutDefaults.scholar;
+  a.ssrn=getV('ae-ssrn')||aboutDefaults.ssrn;
+  a.orcid=getV('ae-orcid')||aboutDefaults.orcid;
+  a.upwork=getV('ae-upwork')||aboutDefaults.upwork;
+  if(ls_set(ABOUT_KEY,a)){applySettingsToPage();showToast('✦ Social links saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveContactSettings(){
+  var c=ls_get(CONTACT_KEY)||{};
+  c.heading=getV('ac-heading')||contactDefaults.heading;
+  c.sub=getV('ac-sub')||contactDefaults.sub;
+  c.desc=getV('ac-desc')||contactDefaults.desc;
+  if(ls_set(CONTACT_KEY,c)){applySettingsToPage();showToast('✦ Contact text saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveContactDetails(){
+  var c=ls_get(CONTACT_KEY)||{};
+  c.email=getV('ac-email')||contactDefaults.email;
+  c.linkedin=getV('ac-linkedin')||contactDefaults.linkedin;
+  c.upwork=getV('ac-upwork')||contactDefaults.upwork;
+  c.scholar=getV('ac-scholar')||contactDefaults.scholar;
+  c.blog=getV('ac-blog')||contactDefaults.blog;
+  if(ls_set(CONTACT_KEY,c)){applySettingsToPage();showToast('✦ Contact details saved!');}
+  else{showToast('⚠ Could not save');}
+}
 function changePassword(){
   var cur=document.getElementById('sec-current').value;
   var nw=document.getElementById('sec-new').value;
   var cf=document.getElementById('sec-confirm').value;
   var msg=document.getElementById('sec-msg');
-  if(cur!==getAdminPass()){msg.style.color='#e74c3c';msg.textContent='✗ Current password is incorrect.';return;}
-  if(nw.length<8){msg.style.color='#e74c3c';msg.textContent='✗ New password must be at least 8 characters.';return;}
-  if(nw!==cf){msg.style.color='#e74c3c';msg.textContent='✗ Passwords do not match.';return;}
+  if(!cur||!nw||!cf){if(msg){msg.style.color='#c0392b';msg.textContent='Please fill all fields.';}return;}
+  if(nw.length<8){if(msg){msg.style.color='#c0392b';msg.textContent='New password must be at least 8 characters.';}return;}
+  if(nw!==cf){if(msg){msg.style.color='#c0392b';msg.textContent='Passwords do not match.';}return;}
+  if(cur!==getAdminPass()){if(msg){msg.style.color='#c0392b';msg.textContent='Current password is incorrect.';}return;}
   try{localStorage.setItem(ADMIN_PASS_KEY,nw);}catch(e){}
-  msg.style.color='#27ae60';msg.textContent='✓ Password updated successfully!';
+  if(msg){msg.style.color='#27ae60';msg.textContent='✓ Password updated successfully!';}
   document.getElementById('sec-current').value='';document.getElementById('sec-new').value='';document.getElementById('sec-confirm').value='';
+  showToast('🔒 Password changed!');
+  setTimeout(function(){doneCard('card-password');},800);
 }
-function logoutAdmin(){isAuthenticated=false;try{sessionStorage.removeItem('bwAdmin2');}catch(e){}updateAdminUI();showPage('home');}
 
+/* ───── STORAGE STATUS ───── */
+function updateStorageStatus(){
+  var el=document.getElementById('storage-status');if(!el)return;
+  var hasSite=!!localStorage.getItem(SITE_KEY);
+  var hasAbout=!!localStorage.getItem(ABOUT_KEY);
+  var hasContact=!!localStorage.getItem(CONTACT_KEY);
+  var hasTopics=!!localStorage.getItem(TOPICS_KEY);
+  el.innerHTML='Blogs: <strong>'+blogs.length+' posts</strong><br>Site/Hero: <strong>'+(hasSite?'✓ Saved':'default')+'</strong><br>Topics: <strong>'+(hasTopics?'✓ Saved':'default')+'</strong><br>About: <strong>'+(hasAbout?'✓ Saved':'default')+'</strong><br>Contact: <strong>'+(hasContact?'✓ Saved':'default')+'</strong>';
+}
+
+function clearData(key,label){
+  if(!confirm('Clear all '+label+'? This cannot be undone.'))return;
+  try{localStorage.removeItem(key);}catch(e){}
+  if(key===BLOGS_KEY){blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;refreshBlogsGrid();}
+  if(key===TOPICS_KEY)applyTopicsToPage();
+  loadAdminFields();applySettingsToPage();
+  if(key===TOPICS_KEY)renderTopicsAdminGrid();
+  showToast('✓ Cleared: '+label);
+}
+
+/* ───── BLOGS GRID ───── */
 var currentFilter='all';
-function refreshBlogsGrid(){var filtered=currentFilter==='all'?blogs:blogs.filter(function(b){return b.cat===currentFilter;});renderCards(filtered);}
+function refreshBlogsGrid(){
+  var filtered=currentFilter==='all'?blogs:blogs.filter(function(b){return b.cat===currentFilter;});
+  renderCards(filtered);
+}
 function renderCards(data){
   var grid=document.getElementById('blogsGrid');
   if(!data.length){grid.innerHTML='<div style="padding:2rem;color:var(--muted);text-align:center;grid-column:1/-1;">No articles in this category yet.</div>';return;}
@@ -2061,33 +2360,40 @@ function renderCards(data){
       +'</div>';
     html+='<div class="bcard" onclick="openArticle('+b.id+')">'
       +'<div class="bthumb" style="background:'+bg+'"><span>'+b.icon+'</span><span class="bcat">'+label+'</span></div>'
-      +'<div class="bbody">'
-      +'<div class="bmeta"><span>'+b.date+'</span><span>'+b.readTime+' read</span><span>Maria Kanwal</span></div>'
+      +'<div class="bbody"><div class="bmeta"><span>'+b.date+'</span><span>'+b.readTime+' read</span><span>Maria Kanwal</span></div>'
       +'<h3>'+b.title+'</h3><p>'+b.desc+'</p>'
       +'<span class="rmore">Read Article →</span>'
-      +adminBtns
-      +'</div></div>';
+      +adminBtns+'</div></div>';
   }
   grid.innerHTML=html;
 }
 renderCards(blogs);
-function filterBlogs(cat,btn){var all=document.querySelectorAll('.fbtn');for(var i=0;i<all.length;i++)all[i].classList.remove('active');btn.classList.add('active');currentFilter=cat;var filtered=cat==='all'?blogs:blogs.filter(function(b){return b.cat===cat;});renderCards(filtered);}
-function filterBlogsNav(cat){currentFilter=cat;var btns=document.querySelectorAll('.fbtn');var catMap={all:'All Topics',hormones:'Hormones',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');if(btns[i].textContent.trim()===catMap[cat])btns[i].classList.add('active');}refreshBlogsGrid();}
 
+function filterBlogs(cat,btn){
+  var all=document.querySelectorAll('.fbtn');for(var i=0;i<all.length;i++)all[i].classList.remove('active');
+  btn.classList.add('active');currentFilter=cat;
+  var filtered=cat==='all'?blogs:blogs.filter(function(b){return b.cat===cat;});
+  renderCards(filtered);
+}
+function filterBlogsNav(cat){
+  currentFilter=cat;
+  var catMap={all:'All Topics',hormones:'Hormones',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};
+  var btns=document.querySelectorAll('.fbtn');
+  for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');if(btns[i].textContent.trim()===catMap[cat])btns[i].classList.add('active');}
+  refreshBlogsGrid();
+}
+
+/* ───── ARTICLE PAGE ───── */
 function openArticle(id){
-  var b=null;
-  for(var i=0;i<blogs.length;i++){if(blogs[i].id===id){b=blogs[i];break;}}
-  if(!b)return;
+  var b=null;for(var i=0;i<blogs.length;i++){if(blogs[i].id===id){b=blogs[i];break;}}if(!b)return;
   var label=b.catLabel||catLabels[b.cat]||b.cat;
   var infoHTML='';
   if(b.infoItems&&b.infoItems.length){var items='';for(var j=0;j<b.infoItems.length;j++)items+='<div class="info-item"><div class="info-num">'+b.infoItems[j].n+'</div><div class="info-lab">'+b.infoItems[j].l+'</div></div>';infoHTML='<div class="infographic"><h4>'+(b.infoTitle||'Key Facts')+'</h4><div class="info-grid">'+items+'</div></div>';}
   var bodyContent='';
   if(b.fullHTML){bodyContent=b.fullHTML;}
   else{
-    var sectHTML='';
-    if(b.sections&&b.sections.length)for(var k=0;k<b.sections.length;k++)sectHTML+='<h2>'+b.sections[k].h+'</h2><p>'+b.sections[k].p+'</p>';
-    var ktHTML='';
-    if(b.takeaways&&b.takeaways.length){var ktItems='';for(var m=0;m<b.takeaways.length;m++)ktItems+='<div class="kt-item"><div class="kt-icon">'+(ktIcons[m]||'✦')+'</div><div class="kt-text">'+b.takeaways[m]+'</div></div>';ktHTML='<div class="key-takeaway"><h4>Key Takeaways</h4><div class="kt-list">'+ktItems+'</div></div>';}
+    var sectHTML='';if(b.sections&&b.sections.length)for(var k=0;k<b.sections.length;k++)sectHTML+='<h2>'+b.sections[k].h+'</h2><p>'+b.sections[k].p+'</p>';
+    var ktHTML='';if(b.takeaways&&b.takeaways.length){var ktItems='';for(var m=0;m<b.takeaways.length;m++)ktItems+='<div class="kt-item"><div class="kt-icon">'+(ktIcons[m]||'✦')+'</div><div class="kt-text">'+b.takeaways[m]+'</div></div>';ktHTML='<div class="key-takeaway"><h4>Key Takeaways</h4><div class="kt-list">'+ktItems+'</div></div>';}
     var concHTML=b.conclusion?'<div class="conclusion"><h4>Conclusion</h4><p>'+b.conclusion+'</p></div>':'';
     bodyContent=infoHTML+sectHTML+ktHTML+concHTML;
   }
@@ -2101,28 +2407,57 @@ function openArticle(id){
     +'<div class="author-box"><div class="author-avatar">👩‍💻</div>'
     +'<div class="author-info"><h5>Maria Kanwal</h5>'
     +'<div class="author-role">Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · MedRankSEO</div>'
-    +'<p>Maria Kanwal is the founder of BloomWell and MedRankSEO. She is a Research Associate, Scholar, and Published Author with expertise in medical SEO, AI-optimised content, and E-E-A-T compliance. Reach her at <a href="mailto:medrankseo@gmail.com">medrankseo@gmail.com</a> · <a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">Google Scholar</a></p>'
+    +'<p>Maria Kanwal is the founder of BloomWell and MedRankSEO. Reach her at <a href="mailto:medrankseo@gmail.com">medrankseo@gmail.com</a> · <a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">Google Scholar</a></p>'
     +'</div></div></div></div>';
   document.getElementById('articleContent').innerHTML=html;
   showPage('article');
 }
 
+/* ───── EDITOR ───── */
 function switchEditorTab(mode,tab,btn){
   var prefix=mode==='add'?'add':'edit';
   if(tab==='preview'){var htmlContent=getEditorHTML(mode);document.getElementById(prefix+'-preview-content').innerHTML=htmlContent||'<p style="color:var(--muted);font-size:.85rem">No content yet.</p>';}
-  var panes=document.querySelectorAll('#'+(mode==='add'?'addBlogModal':'editBlogModal')+' .editor-pane');
-  panes.forEach(function(p){p.classList.remove('active');});
-  var tabBtns=document.querySelectorAll('#'+(mode==='add'?'addBlogModal':'editBlogModal')+' .editor-tab-btn');
-  tabBtns.forEach(function(b){b.classList.remove('active');});
+  var modal=document.getElementById(mode==='add'?'addBlogModal':'editBlogModal');
+  modal.querySelectorAll('.editor-pane').forEach(function(p){p.classList.remove('active');});
+  modal.querySelectorAll('.editor-tab-btn').forEach(function(b){b.classList.remove('active');});
   document.getElementById(prefix+'-pane-'+tab).classList.add('active');
   btn.classList.add('active');
 }
-function getEditorHTML(mode){var prefix=mode==='add'?'n':'e';var codeEl=document.getElementById(prefix+'FullHTML');var textEl=document.getElementById(prefix+'TextContent');if(codeEl&&codeEl.value.trim())return codeEl.value.trim();if(textEl&&textEl.value.trim())return convertTextToHTML(textEl.value.trim());return'';}
-function convertTextToHTML(text){var lines=text.split('\n');var html='';var inList=false;var listType='';for(var i=0;i<lines.length;i++){var line=lines[i].trim();if(!line){if(inList){html+='</'+listType+'>';inList=false;}continue;}if(line.startsWith('h2:')){if(inList){html+='</'+listType+'>';inList=false;}html+='<h2>'+line.substring(3).trim()+'</h2>';continue;}if(line.startsWith('h3:')){if(inList){html+='</'+listType+'>';inList=false;}html+='<h3>'+line.substring(3).trim()+'</h3>';continue;}if(line.startsWith('## ')){if(inList){html+='</'+listType+'>';inList=false;}html+='<h2>'+line.substring(3)+'</h2>';continue;}if(line.startsWith('### ')){if(inList){html+='</'+listType+'>';inList=false;}html+='<h3>'+line.substring(4)+'</h3>';continue;}if(line.startsWith('- ')||line.startsWith('* ')){if(!inList||listType!=='ul'){if(inList)html+='</'+listType+'>';html+='<ul>';inList=true;listType='ul';}html+='<li>'+line.substring(2)+'</li>';continue;}if(/^\d+\. /.test(line)){if(!inList||listType!=='ol'){if(inList)html+='</'+listType+'>';html+='<ol>';inList=true;listType='ol';}html+='<li>'+line.replace(/^\d+\. /,'')+'</li>';continue;}if(inList){html+='</'+listType+'>';inList=false;}html+='<p>'+line+'</p>';}if(inList)html+='</'+listType+'>';return html;}
-function insertTag(mode,tag){var prefix=mode==='add'?'n':'e';var ta=document.getElementById(prefix+'TextContent');if(!ta)return;ta.focus();var start=ta.selectionStart;var end=ta.selectionEnd;var sel=ta.value.substring(start,end);var ins='';switch(tag){case 'h2':ins='\n## '+(sel||'Section Heading')+'\n';break;case 'h3':ins='\n### '+(sel||'Sub-heading')+'\n';break;case 'p':ins='\n'+(sel||'Your paragraph text here.')+'\n';break;case 'b':ins='**'+(sel||'bold text')+'**';break;case 'i':ins='_'+(sel||'italic text')+'_';break;case 'ul':ins='\n- '+(sel||'List item 1')+'\n- List item 2\n- List item 3\n';break;case 'ol':ins='\n1. '+(sel||'First item')+'\n2. Second item\n3. Third item\n';break;case 'tip':ins='\n<div class="tip-box"><strong>💡 Tip:</strong> '+(sel||'Your tip here.')+'</div>\n';break;case 'quote':ins='\n<div class="pull-quote">'+(sel||'Your pull quote here.')+'</div>\n';break;case 'key':ins='\n<div class="key-takeaway"><h4>Key Takeaways</h4><div class="kt-list"><div class="kt-item"><div class="kt-text">Takeaway 1</div></div></div></div>\n';break;}ta.value=ta.value.substring(0,start)+ins+ta.value.substring(end);ta.selectionStart=ta.selectionEnd=start+ins.length;}
+function getEditorHTML(mode){
+  var prefix=mode==='add'?'n':'e';
+  var codeEl=document.getElementById(prefix+'FullHTML');
+  var textEl=document.getElementById(prefix+'TextContent');
+  if(codeEl&&codeEl.value.trim())return codeEl.value.trim();
+  if(textEl&&textEl.value.trim())return convertTextToHTML(textEl.value.trim());
+  return '';
+}
+function convertTextToHTML(text){
+  var lines=text.split('\n');var html='';var inList=false;var listType='';
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i].trim();
+    if(!line){if(inList){html+='</'+listType+'>';inList=false;}continue;}
+    if(line.startsWith('## ')){if(inList){html+='</'+listType+'>';inList=false;}html+='<h2>'+line.substring(3)+'</h2>';continue;}
+    if(line.startsWith('### ')){if(inList){html+='</'+listType+'>';inList=false;}html+='<h3>'+line.substring(4)+'</h3>';continue;}
+    if(line.startsWith('- ')||line.startsWith('* ')){if(!inList||listType!=='ul'){if(inList)html+='</'+listType+'>';html+='<ul>';inList=true;listType='ul';}html+='<li>'+line.substring(2)+'</li>';continue;}
+    if(/^\d+\. /.test(line)){if(!inList||listType!=='ol'){if(inList)html+='</'+listType+'>';html+='<ol>';inList=true;listType='ol';}html+='<li>'+line.replace(/^\d+\. /,'')+'</li>';continue;}
+    if(inList){html+='</'+listType+'>';inList=false;}
+    html+='<p>'+line+'</p>';
+  }
+  if(inList)html+='</'+listType+'>';
+  return html;
+}
+function insertTag(mode,tag){
+  var prefix=mode==='add'?'n':'e';var ta=document.getElementById(prefix+'TextContent');if(!ta)return;
+  ta.focus();var start=ta.selectionStart;var end=ta.selectionEnd;var sel=ta.value.substring(start,end);var ins='';
+  switch(tag){case 'h2':ins='\n## '+(sel||'Section Heading')+'\n';break;case 'h3':ins='\n### '+(sel||'Sub-heading')+'\n';break;case 'p':ins='\n'+(sel||'Your paragraph text here.')+'\n';break;case 'b':ins='**'+(sel||'bold text')+'**';break;case 'i':ins='_'+(sel||'italic text')+'_';break;case 'ul':ins='\n- '+(sel||'List item 1')+'\n- List item 2\n- List item 3\n';break;case 'ol':ins='\n1. '+(sel||'First item')+'\n2. Second item\n3. Third item\n';break;case 'tip':ins='\n<div class="tip-box"><strong>💡 Tip:</strong> '+(sel||'Your tip here.')+'</div>\n';break;case 'quote':ins='\n<div class="pull-quote">'+(sel||'Your pull quote here.')+'</div>\n';break;case 'key':ins='\n<div class="key-takeaway"><h4>Key Takeaways</h4><div class="kt-list"><div class="kt-item"><div class="kt-text">Takeaway 1</div></div></div></div>\n';break;}
+  ta.value=ta.value.substring(0,start)+ins+ta.value.substring(end);
+  ta.selectionStart=ta.selectionEnd=start+ins.length;
+}
 
+/* ───── BLOG CRUD ───── */
 function openModal(){if(!isAuthenticated){openPwModal();return;}document.getElementById('addBlogModal').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(){document.getElementById('addBlogModal').classList.remove('open');document.body.style.overflow='';}
+
 function publishBlog(){
   var title=document.getElementById('nTitle').value.trim();
   var cat=document.getElementById('nCat').value;
@@ -2136,9 +2471,11 @@ function publishBlog(){
   var date=months[today.getMonth()]+' '+today.getDate()+', '+today.getFullYear();
   var newBlog={id:nextId++,cat:cat,catLabel:catLabels[cat],icon:icon,bg:color,date:date,readTime:readTime,title:title,desc:desc,fullHTML:fullHTML,intro:'',sections:[],infoItems:[],takeaways:[],conclusion:''};
   blogs.unshift(newBlog);saveBlogs();refreshBlogsGrid();
-  document.getElementById('nTitle').value='';document.getElementById('nDesc').value='';document.getElementById('nIcon').value='';document.getElementById('nReadTime').value='8 min';document.getElementById('nColor').value='#EDE7FF';document.getElementById('nFullHTML').value='';document.getElementById('nTextContent').value='';
+  ['nTitle','nDesc','nIcon','nFullHTML','nTextContent'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('nReadTime').value='8 min';document.getElementById('nColor').value='#EDE7FF';
   closeModal();refreshAdminBlogList();showToast('✦ Published: "'+title+'"');
 }
+
 function openEditModal(id){
   var b=null;for(var i=0;i<blogs.length;i++){if(blogs[i].id===id){b=blogs[i];break;}}if(!b)return;
   document.getElementById('eEditId').value=id;
@@ -2152,6 +2489,7 @@ function openEditModal(id){
   document.getElementById('editBlogModal').classList.add('open');document.body.style.overflow='hidden';
 }
 function closeEditModal(){document.getElementById('editBlogModal').classList.remove('open');document.body.style.overflow='';}
+
 function saveEditBlog(){
   var id=parseInt(document.getElementById('eEditId').value);
   var title=document.getElementById('eTitle').value.trim();var cat=document.getElementById('eCat').value;
@@ -2162,402 +2500,15 @@ function saveEditBlog(){
   for(var i=0;i<blogs.length;i++){if(blogs[i].id===id){blogs[i].title=title;blogs[i].cat=cat;blogs[i].catLabel=catLabels[cat];blogs[i].desc=desc;blogs[i].icon=icon;blogs[i].bg=color;blogs[i].readTime=readTime;blogs[i].fullHTML=fullHTML;blogs[i].intro='';blogs[i].sections=[];blogs[i].takeaways=[];blogs[i].conclusion='';blogs[i].infoItems=[];break;}}
   saveBlogs();refreshBlogsGrid();closeEditModal();refreshAdminBlogList();showToast('✦ Saved: "'+title+'"');
 }
-function deleteBlog(id){var b=blogs.find(function(x){return x.id===id;});if(!b)return;if(!confirm('Delete "'+b.title+'"?\n\nThis cannot be undone.'))return;blogs=blogs.filter(function(x){return x.id!==id;});saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('Deleted.');}
 
-function switchAdminTab(tab,btn){document.querySelectorAll('.atab-pane').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.atab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('atab-'+tab).classList.add('active');btn.classList.add('active');}
-
-/* ===== EDIT / LOCK CARD SYSTEM ===== */
-var cardOriginals={};
-function editCard(id){
-  var card=document.getElementById(id);
-  if(!card)return;
-  // Store original values for cancel
-  var inputs=card.querySelectorAll('input,select,textarea');
-  var snap={};
-  inputs.forEach(function(el){snap[el.id]=el.value;});
-  cardOriginals[id]=snap;
-  card.classList.remove('locked');
-  card.classList.add('editing');
-  // Focus first input
-  var first=card.querySelector('input:not([type=password]),textarea');
-  if(first)setTimeout(function(){first.focus();},50);
-}
-function doneCard(id){
-  var card=document.getElementById(id);
-  if(!card)return;
-  card.classList.remove('editing');
-  card.classList.add('locked');
-  delete cardOriginals[id];
-}
-function cancelCard(id){
-  var card=document.getElementById(id);
-  if(!card)return;
-  // Restore original values
-  var snap=cardOriginals[id]||{};
-  Object.keys(snap).forEach(function(elId){
-    var el=document.getElementById(elId);
-    if(el)el.value=snap[elId];
-  });
-  card.classList.remove('editing');
-  card.classList.add('locked');
-  delete cardOriginals[id];
-}
-/* Override changePassword to NOT call doneCard if validation fails */
-var _origChangePw=typeof changePassword!=='undefined'?changePassword:null;
-function changePassword(){
-  var cur=document.getElementById('sec-current').value;
-  var nw=document.getElementById('sec-new').value;
-  var cf=document.getElementById('sec-confirm').value;
-  var msg=document.getElementById('sec-msg');
-  if(!cur||!nw||!cf){if(msg){msg.style.color='#c0392b';msg.textContent='Please fill all fields.';}return false;}
-  if(nw.length<8){if(msg){msg.style.color='#c0392b';msg.textContent='New password must be at least 8 characters.';}return false;}
-  if(nw!==cf){if(msg){msg.style.color='#c0392b';msg.textContent='Passwords do not match.';}return false;}
-  var stored=getAdminPass();
-  if(cur!==stored){if(msg){msg.style.color='#c0392b';msg.textContent='Current password is incorrect.';}return false;}
-  try{localStorage.setItem(ADMIN_PASS_KEY,nw);}catch(e){}
-  if(msg){msg.style.color='#27ae60';msg.textContent='✓ Password updated successfully!';}
-  document.getElementById('sec-current').value='';
-  document.getElementById('sec-new').value='';
-  document.getElementById('sec-confirm').value='';
-  showToast('🔒 Password changed!');
-  setTimeout(function(){doneCard('card-password');},800);
-  return true;
-}
-function switchAboutTab(tab,btn){var btns=document.querySelectorAll('#atab-about-edit .editor-tab-btn');btns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.getElementById('about-pane-text').classList.toggle('active',tab==='text');document.getElementById('about-pane-code').classList.toggle('active',tab==='code');}
-function switchContactTab(tab,btn){var btns=document.querySelectorAll('#atab-contact-edit .editor-tab-btn');btns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.getElementById('contact-pane-text').classList.toggle('active',tab==='text');document.getElementById('contact-pane-code').classList.toggle('active',tab==='code');}
-
-/* ===== SITE SETTINGS SAVE/LOAD ===== */
-var SITE_KEY='bwSiteSettings';
-var ABOUT_KEY='bwAboutSettings';
-var CONTACT_KEY='bwContactSettings';
-
-function ls_get(key){try{var v=localStorage.getItem(key);return v?JSON.parse(v):null;}catch(e){return null;}}
-function ls_set(key,val){try{localStorage.setItem(key,JSON.stringify(val));return true;}catch(e){return false;}}
-
-/* Site defaults */
-var siteDefaults={
-  sitename:'BloomWell',tagline:"Women's Health and Wellness by Maria Kanwal",
-  copyright:'© 2025 BloomWell · Founded by Maria Kanwal · MedRankSEO',
-  herolabel:'Founded by Maria Kanwal · MedRankSEO',
-  herotitle:'Empowering Women Through Every Stage of Life',
-  herosub:'From hormonal health to mental wellness — BloomWell provides expert-backed, science-informed guidance designed specifically for women\'s bodies and minds.',
-  herobtn1:'Explore Articles',herobtn2:'Our Mission',
-  nltitle:'Stay Informed. Stay Empowered.',
-  nltext:'Weekly women\'s health insights from Maria Kanwal — no noise, just knowledge.',
-  nlbtn:'Subscribe Now'
-};
-var aboutDefaults={
-  intro1:"BloomWell was founded by Maria Kanwal — Research Associate, Assistant Digital Editor, SEO Content Writer, Digital Marketing Strategist, Scholar, and Author — who was frustrated by the abundance of incomplete and fear-mongering women's health content online.",
-  intro2:"Maria combines her expertise in medical SEO, AI-optimised content, and E-E-A-T compliance to create women's health resources that are not just informative, but truly trustworthy and search-optimised.",
-  intro3:"BloomWell serves readers across dozens of countries with content that respects women's intelligence and honours the complexity of female health across every life stage.",
-  fname:'Maria Kanwal',
-  ftitle:'Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · Scholar · Author',
-  fbio1:"Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors. She currently works with Dubai-based clinics and international clients, creating SEO-optimized web pages, blogs, and Google Business Profile content.",
-  fbio2:"She holds a BDDS (Defence & Diplomatic Studies) from Fatima Jinnah Women University, Rawalpindi (CGPA: 3.32 / 81.89%). She specialises in On-Page SEO, Off-Page SEO, Technical SEO, SEM, SMM, and content strategy development.",
-  email:'medrankseo@gmail.com',
-  linkedin:'https://www.linkedin.com/in/maria-kanwal-637629207/',
-  scholar:'https://scholar.google.com/citations?user=6jmGlYwAAAAJ',
-  ssrn:'https://ssrn.com/author=5225172',
-  orcid:'https://orcid.org/0000-0003-1528-4424',
-  upwork:'https://www.upwork.com/freelancers/~0137388680e9e3f335',
-  customHTML:''
-};
-var contactDefaults={
-  heading:"Let's Connect",
-  sub:"Reach out to Maria Kanwal directly — every message is read personally within 2 business days.",
-  desc:"Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.",
-  email:'medrankseo@gmail.com',
-  linkedin:'https://www.linkedin.com/in/maria-kanwal-637629207/',
-  upwork:'https://www.upwork.com/freelancers/~0137388680e9e3f335',
-  scholar:'https://scholar.google.com/citations?user=6jmGlYwAAAAJ',
-  blog:'https://journey-towards-health-and-wellness.blogspot.com/?m=1',
-  customHTML:''
-};
-
-function loadAdminFields(){
-  /* Site */
-  var s=ls_get(SITE_KEY)||siteDefaults;
-  setV('as-sitename',s.sitename||siteDefaults.sitename);
-  setV('as-tagline',s.tagline||siteDefaults.tagline);
-  setV('as-copyright',s.copyright||siteDefaults.copyright);
-  setV('as-herolabel',s.herolabel||siteDefaults.herolabel);
-  setV('as-herotitle',s.herotitle||siteDefaults.herotitle);
-  setV('as-herosub',s.herosub||siteDefaults.herosub);
-  setV('as-herobtn1',s.herobtn1||siteDefaults.herobtn1);
-  setV('as-herobtn2',s.herobtn2||siteDefaults.herobtn2);
-  setV('as-nltitle',s.nltitle||siteDefaults.nltitle);
-  setV('as-nltext',s.nltext||siteDefaults.nltext);
-  setV('as-nlbtn',s.nlbtn||siteDefaults.nlbtn);
-  /* About */
-  var a=ls_get(ABOUT_KEY)||aboutDefaults;
-  setV('ae-intro1',a.intro1||aboutDefaults.intro1);
-  setV('ae-intro2',a.intro2||aboutDefaults.intro2);
-  setV('ae-intro3',a.intro3||aboutDefaults.intro3);
-  setV('ae-fname',a.fname||aboutDefaults.fname);
-  setV('ae-ftitle',a.ftitle||aboutDefaults.ftitle);
-  setV('ae-fbio1',a.fbio1||aboutDefaults.fbio1);
-  setV('ae-fbio2',a.fbio2||aboutDefaults.fbio2);
-  setV('ae-email',a.email||aboutDefaults.email);
-  setV('ae-linkedin',a.linkedin||aboutDefaults.linkedin);
-  setV('ae-scholar',a.scholar||aboutDefaults.scholar);
-  setV('ae-ssrn',a.ssrn||aboutDefaults.ssrn);
-  setV('ae-orcid',a.orcid||aboutDefaults.orcid);
-  setV('ae-upwork',a.upwork||aboutDefaults.upwork);
-  setV('ae-custom-html',a.customHTML||'');
-  /* Contact */
-  var c=ls_get(CONTACT_KEY)||contactDefaults;
-  setV('ac-heading',c.heading||contactDefaults.heading);
-  setV('ac-sub',c.sub||contactDefaults.sub);
-  setV('ac-desc',c.desc||contactDefaults.desc);
-  setV('ac-email',c.email||contactDefaults.email);
-  setV('ac-linkedin',c.linkedin||contactDefaults.linkedin);
-  setV('ac-upwork',c.upwork||contactDefaults.upwork);
-  setV('ac-scholar',c.scholar||contactDefaults.scholar);
-  setV('ac-blog',c.blog||contactDefaults.blog);
-  setV('ac-custom-html',c.customHTML||'');
-  /* storage status */
-  updateStorageStatus();
-  // Lock all editable cards after loading values
-  lockAllCards();
-}
-function lockAllCards(){
-  var ids=['card-site-title','card-hero','card-newsletter','card-about-intro','card-founder-bio','card-social-links','card-about-html','card-contact-text','card-contact-details','card-contact-html','card-password'];
-  ids.forEach(function(id){var c=document.getElementById(id);if(c){c.classList.remove('editing');c.classList.add('locked');}});
-}
-function setV(id,val){var el=document.getElementById(id);if(el)el.value=val||'';}
-function getV(id){var el=document.getElementById(id);return el?el.value.trim():'';}
-
-function applySettingsToPage(){
-  var s=ls_get(SITE_KEY)||siteDefaults;
-  /* Hero */
-  var issueEl=document.querySelector('.hero-issue');
-  if(issueEl)issueEl.textContent=s.herolabel||siteDefaults.herolabel;
-  var heroSub=document.querySelector('.hero-sub');
-  if(heroSub)heroSub.textContent=s.herosub||siteDefaults.herosub;
-  /* newsletter */
-  var nlTitle=document.querySelector('.newsletter h2');
-  if(nlTitle)nlTitle.innerHTML=(s.nltitle||siteDefaults.nltitle).replace(/\*(.*?)\*/g,'<em>$1</em>');
-  var nlText=document.querySelector('.newsletter > p');
-  if(nlText)nlText.textContent=s.nltext||siteDefaults.nltext;
-  /* About */
-  var a=ls_get(ABOUT_KEY)||aboutDefaults;
-  var aboutParas=document.querySelectorAll('.about-top > div > p');
-  if(aboutParas[0])aboutParas[0].textContent=a.intro1||aboutDefaults.intro1;
-  if(aboutParas[1])aboutParas[1].textContent=a.intro2||aboutDefaults.intro2;
-  if(aboutParas[2])aboutParas[2].textContent=a.intro3||aboutDefaults.intro3;
-  var fn=document.querySelector('.founder-name');if(fn)fn.textContent=a.fname||aboutDefaults.fname;
-  var ft=document.querySelector('.founder-title');if(ft)ft.textContent=a.ftitle||aboutDefaults.ftitle;
-  var fbios=document.querySelectorAll('.founder-desc');
-  if(fbios[0])fbios[0].textContent=a.fbio1||aboutDefaults.fbio1;
-  if(fbios[1])fbios[1].textContent=a.fbio2||aboutDefaults.fbio2;
-  /* Contact */
-  var c=ls_get(CONTACT_KEY)||contactDefaults;
-  var ctTitle=document.querySelector('.contact-top h1');
-  if(ctTitle)ctTitle.innerHTML=(c.heading||contactDefaults.heading).replace(/\*(.*?)\*/g,'<em>$1</em>');
-  var ctP=document.querySelector('.contact-top p');
-  if(ctP)ctP.textContent=c.sub||contactDefaults.sub;
-  var cinfoDesc=document.querySelector('.cinfo > p');
-  if(cinfoDesc)cinfoDesc.textContent=c.desc||contactDefaults.desc;
+function deleteBlog(id){
+  var b=blogs.find(function(x){return x.id===id;});if(!b)return;
+  if(!confirm('Delete "'+b.title+'"?\n\nThis cannot be undone.'))return;
+  blogs=blogs.filter(function(x){return x.id!==id;});saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('Deleted.');
 }
 
-function saveSiteSettings(){
-  var s={
-    sitename:getV('as-sitename')||siteDefaults.sitename,
-    tagline:getV('as-tagline')||siteDefaults.tagline,
-    copyright:getV('as-copyright')||siteDefaults.copyright,
-    herolabel:getV('as-herolabel')||siteDefaults.herolabel,
-    herotitle:getV('as-herotitle')||siteDefaults.herotitle,
-    herosub:getV('as-herosub')||siteDefaults.herosub,
-    herobtn1:getV('as-herobtn1')||siteDefaults.herobtn1,
-    herobtn2:getV('as-herobtn2')||siteDefaults.herobtn2,
-    nltitle:getV('as-nltitle')||siteDefaults.nltitle,
-    nltext:getV('as-nltext')||siteDefaults.nltext,
-    nlbtn:getV('as-nlbtn')||siteDefaults.nlbtn
-  };
-  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Site settings saved!');}
-  else{showToast('⚠ Could not save — storage error');}
-}
-function saveHeroSettings(){
-  var s=ls_get(SITE_KEY)||Object.assign({},siteDefaults);
-  s.herolabel=getV('as-herolabel')||siteDefaults.herolabel;
-  s.herotitle=getV('as-herotitle')||siteDefaults.herotitle;
-  s.herosub=getV('as-herosub')||siteDefaults.herosub;
-  s.herobtn1=getV('as-herobtn1')||siteDefaults.herobtn1;
-  s.herobtn2=getV('as-herobtn2')||siteDefaults.herobtn2;
-  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Hero saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function saveNewsletterSettings(){
-  var s=ls_get(SITE_KEY)||Object.assign({},siteDefaults);
-  s.nltitle=getV('as-nltitle')||siteDefaults.nltitle;
-  s.nltext=getV('as-nltext')||siteDefaults.nltext;
-  s.nlbtn=getV('as-nlbtn')||siteDefaults.nlbtn;
-  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Newsletter saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function saveAboutIntro(){
-  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
-  a.intro1=getV('ae-intro1')||aboutDefaults.intro1;
-  a.intro2=getV('ae-intro2')||aboutDefaults.intro2;
-  a.intro3=getV('ae-intro3')||aboutDefaults.intro3;
-  if(ls_set(ABOUT_KEY,a)){
-    applySettingsToPage();
-    var prev=document.getElementById('about-text-preview');
-    if(prev)prev.innerHTML='<p>'+a.intro1+'</p><p style="margin-top:.5rem">'+a.intro2+'</p><p style="margin-top:.5rem">'+a.intro3+'</p>';
-    showToast('✦ About intro saved!');
-  }else{showToast('⚠ Could not save');}
-}
-function saveFounderBio(){
-  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
-  a.fname=getV('ae-fname')||aboutDefaults.fname;
-  a.ftitle=getV('ae-ftitle')||aboutDefaults.ftitle;
-  a.fbio1=getV('ae-fbio1')||aboutDefaults.fbio1;
-  a.fbio2=getV('ae-fbio2')||aboutDefaults.fbio2;
-  if(ls_set(ABOUT_KEY,a)){applySettingsToPage();showToast('✦ Founder bio saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function saveSocialLinks(){
-  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
-  a.email=getV('ae-email')||aboutDefaults.email;
-  a.linkedin=getV('ae-linkedin')||aboutDefaults.linkedin;
-  a.scholar=getV('ae-scholar')||aboutDefaults.scholar;
-  a.ssrn=getV('ae-ssrn')||aboutDefaults.ssrn;
-  a.orcid=getV('ae-orcid')||aboutDefaults.orcid;
-  a.upwork=getV('ae-upwork')||aboutDefaults.upwork;
-  if(ls_set(ABOUT_KEY,a)){showToast('✦ Links saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function saveAboutCustomHTML(){
-  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
-  a.customHTML=getV('ae-custom-html');
-  if(ls_set(ABOUT_KEY,a)){showToast('✦ Custom About HTML saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function saveContactSettings(){
-  var c=ls_get(CONTACT_KEY)||Object.assign({},contactDefaults);
-  c.heading=getV('ac-heading')||contactDefaults.heading;
-  c.sub=getV('ac-sub')||contactDefaults.sub;
-  c.desc=getV('ac-desc')||contactDefaults.desc;
-  if(ls_set(CONTACT_KEY,c)){applySettingsToPage();showToast('✦ Contact text saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function saveContactDetails(){
-  var c=ls_get(CONTACT_KEY)||Object.assign({},contactDefaults);
-  c.email=getV('ac-email')||contactDefaults.email;
-  c.linkedin=getV('ac-linkedin')||contactDefaults.linkedin;
-  c.upwork=getV('ac-upwork')||contactDefaults.upwork;
-  c.scholar=getV('ac-scholar')||contactDefaults.scholar;
-  c.blog=getV('ac-blog')||contactDefaults.blog;
-  if(ls_set(CONTACT_KEY,c)){showToast('✦ Contact details saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function saveContactCustomHTML(){
-  var c=ls_get(CONTACT_KEY)||Object.assign({},contactDefaults);
-  c.customHTML=getV('ac-custom-html');
-  if(ls_set(CONTACT_KEY,c)){showToast('✦ Custom Contact HTML saved!');}
-  else{showToast('⚠ Could not save');}
-}
-function updateStorageStatus(){
-  var el=document.getElementById('storage-status');if(!el)return;
-  var b=0;try{b=blogs.length;}catch(e){}
-  var hasSite=!!localStorage.getItem(SITE_KEY);
-  var hasAbout=!!localStorage.getItem(ABOUT_KEY);
-  var hasContact=!!localStorage.getItem(CONTACT_KEY);
-  el.innerHTML='Blogs stored: <strong>'+b+' posts</strong><br>Site settings: <strong>'+(hasSite?'✓ Saved':'default')+'</strong><br>About settings: <strong>'+(hasAbout?'✓ Saved':'default')+'</strong><br>Contact settings: <strong>'+(hasContact?'✓ Saved':'default')+'</strong>';
-}
-function clearData(key,label){
-  if(!confirm('Clear all '+label+'? This cannot be undone.'))return;
-  try{localStorage.removeItem(key);}catch(e){}
-  if(key==='bwBlogs3'){blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;refreshBlogsGrid();}
-  loadAdminFields();applySettingsToPage();
-  showToast('✓ Cleared: '+label);
-}
 function exportBlogs(){try{var d=JSON.stringify(blogs,null,2);var bl=new Blob([d],{type:'application/json'});var u=URL.createObjectURL(bl);var a=document.createElement('a');a.href=u;a.download='bloomwell-posts.json';a.click();URL.revokeObjectURL(u);}catch(e){alert('Export failed.');}}
 function resetToDefault(){if(!confirm('Reset all posts to defaults? Custom posts will be lost.'))return;blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('↩ Reset to default posts.');}
-
-var toastTimer=null;
-function showToast(msg){
-  var t=document.getElementById('toast');
-  if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--dark);color:var(--g2);padding:.75rem 1.6rem;border-radius:4px;font-family:var(--fb);font-size:.82rem;font-weight:700;z-index:9999;opacity:0;transition:all .3s;white-space:nowrap;box-shadow:0 8px 36px rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.3);letter-spacing:.04em;text-transform:uppercase';document.body.appendChild(t);}
-  t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
-  if(toastTimer)clearTimeout(toastTimer);
-  toastTimer=setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},3000);
-}
-
-function showPage(id){
-  var pages=document.querySelectorAll('.page');
-  for(var i=0;i<pages.length;i++)pages[i].classList.remove('active');
-  document.getElementById('page-'+id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(id==='blogs'){updateAdminUI();}
-  else if(id==='admin'){if(!isAuthenticated){openPwModal();return;}refreshAdminBlogList();loadAdminFields();var el=document.getElementById('postCount');if(el)el.textContent=blogs.length;}
-  var fab=document.getElementById('adminFab');
-  if(id!=='blogs'&&fab)fab.classList.remove('visible');
-}
-function scrollToTopics(){setTimeout(function(){var el=document.getElementById('topicsSection');if(el)el.scrollIntoView({behavior:'smooth'});},100);}
-function toggleMenu(){var menu=document.getElementById('navMenu');var ham=document.getElementById('hamburger');menu.classList.toggle('open');ham.classList.toggle('open');}
-function closeMenu(){document.getElementById('navMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');}
-document.querySelectorAll('.nav-item > a').forEach(function(a){a.addEventListener('click',function(e){if(window.innerWidth<=860){var item=this.closest('.nav-item');var hasDrop=item.querySelector('.nav-dropdown');if(hasDrop&&!this.classList.contains('nav-cta')){e.preventDefault();e.stopPropagation();item.classList.toggle('mob-open');}}});});
-function nlSignup(){showToast('✦ Subscribed — thank you!');}
-
-/* CONTACT FORM — mailto based (works on GitHub Pages / static sites) */
-function submitContactForm(){
-  var fname=(document.getElementById('cf-fname')||{}).value||'';
-  var lname=(document.getElementById('cf-lname')||{}).value||'';
-  var email=(document.getElementById('cf-email')||{}).value||'';
-  var topic=(document.getElementById('cf-topic')||{}).value||'General Inquiry';
-  var message=(document.getElementById('cf-message')||{}).value||'';
-  var errEl=document.getElementById('cf-error');
-
-  /* Basic validation */
-  if(!fname.trim()||!email.trim()||!message.trim()){
-    if(errEl){errEl.style.display='block';errEl.textContent='Please fill in your name, email, and message before sending.';}
-    return;
-  }
-  if(!/\S+@\S+\.\S+/.test(email)){
-    if(errEl){errEl.style.display='block';errEl.textContent='Please enter a valid email address.';}
-    return;
-  }
-  if(errEl)errEl.style.display='none';
-
-  /* Build mailto link */
-  var to='medrankseo@gmail.com';
-  var subject=encodeURIComponent('[BloomWell] '+topic+' from '+fname+' '+lname);
-  var body=encodeURIComponent(
-    'Name: '+fname+' '+lname+'\n'+
-    'Email: '+email+'\n'+
-    'Topic: '+topic+'\n\n'+
-    'Message:\n'+message+'\n\n'+
-    '---\nSent via BloomWell contact form'
-  );
-  var mailtoLink='mailto:'+to+'?subject='+subject+'&body='+body;
-
-  /* Open email client */
-  window.location.href=mailtoLink;
-
-  /* Show success state after small delay */
-  setTimeout(function(){
-    var fields=document.getElementById('cformFields');
-    var success=document.getElementById('formSuccess');
-    if(fields)fields.style.display='none';
-    if(success){success.style.display='block';}
-  },600);
-}
-function resetContactForm(){
-  var fields=document.getElementById('cformFields');
-  var success=document.getElementById('formSuccess');
-  if(fields){fields.style.display='block';}
-  if(success){success.style.display='none';}
-  /* Clear fields */
-  ['cf-fname','cf-lname','cf-email','cf-message'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-  var errEl=document.getElementById('cf-error');
-  if(errEl)errEl.style.display='none';
-}
-
-document.getElementById('addBlogModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-document.getElementById('editBlogModal').addEventListener('click',function(e){if(e.target===this)closeEditModal();});
-document.querySelectorAll('.modal-box').forEach(function(box){box.addEventListener('click',function(e){e.stopPropagation();});});
-window.addEventListener('hashchange',function(){if(location.hash==='#admin')showPage('admin');});
 
 function refreshAdminBlogList(){
   var el=document.getElementById('adminBlogList');var cnt=document.getElementById('postCount');
@@ -2576,17 +2527,91 @@ function refreshAdminBlogList(){
   html+='</div>';el.innerHTML=html;
 }
 
-function exportBlogs(){try{var d=JSON.stringify(blogs,null,2);var bl=new Blob([d],{type:'application/json'});var u=URL.createObjectURL(bl);var a=document.createElement('a');a.href=u;a.download='bloomwell-posts.json';a.click();URL.revokeObjectURL(u);}catch(e){alert('Export failed.');}}
-function resetToDefault(){if(!confirm('Reset all posts to defaults? Custom posts will be lost.'))return;blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('↩ Reset to default posts.');}
+/* ───── NAV & PAGE ───── */
+function switchAdminTab(tab,btn){
+  document.querySelectorAll('.atab-pane').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.atab-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('atab-'+tab).classList.add('active');btn.classList.add('active');
+  if(tab==='topics-edit')renderTopicsAdminGrid();
+}
 
-/* ===== INIT ===== */
-initAuth();
-applySettingsToPage();
+function showPage(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='blogs'){updateAdminUI();}
+  else if(id==='admin'){
+    if(!isAuthenticated){openPwModal();return;}
+    refreshAdminBlogList();loadAdminFields();
+    var el=document.getElementById('postCount');if(el)el.textContent=blogs.length;
+  }
+  var fab=document.getElementById('adminFab');
+  if(id!=='blogs'&&fab)fab.classList.remove('visible');
+}
+function scrollToTopics(){setTimeout(function(){var el=document.getElementById('topicsSection');if(el)el.scrollIntoView({behavior:'smooth'});},100);}
+function toggleMenu(){var menu=document.getElementById('navMenu');var ham=document.getElementById('hamburger');menu.classList.toggle('open');ham.classList.toggle('open');}
+function closeMenu(){document.getElementById('navMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');}
 
+document.querySelectorAll('.nav-item > a').forEach(function(a){
+  a.addEventListener('click',function(e){
+    if(window.innerWidth<=860){
+      var item=this.closest('.nav-item');
+      var hasDrop=item.querySelector('.nav-dropdown');
+      if(hasDrop&&!this.classList.contains('nav-cta')){e.preventDefault();e.stopPropagation();item.classList.toggle('mob-open');}
+    }
+  });
+});
+
+/* ───── CONTACT FORM ───── */
+function submitContactForm(){
+  var fname=(document.getElementById('cf-fname')||{}).value||'';
+  var lname=(document.getElementById('cf-lname')||{}).value||'';
+  var email=(document.getElementById('cf-email')||{}).value||'';
+  var topic=(document.getElementById('cf-topic')||{}).value||'General Inquiry';
+  var message=(document.getElementById('cf-message')||{}).value||'';
+  var errEl=document.getElementById('cf-error');
+  if(!fname.trim()||!email.trim()||!message.trim()){if(errEl){errEl.style.display='block';errEl.textContent='Please fill in your name, email, and message before sending.';}return;}
+  if(!/\S+@\S+\.\S+/.test(email)){if(errEl){errEl.style.display='block';errEl.textContent='Please enter a valid email address.';}return;}
+  if(errEl)errEl.style.display='none';
+  var c=ls_get(CONTACT_KEY)||{};
+  var to=c.email||contactDefaults.email;
+  var subject=encodeURIComponent('[BloomWell] '+topic+' from '+fname+' '+lname);
+  var body=encodeURIComponent('Name: '+fname+' '+lname+'\nEmail: '+email+'\nTopic: '+topic+'\n\nMessage:\n'+message+'\n\n---\nSent via BloomWell contact form');
+  window.location.href='mailto:'+to+'?subject='+subject+'&body='+body;
+  setTimeout(function(){
+    var fields=document.getElementById('cformFields');var success=document.getElementById('formSuccess');
+    if(fields)fields.style.display='none';if(success)success.style.display='block';
+  },600);
+}
+function resetContactForm(){
+  var fields=document.getElementById('cformFields');var success=document.getElementById('formSuccess');
+  if(fields)fields.style.display='block';if(success)success.style.display='none';
+  ['cf-fname','cf-lname','cf-email','cf-message'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  var errEl=document.getElementById('cf-error');if(errEl)errEl.style.display='none';
+}
+
+/* ───── NEWSLETTER ───── */
+function nlSignup(){showToast('✦ Subscribed — thank you!');}
+
+/* ───── TOAST ───── */
+var toastTimer=null;
+function showToast(msg){
+  var t=document.getElementById('toast');
+  if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--dark);color:var(--g2);padding:.75rem 1.6rem;border-radius:4px;font-family:var(--fb);font-size:.82rem;font-weight:700;z-index:9999;opacity:0;transition:all .3s;white-space:nowrap;box-shadow:0 8px 36px rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.3);letter-spacing:.04em;text-transform:uppercase';document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},3000);
+}
+
+/* ───── MODAL CLOSE ON BACKDROP ───── */
 document.getElementById('addBlogModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 document.getElementById('editBlogModal').addEventListener('click',function(e){if(e.target===this)closeEditModal();});
 document.querySelectorAll('.modal-box').forEach(function(box){box.addEventListener('click',function(e){e.stopPropagation();});});
 window.addEventListener('hashchange',function(){if(location.hash==='#admin')showPage('admin');});
+
+/* ───── INIT ───── */
+initAuth();
+applySettingsToPage();
 </script>
 </body>
 </html>
