@@ -751,6 +751,7 @@ nav{
 }
 .admin-card input:focus,.admin-card select:focus,.admin-card textarea:focus{border-color:var(--p3);}
 .admin-card textarea{min-height:90px;resize:vertical;}
+.alabel{font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
 .admin-save-btn{
   background:linear-gradient(135deg,var(--p1),var(--p2));color:var(--white);
   border:none;border-radius:2px;padding:.6rem 1.4rem;font-family:var(--fb);
@@ -1249,7 +1250,7 @@ footer{
           <div class="pstat"><div class="pstat-num">10+</div><div class="pstat-lab">Digital Platforms</div></div>
         </div>
         <div class="founder-links">
-          <a class="flink" href="mailto:medrankseo@gmail.com">📧 Email</a>
+          <a class="flink" href="/cdn-cgi/l/email-protection#e28f878690838c8991878da2858f838b8ecc818d8f">📧 Email</a>
           <a class="flink" href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">💼 LinkedIn</a>
           <a class="flink" href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">🎓 Scholar</a>
           <a class="flink" href="https://ssrn.com/author=5225172" target="_blank">📄 SSRN</a>
@@ -1295,13 +1296,13 @@ footer{
         <span class="pc-icon">💄</span>
         <div><div class="pc-name">Perfect Beauty Tips</div><div class="pc-url">perfectbeautytips.womenhub.sbs</div></div>
       </a>
-      <a class="platform-card" href="http://lacunia-cooking-recipes.womenhub.sbs/" target="_blank">
+      <a class="platform-card" href="http://lacuniacookingrecipes.womenhub.sbs/" target="_blank">
         <span class="pc-icon">🍳</span>
-        <div><div class="pc-name">LaCunia Cooking Recipes</div><div class="pc-url">lacunia-cooking-recipes.womenhub.sbs</div></div>
+        <div><div class="pc-name">LaCunia Cooking Recipes</div><div class="pc-url">lacuniacookingrecipes.womenhub.sbs</div></div>
       </a>
-      <a class="platform-card" href="http://saveour-kitchen.womenhub.sbs/" target="_blank">
+      <a class="platform-card" href="http://saveourkitchen.womenhub.sbs/" target="_blank">
         <span class="pc-icon">🥘</span>
-        <div><div class="pc-name">Save Our Kitchen</div><div class="pc-url">saveour-kitchen.womenhub.sbs</div></div>
+        <div><div class="pc-name">Save Our Kitchen</div><div class="pc-url">saveourkitchen.womenhub.sbs</div></div>
       </a>
       <a class="platform-card" href="https://mariakanwal123.github.io/med-rank-seo/" target="_blank">
         <span class="pc-icon">🔍</span>
@@ -1436,7 +1437,7 @@ footer{
     <div class="cinfo">
       <h3>Connect with Maria</h3>
       <p>Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.</p>
-      <div class="ci"><div class="ci-icon">📧</div><div><h5>Email</h5><p><a href="mailto:medrankseo@gmail.com">medrankseo@gmail.com</a></p></div></div>
+      <div class="ci"><div class="ci-icon">📧</div><div><h5>Email</h5><p><a href="/cdn-cgi/l/email-protection#80ede5e4f2e1eeebf3e5efc0e7ede1e9ecaee3efed"><span class="__cf_email__" data-cfemail="28454d4c5a4946435b4d47684f45494144064b4745">[email&#160;protected]</span></a></p></div></div>
       <div class="ci"><div class="ci-icon">💼</div><div><h5>LinkedIn</h5><p><a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">Maria Kanwal on LinkedIn</a></p></div></div>
       <div class="ci"><div class="ci-icon">💻</div><div><h5>Upwork</h5><p><a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Hire Maria on Upwork</a></p></div></div>
       <div class="ci"><div class="ci-icon">🎓</div><div><h5>Google Scholar</h5><p><a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">View Publications</a></p></div></div>
@@ -1481,13 +1482,16 @@ footer{
 <div id="page-admin" class="page">
   <div class="admin-panel">
     <h1>Admin Panel</h1>
+    <p style="font-size:.82rem;color:var(--lt);margin-top:-.8rem;margin-bottom:1.5rem">All changes are saved automatically to your browser's local storage and persist across sessions.</p>
     <div class="admin-tabs">
-      <button class="atab-btn active" onclick="switchAdminTab('blog-settings',this)">Blog Settings</button>
-      <button class="atab-btn" onclick="switchAdminTab('site-settings',this)">Site Settings</button>
-      <button class="atab-btn" onclick="switchAdminTab('about-edit',this)">About / Profile</button>
-      <button class="atab-btn" onclick="switchAdminTab('contact-edit',this)">Contact Info</button>
-      <button class="atab-btn" onclick="switchAdminTab('security',this)">Security</button>
+      <button class="atab-btn active" onclick="switchAdminTab('blog-settings',this)">📝 Blogs</button>
+      <button class="atab-btn" onclick="switchAdminTab('site-settings',this)">🏠 Site & Hero</button>
+      <button class="atab-btn" onclick="switchAdminTab('about-edit',this)">👩 About & Profile</button>
+      <button class="atab-btn" onclick="switchAdminTab('contact-edit',this)">📬 Contact Info</button>
+      <button class="atab-btn" onclick="switchAdminTab('security',this)">🔐 Password</button>
     </div>
+
+    <!-- BLOG SETTINGS TAB -->
     <div class="atab-pane active" id="atab-blog-settings">
       <h3 class="admin-section-title">Blog Management</h3>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
@@ -1498,109 +1502,192 @@ footer{
       <h4 style="font-family:var(--fh);font-size:1rem;margin-bottom:1rem;color:var(--ink)">All Posts (<span id="postCount">0</span>)</h4>
       <div id="adminBlogList"></div>
     </div>
+
+    <!-- SITE & HERO TAB -->
     <div class="atab-pane" id="atab-site-settings">
-      <h3 class="admin-section-title">Site &amp; Navigation Settings</h3>
+      <h3 class="admin-section-title">Site &amp; Hero Settings</h3>
+      <p style="font-size:.82rem;color:var(--g1);margin-bottom:1.5rem;padding:.6rem 1rem;background:rgba(201,168,76,.06);border-left:3px solid var(--g1);border-radius:0 4px 4px 0">✦ Changes saved to storage and applied live to the page.</p>
       <div class="admin-grid">
         <div class="admin-card">
           <h4>Site Title &amp; Tagline</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Site Name</label>
-          <input type="text" id="as-sitename" value="BloomWell">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Tagline</label>
-          <input type="text" id="as-tagline" value="Women's Health and Wellness by Maria Kanwal">
-          <button class="admin-save-btn" onclick="saveSiteSettings()">Save Settings</button>
+          <label class="alabel">Site Name</label>
+          <input type="text" id="as-sitename" placeholder="BloomWell">
+          <label class="alabel">Tagline (Footer)</label>
+          <input type="text" id="as-tagline" placeholder="Women's Health and Wellness by Maria Kanwal">
+          <label class="alabel">Footer Copyright Text</label>
+          <input type="text" id="as-copyright" placeholder="© 2025 BloomWell · Founded by Maria Kanwal · MedRankSEO">
+          <button class="admin-save-btn" onclick="saveSiteSettings()">💾 Save Site Settings</button>
         </div>
         <div class="admin-card">
           <h4>Hero Section</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Hero Title</label>
-          <input type="text" id="as-herotitle" value="Empowering Women Through Every Stage of Life">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Hero Subtitle</label>
-          <textarea id="as-herosub">From hormonal health to mental wellness — BloomWell provides expert-backed, science-informed guidance designed specifically for women's bodies and minds.</textarea>
-          <button class="admin-save-btn" onclick="saveHeroSettings()">Save Hero</button>
+          <label class="alabel">Hero Issue Label</label>
+          <input type="text" id="as-herolabel" placeholder="Founded by Maria Kanwal · MedRankSEO">
+          <label class="alabel">Hero Title (use | for line breaks)</label>
+          <input type="text" id="as-herotitle" placeholder="Empowering Women Through Every Stage of Life">
+          <label class="alabel">Hero Subtitle</label>
+          <textarea id="as-herosub" style="min-height:80px" placeholder="From hormonal health to mental wellness..."></textarea>
+          <label class="alabel">Primary Button Text</label>
+          <input type="text" id="as-herobtn1" placeholder="Explore Articles">
+          <label class="alabel">Secondary Button Text</label>
+          <input type="text" id="as-herobtn2" placeholder="Our Mission">
+          <button class="admin-save-btn" onclick="saveHeroSettings()">💾 Save Hero</button>
         </div>
         <div class="admin-card">
           <h4>Newsletter Section</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Heading</label>
-          <input type="text" id="as-nltitle" value="Stay Informed. Stay Empowered.">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Description</label>
-          <textarea id="as-nltext">Weekly women's health insights from Maria Kanwal — no noise, just knowledge.</textarea>
-          <button class="admin-save-btn" onclick="saveNewsletterSettings()">Save</button>
+          <label class="alabel">Heading</label>
+          <input type="text" id="as-nltitle" placeholder="Stay Informed. Stay Empowered.">
+          <label class="alabel">Description</label>
+          <textarea id="as-nltext" style="min-height:70px" placeholder="Weekly women's health insights..."></textarea>
+          <label class="alabel">Button Text</label>
+          <input type="text" id="as-nlbtn" placeholder="Subscribe Now">
+          <button class="admin-save-btn" onclick="saveNewsletterSettings()">💾 Save Newsletter</button>
         </div>
       </div>
     </div>
+
+    <!-- ABOUT & PROFILE TAB -->
     <div class="atab-pane" id="atab-about-edit">
-      <h3 class="admin-section-title">Edit About / Profile Content</h3>
+      <h3 class="admin-section-title">About Page &amp; Founder Profile</h3>
+      <p style="font-size:.82rem;color:var(--g1);margin-bottom:1.5rem;padding:.6rem 1rem;background:rgba(201,168,76,.06);border-left:3px solid var(--g1);border-radius:0 4px 4px 0">✦ Use the Text tab for easy editing, or Code tab to paste HTML directly. All saved to storage.</p>
       <div class="admin-grid">
         <div class="admin-card">
           <h4>About Page Introduction</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Intro Paragraph 1</label>
-          <textarea id="ae-intro1">BloomWell was founded by Maria Kanwal — Research Associate, Assistant Digital Editor, SEO Content Writer, Digital Marketing Strategist, Scholar, and Author.</textarea>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Intro Paragraph 2</label>
-          <textarea id="ae-intro2">Maria combines her expertise in medical SEO, AI-optimised content, and E-E-A-T compliance to create women's health resources that are truly trustworthy and search-optimised.</textarea>
-          <button class="admin-save-btn" onclick="saveAboutIntro()">Save Intro</button>
+          <label class="alabel">Paragraph 1</label>
+          <textarea id="ae-intro1" style="min-height:90px" placeholder="BloomWell was founded by..."></textarea>
+          <label class="alabel">Paragraph 2</label>
+          <textarea id="ae-intro2" style="min-height:90px" placeholder="Maria combines her expertise..."></textarea>
+          <label class="alabel">Paragraph 3</label>
+          <textarea id="ae-intro3" style="min-height:90px" placeholder="BloomWell serves readers..."></textarea>
+          <button class="admin-save-btn" onclick="saveAboutIntro()">💾 Save Introduction</button>
         </div>
         <div class="admin-card">
           <h4>Founder Bio</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Founder Name</label>
-          <input type="text" id="ae-fname" value="Maria Kanwal">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Title / Role</label>
-          <input type="text" id="ae-ftitle" value="Research Associate · SEO Content Writer · Digital Marketing Strategist · Scholar · Author">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Bio</label>
-          <textarea id="ae-fbio1">Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors.</textarea>
-          <button class="admin-save-btn" onclick="saveFounderBio()">Save Bio</button>
+          <label class="alabel">Founder Name</label>
+          <input type="text" id="ae-fname" placeholder="Maria Kanwal">
+          <label class="alabel">Title / Roles</label>
+          <input type="text" id="ae-ftitle" placeholder="Research Associate · SEO Writer · Scholar · Author">
+          <label class="alabel">Bio Paragraph 1</label>
+          <textarea id="ae-fbio1" style="min-height:90px" placeholder="Maria Kanwal is a Research Associate..."></textarea>
+          <label class="alabel">Bio Paragraph 2</label>
+          <textarea id="ae-fbio2" style="min-height:80px" placeholder="She holds a BDDS..."></textarea>
+          <button class="admin-save-btn" onclick="saveFounderBio()">💾 Save Bio</button>
         </div>
         <div class="admin-card">
-          <h4>Social / Academic Links</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Email</label>
-          <input type="text" id="ae-email" value="medrankseo@gmail.com">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">LinkedIn URL</label>
-          <input type="text" id="ae-linkedin" value="https://www.linkedin.com/in/maria-kanwal-637629207/">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Google Scholar URL</label>
-          <input type="text" id="ae-scholar" value="https://scholar.google.com/citations?user=6jmGlYwAAAAJ">
-          <button class="admin-save-btn" onclick="saveSocialLinks()">Save Links</button>
+          <h4>Social &amp; Academic Links</h4>
+          <label class="alabel">Email Address</label>
+          <input type="text" id="ae-email" placeholder="medrankseo@gmail.com">
+          <label class="alabel">LinkedIn URL</label>
+          <input type="text" id="ae-linkedin" placeholder="https://www.linkedin.com/in/...">
+          <label class="alabel">Google Scholar URL</label>
+          <input type="text" id="ae-scholar" placeholder="https://scholar.google.com/...">
+          <label class="alabel">SSRN URL</label>
+          <input type="text" id="ae-ssrn" placeholder="https://ssrn.com/author=...">
+          <label class="alabel">ORCID URL</label>
+          <input type="text" id="ae-orcid" placeholder="https://orcid.org/...">
+          <label class="alabel">Upwork URL</label>
+          <input type="text" id="ae-upwork" placeholder="https://www.upwork.com/...">
+          <button class="admin-save-btn" onclick="saveSocialLinks()">💾 Save Links</button>
+        </div>
+        <div class="admin-card" style="grid-column:1/-1">
+          <h4>Custom About Page HTML <span style="font-size:.72rem;color:var(--muted);font-weight:400">(advanced — overrides text fields above)</span></h4>
+          <div class="editor-tabs" style="margin-bottom:.6rem">
+            <button class="editor-tab-btn active" onclick="switchAboutTab('text',this)">📝 Text Fields</button>
+            <button class="editor-tab-btn" onclick="switchAboutTab('code',this)">💻 Raw HTML</button>
+          </div>
+          <div id="about-pane-text" class="editor-pane active">
+            <p style="font-size:.8rem;color:var(--lt);margin-bottom:.5rem">Edit using the fields above — they are reflected here when you save.</p>
+            <div id="about-text-preview" style="background:var(--p5);padding:1rem;border-radius:4px;font-size:.85rem;color:var(--mid);line-height:1.7;min-height:80px;border:1px solid var(--border)">Preview will appear after saving...</div>
+          </div>
+          <div id="about-pane-code" class="editor-pane">
+            <p class="code-hint-text">Paste full HTML for the About page intro section. Leave blank to use text fields.</p>
+            <textarea id="ae-custom-html" class="code-textarea" placeholder="<p>Your custom HTML here...</p>"></textarea>
+            <button class="admin-save-btn" style="margin-top:.6rem" onclick="saveAboutCustomHTML()">💾 Save Custom HTML</button>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- CONTACT INFO TAB -->
     <div class="atab-pane" id="atab-contact-edit">
-      <h3 class="admin-section-title">Edit Contact Information</h3>
+      <h3 class="admin-section-title">Contact Page Settings</h3>
+      <p style="font-size:.82rem;color:var(--g1);margin-bottom:1.5rem;padding:.6rem 1rem;background:rgba(201,168,76,.06);border-left:3px solid var(--g1);border-radius:0 4px 4px 0">✦ Edit contact page text and details. Use Code tab for custom HTML.</p>
       <div class="admin-grid">
         <div class="admin-card">
           <h4>Contact Page Text</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Page Heading</label>
-          <input type="text" id="ac-heading" value="Let's Connect">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Description</label>
-          <textarea id="ac-desc">Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.</textarea>
-          <button class="admin-save-btn" onclick="saveContactSettings()">Save</button>
+          <label class="alabel">Page Heading</label>
+          <input type="text" id="ac-heading" placeholder="Let's Connect">
+          <label class="alabel">Subheading</label>
+          <input type="text" id="ac-sub" placeholder="Reach out to Maria Kanwal directly...">
+          <label class="alabel">Description</label>
+          <textarea id="ac-desc" style="min-height:90px" placeholder="Whether you have a health question..."></textarea>
+          <button class="admin-save-btn" onclick="saveContactSettings()">💾 Save Text</button>
         </div>
         <div class="admin-card">
           <h4>Contact Details</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Email Address</label>
-          <input type="text" id="ac-email" value="medrankseo@gmail.com">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">LinkedIn URL</label>
-          <input type="text" id="ac-linkedin" value="https://www.linkedin.com/in/maria-kanwal-637629207/">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Upwork URL</label>
-          <input type="text" id="ac-upwork" value="https://www.upwork.com/freelancers/~0137388680e9e3f335">
-          <button class="admin-save-btn" onclick="saveContactDetails()">Save</button>
+          <label class="alabel">Email Address</label>
+          <input type="text" id="ac-email" placeholder="medrankseo@gmail.com">
+          <label class="alabel">LinkedIn URL</label>
+          <input type="text" id="ac-linkedin" placeholder="https://www.linkedin.com/in/...">
+          <label class="alabel">Upwork URL</label>
+          <input type="text" id="ac-upwork" placeholder="https://www.upwork.com/...">
+          <label class="alabel">Google Scholar URL</label>
+          <input type="text" id="ac-scholar" placeholder="https://scholar.google.com/...">
+          <label class="alabel">Blog URL</label>
+          <input type="text" id="ac-blog" placeholder="https://journey-towards-health...">
+          <button class="admin-save-btn" onclick="saveContactDetails()">💾 Save Details</button>
+        </div>
+        <div class="admin-card">
+          <h4>Custom Contact HTML <span style="font-size:.72rem;color:var(--muted);font-weight:400">(optional)</span></h4>
+          <div class="editor-tabs" style="margin-bottom:.6rem">
+            <button class="editor-tab-btn active" onclick="switchContactTab('text',this)">📝 Text Fields</button>
+            <button class="editor-tab-btn" onclick="switchContactTab('code',this)">💻 Raw HTML</button>
+          </div>
+          <div id="contact-pane-text" class="editor-pane active">
+            <p style="font-size:.8rem;color:var(--lt)">Contact info is edited using the fields on the left.</p>
+          </div>
+          <div id="contact-pane-code" class="editor-pane">
+            <p class="code-hint-text">Paste custom HTML to override the left column of the contact page.</p>
+            <textarea id="ac-custom-html" class="code-textarea" placeholder="<div>Custom contact content...</div>"></textarea>
+            <button class="admin-save-btn" style="margin-top:.6rem" onclick="saveContactCustomHTML()">💾 Save Custom HTML</button>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- SECURITY / PASSWORD TAB -->
     <div class="atab-pane" id="atab-security">
-      <h3 class="admin-section-title">Security Settings</h3>
+      <h3 class="admin-section-title">Password &amp; Security</h3>
       <div class="admin-grid">
         <div class="admin-card">
           <h4>🔐 Change Admin Password</h4>
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Current Password</label>
+          <p style="font-size:.82rem;color:var(--lt);margin-bottom:1rem;line-height:1.6">Your password is stored locally in your browser. Default password is <code style="background:var(--p5);padding:.1rem .4rem;border-radius:3px;font-size:.8rem">BloomWell2025!</code></p>
+          <label class="alabel">Current Password</label>
           <input type="password" id="sec-current" placeholder="Enter current password">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">New Password</label>
-          <input type="password" id="sec-new" placeholder="Minimum 8 characters">
-          <label style="font-size:.72rem;color:var(--lt);display:block;margin-bottom:.3rem;letter-spacing:.06em;text-transform:uppercase">Confirm New Password</label>
+          <label class="alabel">New Password <span style="color:var(--muted);font-weight:400">(min 8 characters)</span></label>
+          <input type="password" id="sec-new" placeholder="New password">
+          <label class="alabel">Confirm New Password</label>
           <input type="password" id="sec-confirm" placeholder="Repeat new password">
-          <div id="sec-msg" style="font-size:.82rem;margin:.4rem 0;min-height:1.2rem"></div>
-          <button class="admin-save-btn" onclick="changePassword()">Update Password</button>
+          <div id="sec-msg" style="font-size:.82rem;margin:.5rem 0;min-height:1.4rem;padding:.3rem 0"></div>
+          <button class="admin-save-btn" onclick="changePassword()">🔒 Update Password</button>
         </div>
         <div class="admin-card">
-          <h4>Session</h4>
-          <p style="font-size:.85rem;color:var(--lt);margin-bottom:1rem;line-height:1.65">You are currently logged in as Admin. Session persists until you log out or close the browser tab.</p>
+          <h4>Session Info</h4>
+          <p style="font-size:.85rem;color:var(--lt);margin-bottom:1rem;line-height:1.65">You are currently logged in as <strong style="color:var(--ink)">Admin</strong>. Your session persists until you log out or close the tab.</p>
+          <div style="background:var(--p5);border-radius:4px;padding:.9rem;margin-bottom:1rem;border:1px solid var(--border)">
+            <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">Storage Status</div>
+            <div id="storage-status" style="font-size:.82rem;color:var(--mid)">Checking...</div>
+          </div>
           <button class="admin-danger-btn" onclick="logoutAdmin()">Log Out of Admin</button>
+        </div>
+        <div class="admin-card">
+          <h4>🗑 Clear Saved Data</h4>
+          <p style="font-size:.82rem;color:var(--lt);margin-bottom:1rem;line-height:1.65">Reset individual sections of stored data. This cannot be undone.</p>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <button class="admin-danger-btn" onclick="clearData('bwBlogs3','blog posts')">Clear All Blog Posts</button>
+            <button class="admin-danger-btn" onclick="clearData('bwSiteSettings','site settings')">Clear Site Settings</button>
+            <button class="admin-danger-btn" onclick="clearData('bwAboutSettings','about settings')">Clear About Settings</button>
+            <button class="admin-danger-btn" onclick="clearData('bwContactSettings','contact settings')">Clear Contact Settings</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1783,7 +1870,7 @@ footer{
     </div>
     <div class="fcol">
       <h5>Connect</h5>
-      <a href="mailto:medrankseo@gmail.com">Email Maria</a>
+      <a href="/cdn-cgi/l/email-protection#127f777660737c7961777d52757f737b7e3c717d7f">Email Maria</a>
       <a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank">LinkedIn</a>
       <a href="https://www.upwork.com/freelancers/~0137388680e9e3f335" target="_blank">Upwork</a>
       <a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank">Google Scholar</a>
@@ -1796,7 +1883,7 @@ footer{
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var catLabels={hormones:'Hormonal Health',fertility:'Fertility',menopause:'Menopause',mental:'Mental Health',nutrition:'Nutrition',fitness:'Fitness'};
 var catColors={hormones:'#EDE7FF',fertility:'#E8F5E9',menopause:'#E8EAF6',mental:'#FFF8E1',nutrition:'#E8F5E9',fitness:'#FFF3E0'};
 var ktIcons=['✦','◈','◇','✧','◉','✦'];
@@ -1971,22 +2058,249 @@ function saveEditBlog(){
 function deleteBlog(id){var b=blogs.find(function(x){return x.id===id;});if(!b)return;if(!confirm('Delete "'+b.title+'"?\n\nThis cannot be undone.'))return;blogs=blogs.filter(function(x){return x.id!==id;});saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('Deleted.');}
 
 function switchAdminTab(tab,btn){document.querySelectorAll('.atab-pane').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.atab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('atab-'+tab).classList.add('active');btn.classList.add('active');}
-function refreshAdminBlogList(){
-  var el=document.getElementById('adminBlogList');var cnt=document.getElementById('postCount');
-  if(!el)return;if(cnt)cnt.textContent=blogs.length;
-  if(!blogs.length){el.innerHTML='<p style="color:var(--muted)">No blog posts yet.</p>';return;}
-  var html='<div style="display:flex;flex-direction:column;gap:.8rem">';
-  blogs.forEach(function(b){html+='<div style="background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap"><div><strong style="font-family:var(--fh);font-size:.95rem">'+b.icon+' '+b.title+'</strong><br><span style="font-size:.75rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase">'+catLabels[b.cat]+' · '+b.date+' · '+b.readTime+'</span></div><div style="display:flex;gap:.6rem;flex-shrink:0"><button class="card-edit-btn" onclick="openEditModal('+b.id+')" style="border-radius:4px;padding:.4rem .9rem">✎ Edit</button><button class="card-del-btn" onclick="deleteBlog('+b.id+')" style="border-radius:4px;padding:.4rem .9rem">✕ Delete</button></div></div>';});
-  html+='</div>';el.innerHTML=html;
+function switchAboutTab(tab,btn){var btns=document.querySelectorAll('#atab-about-edit .editor-tab-btn');btns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.getElementById('about-pane-text').classList.toggle('active',tab==='text');document.getElementById('about-pane-code').classList.toggle('active',tab==='code');}
+function switchContactTab(tab,btn){var btns=document.querySelectorAll('#atab-contact-edit .editor-tab-btn');btns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.getElementById('contact-pane-text').classList.toggle('active',tab==='text');document.getElementById('contact-pane-code').classList.toggle('active',tab==='code');}
+
+/* ===== SITE SETTINGS SAVE/LOAD ===== */
+var SITE_KEY='bwSiteSettings';
+var ABOUT_KEY='bwAboutSettings';
+var CONTACT_KEY='bwContactSettings';
+
+function ls_get(key){try{var v=localStorage.getItem(key);return v?JSON.parse(v):null;}catch(e){return null;}}
+function ls_set(key,val){try{localStorage.setItem(key,JSON.stringify(val));return true;}catch(e){return false;}}
+
+/* Site defaults */
+var siteDefaults={
+  sitename:'BloomWell',tagline:"Women's Health and Wellness by Maria Kanwal",
+  copyright:'© 2025 BloomWell · Founded by Maria Kanwal · MedRankSEO',
+  herolabel:'Founded by Maria Kanwal · MedRankSEO',
+  herotitle:'Empowering Women Through Every Stage of Life',
+  herosub:'From hormonal health to mental wellness — BloomWell provides expert-backed, science-informed guidance designed specifically for women\'s bodies and minds.',
+  herobtn1:'Explore Articles',herobtn2:'Our Mission',
+  nltitle:'Stay Informed. Stay Empowered.',
+  nltext:'Weekly women\'s health insights from Maria Kanwal — no noise, just knowledge.',
+  nlbtn:'Subscribe Now'
+};
+var aboutDefaults={
+  intro1:"BloomWell was founded by Maria Kanwal — Research Associate, Assistant Digital Editor, SEO Content Writer, Digital Marketing Strategist, Scholar, and Author — who was frustrated by the abundance of incomplete and fear-mongering women's health content online.",
+  intro2:"Maria combines her expertise in medical SEO, AI-optimised content, and E-E-A-T compliance to create women's health resources that are not just informative, but truly trustworthy and search-optimised.",
+  intro3:"BloomWell serves readers across dozens of countries with content that respects women's intelligence and honours the complexity of female health across every life stage.",
+  fname:'Maria Kanwal',
+  ftitle:'Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · Scholar · Author',
+  fbio1:"Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors. She currently works with Dubai-based clinics and international clients, creating SEO-optimized web pages, blogs, and Google Business Profile content.",
+  fbio2:"She holds a BDDS (Defence & Diplomatic Studies) from Fatima Jinnah Women University, Rawalpindi (CGPA: 3.32 / 81.89%). She specialises in On-Page SEO, Off-Page SEO, Technical SEO, SEM, SMM, and content strategy development.",
+  email:'medrankseo@gmail.com',
+  linkedin:'https://www.linkedin.com/in/maria-kanwal-637629207/',
+  scholar:'https://scholar.google.com/citations?user=6jmGlYwAAAAJ',
+  ssrn:'https://ssrn.com/author=5225172',
+  orcid:'https://orcid.org/0000-0003-1528-4424',
+  upwork:'https://www.upwork.com/freelancers/~0137388680e9e3f335',
+  customHTML:''
+};
+var contactDefaults={
+  heading:"Let's Connect",
+  sub:"Reach out to Maria Kanwal directly — every message is read personally within 2 business days.",
+  desc:"Whether you have a health question, want to collaborate, or are interested in MedRankSEO's services — Maria responds within 2 business days.",
+  email:'medrankseo@gmail.com',
+  linkedin:'https://www.linkedin.com/in/maria-kanwal-637629207/',
+  upwork:'https://www.upwork.com/freelancers/~0137388680e9e3f335',
+  scholar:'https://scholar.google.com/citations?user=6jmGlYwAAAAJ',
+  blog:'https://journey-towards-health-and-wellness.blogspot.com/?m=1',
+  customHTML:''
+};
+
+function loadAdminFields(){
+  /* Site */
+  var s=ls_get(SITE_KEY)||siteDefaults;
+  setV('as-sitename',s.sitename||siteDefaults.sitename);
+  setV('as-tagline',s.tagline||siteDefaults.tagline);
+  setV('as-copyright',s.copyright||siteDefaults.copyright);
+  setV('as-herolabel',s.herolabel||siteDefaults.herolabel);
+  setV('as-herotitle',s.herotitle||siteDefaults.herotitle);
+  setV('as-herosub',s.herosub||siteDefaults.herosub);
+  setV('as-herobtn1',s.herobtn1||siteDefaults.herobtn1);
+  setV('as-herobtn2',s.herobtn2||siteDefaults.herobtn2);
+  setV('as-nltitle',s.nltitle||siteDefaults.nltitle);
+  setV('as-nltext',s.nltext||siteDefaults.nltext);
+  setV('as-nlbtn',s.nlbtn||siteDefaults.nlbtn);
+  /* About */
+  var a=ls_get(ABOUT_KEY)||aboutDefaults;
+  setV('ae-intro1',a.intro1||aboutDefaults.intro1);
+  setV('ae-intro2',a.intro2||aboutDefaults.intro2);
+  setV('ae-intro3',a.intro3||aboutDefaults.intro3);
+  setV('ae-fname',a.fname||aboutDefaults.fname);
+  setV('ae-ftitle',a.ftitle||aboutDefaults.ftitle);
+  setV('ae-fbio1',a.fbio1||aboutDefaults.fbio1);
+  setV('ae-fbio2',a.fbio2||aboutDefaults.fbio2);
+  setV('ae-email',a.email||aboutDefaults.email);
+  setV('ae-linkedin',a.linkedin||aboutDefaults.linkedin);
+  setV('ae-scholar',a.scholar||aboutDefaults.scholar);
+  setV('ae-ssrn',a.ssrn||aboutDefaults.ssrn);
+  setV('ae-orcid',a.orcid||aboutDefaults.orcid);
+  setV('ae-upwork',a.upwork||aboutDefaults.upwork);
+  setV('ae-custom-html',a.customHTML||'');
+  /* Contact */
+  var c=ls_get(CONTACT_KEY)||contactDefaults;
+  setV('ac-heading',c.heading||contactDefaults.heading);
+  setV('ac-sub',c.sub||contactDefaults.sub);
+  setV('ac-desc',c.desc||contactDefaults.desc);
+  setV('ac-email',c.email||contactDefaults.email);
+  setV('ac-linkedin',c.linkedin||contactDefaults.linkedin);
+  setV('ac-upwork',c.upwork||contactDefaults.upwork);
+  setV('ac-scholar',c.scholar||contactDefaults.scholar);
+  setV('ac-blog',c.blog||contactDefaults.blog);
+  setV('ac-custom-html',c.customHTML||'');
+  /* storage status */
+  updateStorageStatus();
 }
-function saveSiteSettings(){showToast('✦ Site settings saved!');}
-function saveHeroSettings(){var s=document.getElementById('as-herosub').value;document.querySelector('.hero-sub').textContent=s;showToast('✦ Hero updated!');}
-function saveNewsletterSettings(){document.querySelector('.newsletter h2').innerHTML=document.getElementById('as-nltitle').value;document.querySelector('.newsletter p').textContent=document.getElementById('as-nltext').value;showToast('✦ Newsletter updated!');}
-function saveAboutIntro(){showToast('✦ About intro saved!');}
-function saveFounderBio(){document.querySelector('.founder-name').textContent=document.getElementById('ae-fname').value;document.querySelector('.founder-title').textContent=document.getElementById('ae-ftitle').value;showToast('✦ Founder bio saved!');}
-function saveSocialLinks(){showToast('✦ Links saved!');}
-function saveContactSettings(){showToast('✦ Contact settings saved!');}
-function saveContactDetails(){showToast('✦ Contact details saved!');}
+function setV(id,val){var el=document.getElementById(id);if(el)el.value=val||'';}
+function getV(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+
+function applySettingsToPage(){
+  var s=ls_get(SITE_KEY)||siteDefaults;
+  /* Hero */
+  var issueEl=document.querySelector('.hero-issue');
+  if(issueEl)issueEl.textContent=s.herolabel||siteDefaults.herolabel;
+  var heroSub=document.querySelector('.hero-sub');
+  if(heroSub)heroSub.textContent=s.herosub||siteDefaults.herosub;
+  /* newsletter */
+  var nlTitle=document.querySelector('.newsletter h2');
+  if(nlTitle)nlTitle.innerHTML=(s.nltitle||siteDefaults.nltitle).replace(/\*(.*?)\*/g,'<em>$1</em>');
+  var nlText=document.querySelector('.newsletter > p');
+  if(nlText)nlText.textContent=s.nltext||siteDefaults.nltext;
+  /* About */
+  var a=ls_get(ABOUT_KEY)||aboutDefaults;
+  var aboutParas=document.querySelectorAll('.about-top > div > p');
+  if(aboutParas[0])aboutParas[0].textContent=a.intro1||aboutDefaults.intro1;
+  if(aboutParas[1])aboutParas[1].textContent=a.intro2||aboutDefaults.intro2;
+  if(aboutParas[2])aboutParas[2].textContent=a.intro3||aboutDefaults.intro3;
+  var fn=document.querySelector('.founder-name');if(fn)fn.textContent=a.fname||aboutDefaults.fname;
+  var ft=document.querySelector('.founder-title');if(ft)ft.textContent=a.ftitle||aboutDefaults.ftitle;
+  var fbios=document.querySelectorAll('.founder-desc');
+  if(fbios[0])fbios[0].textContent=a.fbio1||aboutDefaults.fbio1;
+  if(fbios[1])fbios[1].textContent=a.fbio2||aboutDefaults.fbio2;
+  /* Contact */
+  var c=ls_get(CONTACT_KEY)||contactDefaults;
+  var ctTitle=document.querySelector('.contact-top h1');
+  if(ctTitle)ctTitle.innerHTML=(c.heading||contactDefaults.heading).replace(/\*(.*?)\*/g,'<em>$1</em>');
+  var ctP=document.querySelector('.contact-top p');
+  if(ctP)ctP.textContent=c.sub||contactDefaults.sub;
+  var cinfoDesc=document.querySelector('.cinfo > p');
+  if(cinfoDesc)cinfoDesc.textContent=c.desc||contactDefaults.desc;
+}
+
+function saveSiteSettings(){
+  var s={
+    sitename:getV('as-sitename')||siteDefaults.sitename,
+    tagline:getV('as-tagline')||siteDefaults.tagline,
+    copyright:getV('as-copyright')||siteDefaults.copyright,
+    herolabel:getV('as-herolabel')||siteDefaults.herolabel,
+    herotitle:getV('as-herotitle')||siteDefaults.herotitle,
+    herosub:getV('as-herosub')||siteDefaults.herosub,
+    herobtn1:getV('as-herobtn1')||siteDefaults.herobtn1,
+    herobtn2:getV('as-herobtn2')||siteDefaults.herobtn2,
+    nltitle:getV('as-nltitle')||siteDefaults.nltitle,
+    nltext:getV('as-nltext')||siteDefaults.nltext,
+    nlbtn:getV('as-nlbtn')||siteDefaults.nlbtn
+  };
+  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Site settings saved!');}
+  else{showToast('⚠ Could not save — storage error');}
+}
+function saveHeroSettings(){
+  var s=ls_get(SITE_KEY)||Object.assign({},siteDefaults);
+  s.herolabel=getV('as-herolabel')||siteDefaults.herolabel;
+  s.herotitle=getV('as-herotitle')||siteDefaults.herotitle;
+  s.herosub=getV('as-herosub')||siteDefaults.herosub;
+  s.herobtn1=getV('as-herobtn1')||siteDefaults.herobtn1;
+  s.herobtn2=getV('as-herobtn2')||siteDefaults.herobtn2;
+  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Hero saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveNewsletterSettings(){
+  var s=ls_get(SITE_KEY)||Object.assign({},siteDefaults);
+  s.nltitle=getV('as-nltitle')||siteDefaults.nltitle;
+  s.nltext=getV('as-nltext')||siteDefaults.nltext;
+  s.nlbtn=getV('as-nlbtn')||siteDefaults.nlbtn;
+  if(ls_set(SITE_KEY,s)){applySettingsToPage();showToast('✦ Newsletter saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveAboutIntro(){
+  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
+  a.intro1=getV('ae-intro1')||aboutDefaults.intro1;
+  a.intro2=getV('ae-intro2')||aboutDefaults.intro2;
+  a.intro3=getV('ae-intro3')||aboutDefaults.intro3;
+  if(ls_set(ABOUT_KEY,a)){
+    applySettingsToPage();
+    var prev=document.getElementById('about-text-preview');
+    if(prev)prev.innerHTML='<p>'+a.intro1+'</p><p style="margin-top:.5rem">'+a.intro2+'</p><p style="margin-top:.5rem">'+a.intro3+'</p>';
+    showToast('✦ About intro saved!');
+  }else{showToast('⚠ Could not save');}
+}
+function saveFounderBio(){
+  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
+  a.fname=getV('ae-fname')||aboutDefaults.fname;
+  a.ftitle=getV('ae-ftitle')||aboutDefaults.ftitle;
+  a.fbio1=getV('ae-fbio1')||aboutDefaults.fbio1;
+  a.fbio2=getV('ae-fbio2')||aboutDefaults.fbio2;
+  if(ls_set(ABOUT_KEY,a)){applySettingsToPage();showToast('✦ Founder bio saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveSocialLinks(){
+  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
+  a.email=getV('ae-email')||aboutDefaults.email;
+  a.linkedin=getV('ae-linkedin')||aboutDefaults.linkedin;
+  a.scholar=getV('ae-scholar')||aboutDefaults.scholar;
+  a.ssrn=getV('ae-ssrn')||aboutDefaults.ssrn;
+  a.orcid=getV('ae-orcid')||aboutDefaults.orcid;
+  a.upwork=getV('ae-upwork')||aboutDefaults.upwork;
+  if(ls_set(ABOUT_KEY,a)){showToast('✦ Links saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveAboutCustomHTML(){
+  var a=ls_get(ABOUT_KEY)||Object.assign({},aboutDefaults);
+  a.customHTML=getV('ae-custom-html');
+  if(ls_set(ABOUT_KEY,a)){showToast('✦ Custom About HTML saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveContactSettings(){
+  var c=ls_get(CONTACT_KEY)||Object.assign({},contactDefaults);
+  c.heading=getV('ac-heading')||contactDefaults.heading;
+  c.sub=getV('ac-sub')||contactDefaults.sub;
+  c.desc=getV('ac-desc')||contactDefaults.desc;
+  if(ls_set(CONTACT_KEY,c)){applySettingsToPage();showToast('✦ Contact text saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveContactDetails(){
+  var c=ls_get(CONTACT_KEY)||Object.assign({},contactDefaults);
+  c.email=getV('ac-email')||contactDefaults.email;
+  c.linkedin=getV('ac-linkedin')||contactDefaults.linkedin;
+  c.upwork=getV('ac-upwork')||contactDefaults.upwork;
+  c.scholar=getV('ac-scholar')||contactDefaults.scholar;
+  c.blog=getV('ac-blog')||contactDefaults.blog;
+  if(ls_set(CONTACT_KEY,c)){showToast('✦ Contact details saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function saveContactCustomHTML(){
+  var c=ls_get(CONTACT_KEY)||Object.assign({},contactDefaults);
+  c.customHTML=getV('ac-custom-html');
+  if(ls_set(CONTACT_KEY,c)){showToast('✦ Custom Contact HTML saved!');}
+  else{showToast('⚠ Could not save');}
+}
+function updateStorageStatus(){
+  var el=document.getElementById('storage-status');if(!el)return;
+  var b=0;try{b=blogs.length;}catch(e){}
+  var hasSite=!!localStorage.getItem(SITE_KEY);
+  var hasAbout=!!localStorage.getItem(ABOUT_KEY);
+  var hasContact=!!localStorage.getItem(CONTACT_KEY);
+  el.innerHTML='Blogs stored: <strong>'+b+' posts</strong><br>Site settings: <strong>'+(hasSite?'✓ Saved':'default')+'</strong><br>About settings: <strong>'+(hasAbout?'✓ Saved':'default')+'</strong><br>Contact settings: <strong>'+(hasContact?'✓ Saved':'default')+'</strong>';
+}
+function clearData(key,label){
+  if(!confirm('Clear all '+label+'? This cannot be undone.'))return;
+  try{localStorage.removeItem(key);}catch(e){}
+  if(key==='bwBlogs3'){blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;refreshBlogsGrid();}
+  loadAdminFields();applySettingsToPage();
+  showToast('✓ Cleared: '+label);
+}
 function exportBlogs(){try{var d=JSON.stringify(blogs,null,2);var bl=new Blob([d],{type:'application/json'});var u=URL.createObjectURL(bl);var a=document.createElement('a');a.href=u;a.download='bloomwell-posts.json';a.click();URL.revokeObjectURL(u);}catch(e){alert('Export failed.');}}
 function resetToDefault(){if(!confirm('Reset all posts to defaults? Custom posts will be lost.'))return;blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('↩ Reset to default posts.');}
 
@@ -2005,7 +2319,7 @@ function showPage(id){
   document.getElementById('page-'+id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   if(id==='blogs'){updateAdminUI();}
-  else if(id==='admin'){if(!isAuthenticated){openPwModal();return;}refreshAdminBlogList();var el=document.getElementById('postCount');if(el)el.textContent=blogs.length;}
+  else if(id==='admin'){if(!isAuthenticated){openPwModal();return;}refreshAdminBlogList();loadAdminFields();var el=document.getElementById('postCount');if(el)el.textContent=blogs.length;}
   var fab=document.getElementById('adminFab');
   if(id!=='blogs'&&fab)fab.classList.remove('visible');
 }
@@ -2027,7 +2341,30 @@ document.getElementById('addBlogModal').addEventListener('click',function(e){if(
 document.getElementById('editBlogModal').addEventListener('click',function(e){if(e.target===this)closeEditModal();});
 document.querySelectorAll('.modal-box').forEach(function(box){box.addEventListener('click',function(e){e.stopPropagation();});});
 window.addEventListener('hashchange',function(){if(location.hash==='#admin')showPage('admin');});
+
+function refreshAdminBlogList(){
+  var el=document.getElementById('adminBlogList');var cnt=document.getElementById('postCount');
+  if(!el)return;if(cnt)cnt.textContent=blogs.length;
+  if(!blogs.length){el.innerHTML='<p style="color:var(--muted)">No blog posts yet.</p>';return;}
+  var html='<div style="display:flex;flex-direction:column;gap:.8rem">';
+  blogs.forEach(function(b){
+    html+='<div style="background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">'
+      +'<div><strong style="font-family:var(--fh);font-size:.95rem">'+b.icon+' '+b.title+'</strong><br>'
+      +'<span style="font-size:.75rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase">'+catLabels[b.cat]+' · '+b.date+' · '+b.readTime+'</span></div>'
+      +'<div style="display:flex;gap:.6rem;flex-shrink:0">'
+      +'<button class="card-edit-btn" onclick="openEditModal('+b.id+')" style="border-radius:4px;padding:.4rem .9rem">✎ Edit</button>'
+      +'<button class="card-del-btn" onclick="deleteBlog('+b.id+')" style="border-radius:4px;padding:.4rem .9rem">✕ Delete</button>'
+      +'</div></div>';
+  });
+  html+='</div>';el.innerHTML=html;
+}
+
+function exportBlogs(){try{var d=JSON.stringify(blogs,null,2);var bl=new Blob([d],{type:'application/json'});var u=URL.createObjectURL(bl);var a=document.createElement('a');a.href=u;a.download='bloomwell-posts.json';a.click();URL.revokeObjectURL(u);}catch(e){alert('Export failed.');}}
+function resetToDefault(){if(!confirm('Reset all posts to defaults? Custom posts will be lost.'))return;blogs=JSON.parse(JSON.stringify(defaultBlogs));nextId=defaultBlogs.length+1;saveBlogs();refreshBlogsGrid();refreshAdminBlogList();showToast('↩ Reset to default posts.');}
+
+/* Init — load everything on page load */
 initAuth();
+applySettingsToPage();
 </script>
 </body>
 </html>
